@@ -1,0 +1,29 @@
+2021-02-16 17:29:03,714 INFO Set uid to user 0 succeeded
+2021-02-16 17:29:03,749 INFO supervisord started with pid 17
+2021-02-16 17:29:04,759 INFO spawned: 'php' with pid 19
+2021-02-16 17:29:05,765 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-02-17 13:43:36,659 INFO Set uid to user 0 succeeded
+2021-02-17 13:43:36,699 INFO supervisord started with pid 17
+2021-02-17 13:43:37,707 INFO spawned: 'php' with pid 19
+2021-02-17 13:43:38,711 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-02-17 19:01:27,332 INFO Set uid to user 0 succeeded
+2021-02-17 19:01:27,353 INFO supervisord started with pid 17
+2021-02-17 19:01:28,361 INFO spawned: 'php' with pid 19
+2021-02-17 19:01:29,365 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-02-17 19:02:06,517 INFO Set uid to user 0 succeeded
+2021-02-17 19:02:06,532 INFO supervisord started with pid 17
+2021-02-17 19:02:07,538 INFO spawned: 'php' with pid 19
+2021-02-17 19:02:08,543 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-02-21 11:30:03,810 INFO Set uid to user 0 succeeded
+2021-02-21 11:30:04,201 INFO supervisord started with pid 16
+2021-02-21 11:30:05,207 INFO spawned: 'php' with pid 18
+2021-02-21 11:30:06,213 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-02-22 13:51:00,556 INFO exited: php (terminated by SIGTERM; not expected)
+2021-02-22 13:51:00,932 INFO spawned: 'php' with pid 37
+2021-02-22 13:51:00,945 WARN received SIGTERM indicating exit request
+2021-02-22 13:51:00,949 INFO waiting for php to die
+2021-02-22 13:51:04,029 INFO waiting for php to die
+2021-02-22 14:35:35,343 INFO Set uid to user 0 succeeded
+2021-02-22 14:35:35,368 INFO supervisord started with pid 17
+2021-02-22 14:35:36,376 INFO spawned: 'php' with pid 19
+2021-02-22 14:35:37,381 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
