@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    font-family: IRANSansFaNum,IRANSans,sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #525f7f;
+    text-align: right;
+    background-color: #1e1e2f;
+}
+
+.nav {
+    padding-right: 0;
+}
+
+.pagination {
+    direction: ltr;
+}
+.has-success:after,
+.has-danger:after {
+    font-family: IRANSansFaNum,IRANSans,sans-serif;
+
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: IRANSansFaNum,IRANSans,sans-serif;
+}
+
+.sidebar .nav li>a,
+.off-canvas-sidebar .nav li>a {
+
+    font-size: 0.85rem;
+
+}
+
+.sidebar .nav i,
+.off-canvas-sidebar .nav i {
+
+    float: right;
+
+}
+
+.sidebar .logo p,
+.off-canvas-sidebar .logo p {
+
+    font-family: IRANSansFaNum,IRANSans,sans-serif;
+}
+.btn-create{
+    float: left;
+}
+.form-search{
+    float: right;
+    margin: 10px 23px;
+    text-align: right;
+}
+.search-form {
+    text-align: left;
+}
+.form-group_submit {
+    text-align: left;
+}
+.alert-info p{
+    font-weight:700 ;
+
+}
+#location_id{
+    width: 180px;
+}
+.card-register .card-header{
+    text-align: left;
+}
+.card-register .card-header {
+    padding: 0 0 0;
+}
+.card-register .card-footer{
+    text-align: left;
+}
+.verify{
+    font-size: 17px;
+}
+#request_another{
+    color: #bd2130;
+}
