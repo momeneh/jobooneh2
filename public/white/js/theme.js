@@ -740,3 +740,10 @@ demo = {
   }
 
 };
+
+
+$( "#remove_image" ).click(function() {
+    $( "img#image_show" ).remove( );
+    $( "#remove_image" ).remove( );
+    $("input#image").removeClass('hidden');
+});

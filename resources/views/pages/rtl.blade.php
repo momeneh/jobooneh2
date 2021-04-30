@@ -578,54 +578,12 @@
             </li>
           </ul>
           <div class="copyright">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script> made with <i class="tim-icons icon-heart-2"></i> by
-            <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a better web.
+              © 2020 made with momeneh.jafari@gmail.com thanks to
+              <a href="https://creative-tim.com" target="_blank">{{ _('Creative Tim') }}</a> &amp;
+              <a href="https://updivision.com" target="_blank">{{ _('Updivision') }}</a>
           </div>
         </div>
       </footer>
-    </div>
-  </div>
-  <div class="fixed-plugin">
-    <div class="dropdown show-dropdown">
-      <a href="#" data-toggle="dropdown">
-        <i class="fa fa-cog fa-2x"> </i>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="header-title"> Sidebar Background</li>
-        <li class="adjustments-line">
-          <a href="javascript:void(0)" class="switch-trigger background-color">
-            <div class="badge-colors text-center">
-              <span class="badge filter badge-primary active" data-color="primary"></span>
-              <span class="badge filter badge-info" data-color="blue"></span>
-              <span class="badge filter badge-success" data-color="green"></span>
-            </div>
-            <div class="clearfix"></div>
-          </a>
-        </li>
-        <li class="adjustments-line text-center color-change">
-          <span class="color-label">LIGHT MODE</span>
-          <span class="badge light-badge mr-2"></span>
-          <span class="badge dark-badge ml-2"></span>
-          <span class="color-label">DARK MODE</span>
-        </li>
-        <li class="button-container">
-          <a href="https://www.creative-tim.com/product/white-dashboard" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
-          <a href="https://demos.creative-tim.com/white-dashboard/docs/1.0/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block btn-round">
-            Documentation
-          </a>
-        </li>
-        <li class="header-title">Thank you for 95 shares!</li>
-        <li class="button-container text-center">
-          <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
-          <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
-          <br>
-          <br>
-          <a class="github-button" href="https://github.com/creativetimofficial/white-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-        </li>
-      </ul>
     </div>
   </div>
   <!--   Core JS Files   -->
@@ -663,38 +621,7 @@
 
 
 
-        $('.fixed-plugin a').click(function(event) {
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
 
-        $('.fixed-plugin .background-color span').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data', new_color);
-          }
-
-          if ($main_panel.length != 0) {
-            $main_panel.attr('data', new_color);
-          }
-
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data', new_color);
-          }
-        });
 
         $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);

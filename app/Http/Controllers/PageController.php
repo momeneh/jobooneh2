@@ -73,4 +73,8 @@ class PageController extends Controller
     {
         return view('pages.upgrade');
     }
+
+    public function show($id){
+
+    }
 }

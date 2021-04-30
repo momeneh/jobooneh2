@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Yekan';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Yekan.eot');
+    src: url('../fonts/Yekan.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Yekan.woff2') format('woff2'),
+    url('../fonts/Yekan.woff') format('woff'),
+    url('../fonts/Yekan.ttf') format('truetype');
+}
+body, html {
+
+    font-family: Yekan,IRANSansFaNum,IRANSans,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 0;
+    direction: rtl;
+    scroll-behavior: smooth;
+}
+.main-menu ul>li a{
+    font-family: Yekan,IRANYekan, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+}
+.search button {
+    right: 212px;
+}
+.search input.form-control{
+    font-size: 11px;
+}
+.form-control {
+    font-family: IRANYekan, sans-serif;
+}
+
+.location_icon_bottum::before {
+    background: url(../icon/wfe3.png);
+    right: -59px;
+    background-repeat: no-repeat;
+}
+h2{
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 7px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.carousel-caption span {
+    text-shadow: 2px 2px #342020;
+    font-size: 30px !important;
+}
+.carousel-caption{
+    text-align: right;
+    font-family: Yekan,IRANSansFaNum,IRANSans,sans-serif;
+
+}
+.carousel-caption p{
+    font-size: 20px !important;
+}
+.about_box {
+    text-align: right;
+    text-align: justify !important;
+}
+#site_search_box{
+    line-height: 23px;
+
+}

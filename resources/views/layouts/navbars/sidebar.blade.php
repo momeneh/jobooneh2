@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar"  style=" @if(app()->getLocale() == 'fa')  right:0 @else left:0 @endif ">
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="#" class="simple-text logo-mini">{{ _('WD') }}</a>

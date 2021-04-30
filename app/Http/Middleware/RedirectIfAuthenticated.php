@@ -21,10 +21,21 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
+//        foreach ($guards as $guard) {
+//            if (Auth::guard($guard)->check()) {
+//                return redirect(RouteServiceProvider::HOME);
+//            }
+//        }
+//        echo '*******************RedirectIfAuthenticated ******************'; dd($guards);
+        switch ($guards[0]){
+            case 'admin':
+                if(Auth::guard($guards[0])->check())
+                    return redirect()->route('admin.dashboard');
+                break;
+            default:
+                if(Auth::guard($guards[0])->check())
+                    return redirect(RouteServiceProvider::HOME);
+                break;
         }
 
         return $next($request);

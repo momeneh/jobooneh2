@@ -1,0 +1,10 @@
+h2{
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 7px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.carousel-caption span {
+    text-shadow: 2px 2px #342020;
+}

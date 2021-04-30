@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $file = app_path('Helpers/Helper.php');
+        if (file_exists($file)) {
+            require_once($file);
+        }
     }
 
     /**
@@ -23,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer(
+            'includes.menu_bar', 'App\Http\ViewComposers\MasterComposer'
+        );
+//        DB::listen(function ($query) {
+//            Log::debug($query->sql);
+//        });
     }
 }

@@ -1,0 +1,9 @@
+ div.lang {
+    position: absolute;
+    top: 48px;
+    background: #3D97D8;
+    padding: 7px 10px 5px;
+    color: #fff;
+    border-radius: 0 0 3px 3px;
+    font-weight: normal;
+}

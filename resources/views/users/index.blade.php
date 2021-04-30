@@ -120,7 +120,7 @@
                                         <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
                                         <b class="caret mt-1"></b>
                                     </a>
-                    
+
                                     <div class="collapse show" id="laravel-examples">
                                         <ul class="nav pl-4">
                                             <li >
@@ -183,7 +183,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
             <div class="main-panel">
                 <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
                     <div class="container-fluid">
@@ -271,7 +271,7 @@
                         </div>
                     </div>
                 </div>
-                
+
 <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -301,7 +301,7 @@
                 </div>
             </div>
             <div class="card-body">
-                
+
                 <div class="">
                     <table class="table tablesorter " id="">
                         <thead class=" text-primary">
@@ -331,13 +331,13 @@
                                                         </tbody>
                     </table>
                 </div>
-                
+
             </div>
-            
+
             <div class="card-footer py-4">
-                
+
                 <nav class="d-flex justify-content-end" aria-label="...">
-                    
+
                 </nav>
             </div>
         </div>
@@ -362,21 +362,12 @@
                 Updivision
             </a>
         </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                About Us
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                Blog
-            </a>
-        </li>
+
     </ul>
     <div class="copyright">
-        © 2020 made with <i class="tim-icons icon-heart-2"></i> by
-        <a href="https://creative-tim.com" target="_blank">Creative Tim</a> &amp;
-        <a href="https://updivision.com" target="_blank">Updivision</a> for a better web.
+        © 2020 made with momeneh.jafari@gmail.com thanks to
+        <a href="https://creative-tim.com" target="_blank">{{ _('Creative Tim') }}</a> &amp;
+        <a href="https://updivision.com" target="_blank">{{ _('Updivision') }}</a>
     </div>
 </div>
 </footer>
@@ -384,40 +375,6 @@
         </div>
     <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
             @csrf
-            <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
-            <a href="#" data-toggle="dropdown">
-            <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-            <li class="header-title"> Sidebar Background</li>
-            <li class="adjustments-line">
-                <a href="javascript:void(0)" class="switch-trigger background-color">
-                <div class="badge-colors text-center">
-                    <span class="badge filter badge-primary active" data-color="primary"></span>
-                    <span class="badge filter badge-info" data-color="blue"></span>
-                    <span class="badge filter badge-success" data-color="green"></span>
-                </div>
-                <div class="clearfix"></div>
-                </a>
-            </li>
-            <li class="button-container">
-                <a href="https://www.creative-tim.com/product/white-dashboard-laravel" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
-                <a href="https://white-dashboard-laravel.creative-tim.com/docs/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block btn-round">
-                Documentation
-                </a>
-            </li>
-            <li class="header-title">Thank you for 95 shares!</li>
-            <li class="button-container text-center">
-                <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> · 45</button>
-                <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> · 50</button>
-                <br>
-                <br>
-                <a class="github-button btn btn-round btn-default" href="https://github.com/creativetimofficial/white-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-            </li>
-            </ul>
-        </div>
-    </div>
     <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
     <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
     <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
@@ -452,38 +409,7 @@
 
                 fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
-                $('.fixed-plugin a').click(function(event) {
-                    if ($(this).hasClass('switch-trigger')) {
-                        if (event.stopPropagation) {
-                            event.stopPropagation();
-                    } else if (window.event) {
-                            window.event.cancelBubble = true;
-                        }
-                    }
-                });
 
-                $('.fixed-plugin .background-color span').click(function() {
-                    $(this).siblings().removeClass('active');
-                    $(this).addClass('active');
-
-                    var new_color = $(this).data('color');
-
-                    if ($sidebar.length != 0) {
-                        $sidebar.attr('data', new_color);
-                    }
-
-                    if ($main_panel.length != 0) {
-                        $main_panel.attr('data', new_color);
-                    }
-
-                    if ($full_page.length != 0) {
-                        $full_page.attr('filter-color', new_color);
-                    }
-
-                    if ($sidebar_responsive.length != 0) {
-                        $sidebar_responsive.attr('data', new_color);
-                    }
-                });
 
                 $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
                     var $btn = $(this);
