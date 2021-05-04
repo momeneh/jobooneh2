@@ -3,6 +3,7 @@
 return [
     'main_title' => 'کسب و کار خانگی مامان دوز ',
     'Admin_Dashboard'=>'کارتابل مدیریت داده ها ',
+    'Dashboard' =>'کارتابل',
     'Admin_Menus'=>'مدیریت منوها',
     'Admin_links'=>'مدیریت پیوندها',
     'Admin_pages' =>'مدیریت صفحات استاتیک',
@@ -42,6 +43,11 @@ return [
     'I_agree' => 'با ',
     'terms' =>'قوانین و شرایط ',
     'agree' => 'سایت موافق هستم',
-    'register' =>'ثبت نام'
+    'register' =>'ثبت نام',
+    'dear' => 'عزیز ',
+    'User_Profile' =>'ویرایش پروفایل',
+    'Notifications' => 'اعلانات',
+    'logout' => 'خروج'
+
 
 ];

@@ -19,25 +19,18 @@ Route::get('page/{id}', 'PageController@show')->name('pages.show');
 
 Auth::routes(['verify' => true]);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+/*dashboard*/ Route::get('/home', 'UserController@dashboard')->name('dashboard')->middleware('verified');
 
-Route::group(['middleware' => 'verified'], function () {
-		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
-		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
-		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
-		Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'PageController@rtl']);
-		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
-		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
-		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
-});
-
-Route::group(['middleware' => 'verified'], function () {
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+//--------------------Normal Users------------------------------
+Route::group( ['middleware' => 'auth'],function (){
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+    Route::group(['middleware' => 'verified'], function () {
+        Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+        Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+        Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+        Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
+    });
 });
 
 
@@ -53,6 +46,19 @@ Route::group(['prefix'=>'admin'],function (){
         Route::resource('/link','Admin\LinkController');
         Route::resource('/page','Admin\PageController');
         Route::get('/','Admin\AdminController@index')->name('admin.dashboard');
+        Route::resource('user', 'UserController', ['except' => ['show']]);
 
     });
+});
+
+
+//Route::get('/test', function () {
+//    return view('emails.verify');
+//});
+Route::group(['middleware' => 'verified'], function () {
+		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
+//		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
+//		Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'PageController@rtl']);
+//		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
+//		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 });

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Link;
 use App\Models\Link_locations;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
@@ -18,7 +19,7 @@ class LinkController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index(Request $request)
     {
@@ -42,7 +43,7 @@ class LinkController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -53,8 +54,8 @@ class LinkController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -81,7 +82,7 @@ class LinkController extends Controller
             $record->save();
         }
 
-        return redirect()->route('link.index')->with('message', __('messages.created'));;
+        return redirect()->route('link.index')->with('message', __('messages.created'));
 
     }
 
@@ -89,7 +90,7 @@ class LinkController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -100,7 +101,7 @@ class LinkController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -112,9 +113,9 @@ class LinkController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -147,7 +148,7 @@ class LinkController extends Controller
             $record->image = $name;
             $record->save();
         }
-        return redirect()->route('link.index')->with('message', __('messages.updated'));;
+        return redirect()->route('link.index')->with('message', __('messages.updated'));
 
     }
 
@@ -155,7 +156,7 @@ class LinkController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

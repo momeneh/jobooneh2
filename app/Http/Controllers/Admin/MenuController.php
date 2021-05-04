@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class MenuController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index(Request $request)
     {
@@ -33,7 +34,7 @@ class MenuController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -45,8 +46,8 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -64,7 +65,7 @@ class MenuController extends Controller
         $menu->priority = $request['priority'] ;
         $menu->lang_id = $this->GetLocaleNumber();
         $menu->save();
-        return redirect()->route('menu.index')->with('message', __('messages.created'));;
+        return redirect()->route('menu.index')->with('message', __('messages.created'));
 
     }
 
@@ -72,7 +73,7 @@ class MenuController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -83,7 +84,7 @@ class MenuController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -95,9 +96,9 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -113,7 +114,7 @@ class MenuController extends Controller
         $menu->parent_id = empty($request['parent_id']) ? NULL : $request['parent_id'] ;
         $menu->priority = $request['priority'];
         $menu->save();
-        return redirect()->route('menu.index')->with('message', __('messages.updated'));;
+        return redirect()->route('menu.index')->with('message', __('messages.updated'));
 
     }
 
@@ -121,7 +122,7 @@ class MenuController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -109,7 +110,7 @@
                             </div>
                             <ul class="nav">
                                 <li>
-                                    <a href="{{ route('home') }}">
+                                    <a href="{{ route('dashboard') }}">
                                         <i class="tim-icons icon-chart-pie-36"></i>
                                         <p>{{ _('Dashboard') }}</p>
                                     </a>
@@ -174,7 +175,7 @@
                                         <p>{{ _('RTL Support') }}</p>
                                     </a>
                                 </li>
-                                 <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }} bg-info">
+                                 <li class=" {{  $page_slug ?? '' == 'upgrade' ? 'active' : '' }} bg-info">
                                     <a href="{{ route('pages.upgrade') }}">
                                         <i class="tim-icons icon-spaceship"></i>
                                         <p>{{ _('Upgrade to PRO') }}</p>

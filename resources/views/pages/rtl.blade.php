@@ -41,7 +41,7 @@
         </div>
         <ul class="nav">
           <li>
-            <a href="{{ route('home') }}">
+            <a href="{{ route('dashboard') }}">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>لوحة القيادة</p>
             </a>

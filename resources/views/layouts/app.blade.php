@@ -33,8 +33,8 @@
         @auth()
             <div class="wrapper">
 
-                @if(isset($admin))
-                    @include('layouts.navbars.sidebar-admins')
+                @if(isset($admin) )
+                    @if (Auth::guard('admin')->check()) @include('layouts.navbars.sidebar-admins') @endif
                 @else
                     @include('layouts.navbars.sidebar')
                 @endif

@@ -3,6 +3,7 @@
 return [
     'main_title' => config('app.name'),
     'Admin_Dashboard'=>'Admin Dashboard',
+    'Dashboard' =>'Dashboard',
     'Admin_Menus'=>'Menus',
     'Admin_links' =>'Image Links',
     'Admin_pages' => 'Static Pages',
@@ -42,5 +43,9 @@ return [
     'I_agree' => 'I agree to the',
     'terms' =>'terms and conditions',
     'agree' => '',
-    'register' => 'Get Started'
+    'register' => 'Get Started',
+    'dear' => 'Dear ',
+    'User_Profile' =>'User Profile',
+    'Notifications' => 'Notifications',
+    'logout' => 'Logout'
 ];

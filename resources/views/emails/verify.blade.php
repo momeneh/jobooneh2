@@ -1,0 +1,23 @@
+@extends('layouts.layout_simple')
+
+@section('content')
+
+    <div class="container mt--8 pb-5 verify_mail_message">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-md-7">
+                <div class="card offer shadow border-0 py-lg-5">
+                   <div class="card-body px-lg-5  about">
+                        <div class='about_box '>
+                         <h3>{{ $name_user ?? ''}} {{ __('title.dear')}}</h3>
+                         <p>
+                            {{__('auth.mail_click_button')}}
+                            <br>
+                            <a href=" {{ $url ?? '' }} " target="_blank" style="width:auto;margin-top: 23px;">{{__('auth.mail_button')}}</a>
+                          </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

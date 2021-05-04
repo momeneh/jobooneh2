@@ -37,8 +37,14 @@
             </li>
             <li>
                 <a href="{{ route('page.index') }}">
-                    <i class="tim-icons icon-bullet-list-67"></i>
+                    <i class="tim-icons icon-paper"></i>
                     {{ __('title.Admin_pages') }} <p></p>
+                </a>
+            </li>
+            <li >
+                <a href="{{ route('admin.logout') }}">
+                    <i class="tim-icons icon-button-power"></i>
+                    <p>{{ __('title.logout') }}</p>
                 </a>
             </li>
 {{--            <li @if ($pageSlug == 'icons') class="active " @endif>--}}

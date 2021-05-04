@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
+use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
     /**
      * Show the form for editing the profile.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function edit()
     {
@@ -21,8 +23,8 @@ class ProfileController extends Controller
     /**
      * Update the profile
      *
-     * @param  \App\Http\Requests\ProfileRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param ProfileRequest $request
+     * @return RedirectResponse
      */
     public function update(ProfileRequest $request)
     {
@@ -34,8 +36,8 @@ class ProfileController extends Controller
     /**
      * Change the password
      *
-     * @param  \App\Http\Requests\PasswordRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param PasswordRequest $request
+     * @return RedirectResponse
      */
     public function password(PasswordRequest $request)
     {

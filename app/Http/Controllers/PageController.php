@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 class PageController extends Controller
 {
     /**
      * Display icons page
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function icons()
     {
@@ -17,7 +19,7 @@ class PageController extends Controller
     /**
      * Display maps page
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function maps()
     {
@@ -27,7 +29,7 @@ class PageController extends Controller
     /**
      * Display tables page
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function tables()
     {
@@ -37,7 +39,7 @@ class PageController extends Controller
     /**
      * Display notifications page
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function notifications()
     {
@@ -47,7 +49,7 @@ class PageController extends Controller
     /**
      * Display rtl page
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function rtl()
     {
@@ -57,22 +59,13 @@ class PageController extends Controller
     /**
      * Display typography page
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function typography()
     {
         return view('pages.typography');
     }
 
-    /**
-     * Display upgrade page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function upgrade()
-    {
-        return view('pages.upgrade');
-    }
 
     public function show($id){
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\Link;
 use App\Models\Page;
+use Illuminate\View\View;
 
 class MainPageController extends Controller
 {
@@ -16,7 +17,7 @@ class MainPageController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index()
     {
