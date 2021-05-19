@@ -11,6 +11,12 @@
                     <p>{{ __('title.User_Profile') }}</p>
                 </a>
             </li>
+            <li @if ($pageSlug == 'change_password') class="active " @endif>
+                <a href="{{ route('profile.change_password')  }}">
+                    <i class="tim-icons icon-lock-circle"></i>
+                    <p>{{ __('title.change_password') }}</p>
+                </a>
+            </li>
             <li @if ($pageSlug == 'notifications') class="active " @endif>
                 <a href="{{ route('pages.notifications') }}">
                     <i class="tim-icons icon-bell-55"></i>

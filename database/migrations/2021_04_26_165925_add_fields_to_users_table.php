@@ -14,7 +14,7 @@ class AddFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->decimal('mobile_no',15,0)->nullable();
+            $table->string('mobile_no',20)->nullable();
             $table->text('address')->nullable();
             $table->string('job_title') ->nullable();
             $table->string('image') ->nullable();

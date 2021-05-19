@@ -28,6 +28,7 @@ Route::group( ['middleware' => 'auth'],function (){
     Route::group(['middleware' => 'verified'], function () {
         Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
         Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+        Route::get('profile/password', ['as' => 'profile.change_password', 'uses' => 'ProfileController@change_password']);
         Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
         Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
     });
@@ -52,9 +53,9 @@ Route::group(['prefix'=>'admin'],function (){
 });
 
 
-//Route::get('/test', function () {
-//    return view('emails.verify');
-//});
+Route::get('/test', function () {
+    return view('emails.reset_password');
+});
 Route::group(['middleware' => 'verified'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
 //		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);

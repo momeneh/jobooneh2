@@ -29,7 +29,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         VerifyEmail::toMailUsing(function ($notifiable, $url) {
-            $name_user = Auth::user()->name;
+            if(isset(auth()->user()->name)) $name_user = auth()->user()->name;
+            else $name_user = $this->app->request['name'];
             return (new MailMessage)->view(
                 'emails.verify',compact('url','name_user')
             ) ->subject(__('auth.mail_verify_subject'));

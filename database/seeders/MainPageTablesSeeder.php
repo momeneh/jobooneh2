@@ -73,13 +73,6 @@ class MainPageTablesSeeder extends Seeder
             "description"=> "<span> Rate your favorite seller or artist     </span>
             <p>     In sellers page you can rate a seller or in their products page you can rate the products and by this they would be seen more in site . </p>"]);
 
-        DB::table('pages')->insert(['title'=>'About Us','body'=>'
-
-                    <h2>About Us<br><strong class="black"> household products</strong></h2>
-                    <p>dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
-                    <a href="#">Read More</a>
-                ','is_active'=>1,'lang_id'=>2]);
-
         DB::Table('pages')->insert(['title'=>'درباره ما','body'=>'
 
                     <h2>درباره ما<br><strong class="black"> کسب و کار خانگی</strong></h2>
@@ -87,5 +80,13 @@ class MainPageTablesSeeder extends Seeder
                     <p>سایر کاربران سایت نیز می توانند با کسب و کارهای خانگی  آشنا شده و از ایشان خرید نمایند یا سفارش خود را ثبت کنند </p>
 
                 ','is_active'=>1,'lang_id'=>1]);
-    }
+
+        DB::table('pages')->insert(['title'=>'About Us','body'=>'
+
+                    <h2>About Us<br><strong class="black"> household products</strong></h2>
+                    <p>dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
+                    <a href="#">Read More</a>
+                ','is_active'=>1,'lang_id'=>2]);
+
+   }
 }

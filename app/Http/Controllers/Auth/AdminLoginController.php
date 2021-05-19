@@ -24,7 +24,8 @@ class AdminLoginController extends Controller
     {
         $this->validate($request,[
             'email'=> 'required|email',
-            'password'=>'required|min:5'
+            'password'=>'required|min:5',
+            'g-recaptcha-response' => 'required|recaptcha'
         ]);
         if (method_exists($this, 'hasTooManyLoginAttempts') &&
             $this->hasTooManyLoginAttempts($request)) {

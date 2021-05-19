@@ -76,6 +76,14 @@
                             @include('alerts.feedback', ['field' => 'address'])
                         </div>
 
+                        @if(config('services.recaptcha.key'))
+                            <div class="input-group ">
+                                <div class="g-recaptcha"
+                                     data-sitekey="{{config('services.recaptcha.key')}}">
+                                </div>
+                            </div>
+                            @include('alerts.feedback', ['field' => 'g-recaptcha-response'])
+                        @endif
 
                         <div class="form-check text-left {{ $errors->has('agree_terms_and_conditions') ? ' has-danger' : '' }}">
                             <label class="form-check-label">

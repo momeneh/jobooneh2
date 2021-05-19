@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-md-10 text-center ml-auto mr-auto">
     </div>
-    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+    <div class="col-lg-5 col-md-6 ml-auto mr-auto">
         <form class="form" method="post" action="{{ route('login') }}">
             @csrf
 
@@ -32,7 +32,16 @@
                         <input type="password" placeholder="{{ _('Password') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
                         @include('alerts.feedback', ['field' => 'password'])
                     </div>
+                    @if(config('services.recaptcha.key'))
+                        <div class="input-group ">
+                            <div class="g-recaptcha"
+                                data-sitekey="{{config('services.recaptcha.key')}}">
+                            </div>
+                        </div>
+                        @include('alerts.feedback', ['field' => 'g-recaptcha-response'])
+                    @endif
                 </div>
+
                 <div class="card-footer">
                     <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Get Started') }}</button>
                     <div class="pull-left">

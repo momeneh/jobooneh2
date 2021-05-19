@@ -85,3 +85,6 @@ textarea {
 #request_another{
     color: #bd2130;
 }
+.card-footer{
+    text-align: left;
+}

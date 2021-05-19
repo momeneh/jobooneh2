@@ -32,15 +32,24 @@
                             </div>
                             <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ _('Password') }}">
                             @include('alerts.feedback', ['field' => 'password'])
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="tim-icons icon-lock-circle"></i>
-                                </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="tim-icons icon-lock-circle"></i>
                             </div>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ _('Confirm Password') }}">
                         </div>
+                        <input type="password" name="password_confirmation" class="form-control" placeholder="{{ _('Confirm Password') }}">
+                    </div>
+                    @if(config('services.recaptcha.key'))
+                        <div class="input-group ">
+                            <div class="g-recaptcha"
+                                 data-sitekey="{{config('services.recaptcha.key')}}">
+                            </div>
+                        </div>
+                        @include('alerts.feedback', ['field' => 'g-recaptcha-response'])
+                    @endif
+
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Reset Password') }}</button>

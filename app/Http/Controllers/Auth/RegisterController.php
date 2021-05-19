@@ -53,8 +53,9 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'agree_terms_and_conditions' => ['required'],
-            'mobile' => ['nullable','numeric']
-        ]);
+            'mobile' => ['nullable','numeric'],
+            'g-recaptcha-response' => 'required|recaptcha'
+      ]);
     }
 
     /**
@@ -72,5 +73,6 @@ class RegisterController extends Controller
             'mobile_no' => $data['mobile'],
             'address' => $data['address']
         ]);
+        event(new Registered($user));
     }
 }

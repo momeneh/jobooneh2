@@ -68,6 +68,7 @@
             </div>
         @endauth
 
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>

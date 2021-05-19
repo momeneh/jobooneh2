@@ -5,9 +5,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ _('Edit Profile') }}</h5>
+                    <h5 class="title">{{ __('title.Edit_Profile') }}</h5>
                 </div>
-                <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
+                <form method="post" action="{{ route('profile.update') }}" autocomplete="off" enctype="multipart/form-data">
                     <div class="card-body">
                             @csrf
                             @method('put')
@@ -15,55 +15,86 @@
                             @include('alerts.success')
 
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                <label>{{ _('Name') }}</label>
-                                <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Name') }}" value="{{ old('name', auth()->user()->name) }}">
+                                <label>{{ __('title.name') }} <span class="require">*</span></label>
+                                <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"  required value="{{ old('name', auth()->user()->name) }}">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                <label>{{ _('Email address') }}</label>
-                                <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
+                                <label>{{ __('title.email') }} <span class="require">*</span></label>
+                                <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" required value="{{ old('email', auth()->user()->email) }}">
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
+
+                        <div class="form-group{{ $errors->has('mobile') ? ' has-danger' : '' }}">
+                            <label>{{ __('title.mobile') }}</label>
+                            <input type="tel" name="mobile" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}"  value="{{ old('mobile', auth()->user()->mobile_no) }}">
+                            @include('alerts.feedback', ['field' => 'mobile'])
+                        </div>
+
+
+                        <div class="form-group{{ $errors->has('address') ? ' has-danger' : '' }}">
+                            <label>{{__('title.address')}}</label>
+                            <textarea  name="address" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" >{{old('address',auth()->user()->address)}}</textarea>
+                            @include('alerts.feedback', ['field' => 'address'])
+                        </div>
+
+                        <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
+                            <label>{{ __('title.job_title') }}</label>
+                            <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"  value="{{ old('title', auth()->user()->job_title) }}">
+                            @include('alerts.feedback', ['field' => 'title'])
+                        </div>
+
+
+                        <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                            <label>{{__('title.description')}}</label>
+                            <textarea  name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" >{{old('description',auth()->user()->description)}}</textarea>
+                            @include('alerts.feedback', ['field' => 'description'])
+                        </div>
+
+                        <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+                            <label>{{__('title.image')}} </label>
+                            <div class="col-md-6">
+                                @if(!empty(auth()->user()->image))
+                                    <img id="image_show" src="{{asset('/storage/profile_images/'.Auth::user()->image)}}" width="180px">
+                                    <input type="hidden" name="image_name" value="{{auth()->user()->image}}"/>
+                                    <span class="btn btn-danger" id="remove_image"> </span>
+                                @endif
+                                <input id="image" type="file"  class="form-control @if(!empty(auth()->user()->image)) hidden @endif" name="image"  accept="image/png, image/jpeg"   autofocus title="400*400 image file">
+
+                                @include('alerts.feedback', ['field' => 'image'])
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('gplus') ? ' has-danger' : '' }}">
+                            <label>{{ __('title.gplusaddress') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="gplus" class="form-control{{ $errors->has('gplus') ? ' is-invalid' : '' }}"  value="{{ old('gplus', auth()->user()->g_plus_address) }}">
+                                @include('alerts.feedback', ['field' => 'gplus'])
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('insta') ? ' has-danger' : '' }}">
+                            <label>{{ __('title.instaAddress') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="insta" class="form-control{{ $errors->has('insta') ? ' is-invalid' : '' }}"  value="{{ old('insta', auth()->user()->insta_address) }}">
+                                @include('alerts.feedback', ['field' => 'insta'])
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('facebook') ? ' has-danger' : '' }}">
+                            <label>{{ __('title.facebookAdress') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="facebook" class="form-control{{ $errors->has('facebook') ? ' is-invalid' : '' }}"  value="{{ old('facebook', auth()->user()->facebook_address) }}">
+                                @include('alerts.feedback', ['field' => 'facebook'])
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>
+                        <button type="submit" class="btn btn-fill btn-primary">{{ __('title.edit') }}</button>
                     </div>
                 </form>
             </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="title">{{ _('Password') }}</h5>
-                </div>
-                <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
-                    <div class="card-body">
-                        @csrf
-                        @method('put')
-
-                        @include('alerts.success', ['key' => 'password_status'])
-
-                        <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
-                            <label>{{ __('Current Password') }}</label>
-                            <input type="password" name="old_password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
-                            @include('alerts.feedback', ['field' => 'old_password'])
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                            <label>{{ __('New Password') }}</label>
-                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
-                            @include('alerts.feedback', ['field' => 'password'])
-                        </div>
-                        <div class="form-group">
-                            <label>{{ __('Confirm New Password') }}</label>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirm New Password') }}" value="" required>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-primary">{{ _('Change password') }}</button>
-                    </div>
-                </form>
-            </div>
         </div>
         <div class="col-md-4">
             <div class="card card-user">
@@ -75,29 +106,34 @@
                             <div class="block block-three"></div>
                             <div class="block block-four"></div>
                             <a href="#">
-                                <img class="avatar" src="{{ asset('white') }}/img/emilyz.jpg" alt="">
+                                <img class="avatar"
+                                     src="
+                                        @if (!empty(auth()->user()->image) && trim(auth()->user()->image)!= '') {{asset('/storage/profile_images/'.Auth::user()->image)}}
+                                        @else  {{ asset('white') }}/img/default-avatar.png
+                                        @endif
+                                     " alt="">
                                 <h5 class="title">{{ auth()->user()->name }}</h5>
                             </a>
                             <p class="description">
-                                {{ _('Ceo/Co-Founder') }}
+                                {{auth()->user()->job_title}}
                             </p>
                         </div>
                     </p>
                     <div class="card-description">
-                        {{ _('Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...') }}
+                        {{auth()->user()->description}}
                     </div>
                 </div>
                 <div class="card-footer">
                     <div class="button-container">
-                        <button class="btn btn-icon btn-round btn-facebook">
+                        <a class="btn btn-icon btn-round btn-facebook" href="{{auth()->user()->facebook_address}}">
                             <i class="fab fa-facebook"></i>
-                        </button>
-                        <button class="btn btn-icon btn-round btn-twitter">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-                        <button class="btn btn-icon btn-round btn-google">
+                        </a>
+                        <a class="btn btn-icon btn-round btn-instagram" href="{{auth()->user()->insta_address}}">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="btn btn-icon btn-round btn-google" href="{{auth()->user()->g_plus_address}}">
                             <i class="fab fa-google-plus"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

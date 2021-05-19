@@ -22,6 +22,15 @@
                         <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email') }}">
                         @include('alerts.feedback', ['field' => 'email'])
                     </div>
+                    @if(config('services.recaptcha.key'))
+                        <div class="input-group ">
+                            <div class="g-recaptcha"
+                                 data-sitekey="{{config('services.recaptcha.key')}}">
+                            </div>
+                        </div>
+                        @include('alerts.feedback', ['field' => 'g-recaptcha-response'])
+                    @endif
+
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Send Password Reset Link') }}</button>

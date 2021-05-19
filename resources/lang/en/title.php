@@ -47,5 +47,17 @@ return [
     'dear' => 'Dear ',
     'User_Profile' =>'User Profile',
     'Notifications' => 'Notifications',
-    'logout' => 'Logout'
+    'logout' => 'Logout',
+    'Edit_Profile'=>'Edit Profile',
+    'job_title' => 'Job Title',
+    'gplusaddress'=>'Google Plus Address',
+	'instaAddress' => 'Instagram Address',
+    'facebookAdress'=>'Facebook Address',
+    'change_password' => 'Change Password',
+    'current_password'  => 'Current Password',
+    'new_password'=>'New Password',
+     'confirm_new_password' => 'Confirm New Password',
+    'hello' =>'Hello!'
+
+
 ];

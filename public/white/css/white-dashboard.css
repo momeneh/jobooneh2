@@ -15139,8 +15139,8 @@ table.tablesorter thead tr .headerSortDown {
 .sidebar .logo a.logo-mini,
 .off-canvas-sidebar .logo a.logo-mini {
   opacity: 1;
-  float: left;
-  width: 34px;
+  /*float: left;*/
+  /*width: 34px;*/
   text-align: center;
   margin-left: 10px;
   margin-right: 12px;
@@ -15333,7 +15333,7 @@ table.tablesorter thead tr .headerSortDown {
 }
 
 .main-panel>.content {
-  padding: 78px 30px 30px 280px;
+  /*padding: 78px 30px 30px 280px;*/
   min-height: calc(100vh - 70px);
 }
 
@@ -17962,4 +17962,10 @@ Copyright (c) 2015 Daniel Eden
 
 .form-group_submit{
     margin:10px;
+}
+a.btn-round {
+    background-color: #f0f0f0;
+}
+a.btn-round i{
+    margin-top: 10px;
 }

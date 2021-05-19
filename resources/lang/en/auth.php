@@ -23,6 +23,7 @@ return [
     'request_another' => 'click here to request another',
     'mail_verify_subject' => 'Verify Email Address',
     'mail_click_button'=>'Click the button below to verify your email address.',
-    'mail_button' => 'Verify Email Address'
+    'mail_button' => 'Verify Email Address',
+    'password_reset_subject' => ' 	Reset Password Notification'
 
 ];

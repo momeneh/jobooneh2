@@ -47,7 +47,18 @@ return [
     'dear' => 'عزیز ',
     'User_Profile' =>'ویرایش پروفایل',
     'Notifications' => 'اعلانات',
-    'logout' => 'خروج'
+    'logout' => 'خروج',
+    'Edit_Profile'=>'ویرایش پروفایل',
+    'job_title' => ' عنوان شغلی',
+    'gplusaddress'=>' آدرس گوگل پلاس',
+	'instaAddress' => ' آدرس اینستاگرام',
+    'facebookAdress'=>' آدرس فیس بوک',
+    'change_password' => 'تغییر رمز عبور',
+    'current_password'  => 'رمز فعلی',
+    'new_password'=>'رمز جدید',
+    'confirm_new_password' => 'تکرار رمز جدید ',
+    'old_password' => 'رمز قبلی',
+    'hello' =>'سلام !'
 
 
 ];

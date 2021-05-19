@@ -34,7 +34,7 @@ return [
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
-    'different' => 'The :attribute and :other must be different.',
+    'different' => 'فیلد :attribute و :other نباید یکسان باشند  .',
     'digits' => 'The :attribute must be :digits digits.',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'فیلد  :attribute دارای طول و عرض مناسب نمی باشد.',
@@ -118,7 +118,8 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
-
+    'g-recaptcha-response.recaptcha' => 'Captcha verification failed',
+    'g-recaptcha-response.required' => 'Please complete the captcha',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -155,11 +156,12 @@ return [
         'name' => 'نام',
         'email' => 'پست الکترونیکی',
         'password' => 'رمز عبور',
+        'old_password' => 'رمز قبلی',
         'agree_terms_and_conditions' => ' شرایط و  قوانین',
         'mobile' => 'موبایل',
-        '' => '',
-        '' => '',
-        '' => '',
+        'image' => 'تصویر',
+        'password_confirmation' => 'تکرار رمز عبور',
+        'g-recaptcha-response' =>'من ربات نیستم '
     ],
 
 ];
