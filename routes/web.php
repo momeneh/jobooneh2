@@ -20,9 +20,9 @@ Route::get('page/{id}', 'PageController@show')->name('pages.show');
 Auth::routes(['verify' => true]);
 
 
-/*dashboard*/ Route::get('/home', 'UserController@dashboard')->name('dashboard')->middleware('verified');
 
 //--------------------Normal Users------------------------------
+/*dashboard*/ Route::get('/home', 'UserController@dashboard')->name('dashboard')->middleware('verified');
 Route::group( ['middleware' => 'auth'],function (){
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::group(['middleware' => 'verified'], function () {
@@ -46,14 +46,19 @@ Route::group(['prefix'=>'admin'],function (){
         Route::resource('/link_locations','Admin\LinkLocationsController');
         Route::resource('/link','Admin\LinkController');
         Route::resource('/page','Admin\PageController');
+        Route::resource('/product_category','Admin\ProductCategoryController');
         Route::get('/','Admin\AdminController@index')->name('admin.dashboard');
-        Route::resource('user', 'UserController', ['except' => ['show']]);
+        Route::resource('user', 'Admin\UserController', ['except' => ['create','store']]);
+        Route::resource('/product','Admin\ProductController');
+        Route::post('/upload','Admin\ProductController@UploadFile')->name('upload_file_product');
+        Route::post('/remove','Admin\ProductController@RemoveFile')->name('remove_file_product');
 
     });
 });
 
 
-Route::get('/test', function () {
+Route::get('/test', function (){
+    phpinfo();die;
     return view('emails.reset_password');
 });
 Route::group(['middleware' => 'verified'], function () {
@@ -63,3 +68,5 @@ Route::group(['middleware' => 'verified'], function () {
 //		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
 //		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 });
+
+Route::get('search/autocompleteUsers', 'UserController@autocomplete')->name('autocompleteUsers');

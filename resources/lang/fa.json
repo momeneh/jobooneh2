@@ -6,5 +6,8 @@
     "Regards," : "با احترام ",
     "mamanDooz" : "مامان دوز",
     "If you’re having trouble clicking the \"Reset Password\" button, copy and paste the URL below into your web browser:" : "اگر در کلیک کردن روی دکمه مشکلی داشتید می توانید لینک زیر را مستقیما کپی کرده و در آدرس بار بروسر خود پیست نمایید ",
-    "Reset Password" : "تغییر رمز عبور"
+    "Reset Password" : "تغییر رمز عبور",
+    "there was problem with the file" : "مشکلی در فایل وجود دارد",
+    "file not exists" : "فایل موجود نیست ",
+    "could not delete file" : "امکان حذف فایل وجود ندارد"
 }

@@ -25,8 +25,6 @@ class AddPriorityToMenusTable extends Migration
      */
     public function down()
     {
-        Schema::table('menus', function (Blueprint $table) {
-            $table->bigInteger('priority')->default(100);
-        });
+
     }
 }

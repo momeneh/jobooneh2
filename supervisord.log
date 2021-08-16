@@ -91,3 +91,47 @@
 2021-05-16 12:09:20,584 INFO supervisord started with pid 17
 2021-05-16 12:09:21,592 INFO spawned: 'php' with pid 19
 2021-05-16 12:09:22,612 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-27 15:03:41,798 INFO Set uid to user 0 succeeded
+2021-05-27 15:03:41,829 INFO supervisord started with pid 16
+2021-05-27 15:03:43,368 INFO spawned: 'php' with pid 18
+2021-05-27 15:03:44,379 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-29 03:44:37,882 INFO exited: php (terminated by SIGTERM; not expected)
+2021-05-29 03:44:38,063 WARN received SIGTERM indicating exit request
+2021-06-05 13:24:21,035 INFO Set uid to user 0 succeeded
+2021-06-05 13:24:21,058 INFO supervisord started with pid 17
+2021-06-05 13:24:22,074 INFO spawned: 'php' with pid 19
+2021-06-05 13:24:23,083 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-05 13:53:32,335 INFO Set uid to user 0 succeeded
+2021-06-05 13:53:32,351 INFO supervisord started with pid 17
+2021-06-05 13:53:33,365 INFO spawned: 'php' with pid 19
+2021-06-05 13:53:34,371 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-05 14:05:20,677 INFO Set uid to user 0 succeeded
+2021-06-05 14:05:20,694 INFO supervisord started with pid 17
+2021-06-05 14:05:21,701 INFO spawned: 'php' with pid 19
+2021-06-05 14:05:22,708 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-17 13:40:43,082 INFO Set uid to user 0 succeeded
+2021-06-17 13:40:43,101 INFO supervisord started with pid 18
+2021-06-17 13:40:44,115 INFO spawned: 'php' with pid 20
+2021-06-17 13:40:45,120 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-17 13:43:35,552 INFO Set uid to user 0 succeeded
+2021-06-17 13:43:35,560 INFO supervisord started with pid 17
+2021-06-17 13:43:36,565 INFO spawned: 'php' with pid 19
+2021-06-17 13:43:37,569 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-18 10:57:06,343 INFO Set uid to user 0 succeeded
+2021-06-18 10:57:06,357 INFO supervisord started with pid 17
+2021-06-18 10:57:07,364 INFO spawned: 'php' with pid 19
+2021-06-18 10:57:08,381 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-18 10:58:38,477 INFO Set uid to user 0 succeeded
+2021-06-18 10:58:38,488 INFO supervisord started with pid 16
+2021-06-18 10:58:39,495 INFO spawned: 'php' with pid 18
+2021-06-18 10:58:40,501 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-18 11:03:18,408 INFO Set uid to user 0 succeeded
+2021-06-18 11:03:18,428 INFO supervisord started with pid 17
+2021-06-18 11:03:19,435 INFO spawned: 'php' with pid 19
+2021-06-18 11:03:20,442 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-18 12:27:04,739 INFO Set uid to user 0 succeeded
+2021-06-18 12:27:04,765 INFO supervisord started with pid 18
+2021-06-18 12:27:05,791 INFO spawned: 'php' with pid 20
+2021-06-18 12:27:06,799 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-06-18 12:44:16,720 INFO exited: php (terminated by SIGTERM; not expected)
+2021-06-18 12:44:16,741 WARN received SIGTERM indicating exit request

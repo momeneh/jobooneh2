@@ -1483,7 +1483,8 @@ pre code {
 .table td {
   padding: 1rem;
   vertical-align: top;
-  border-top: 0.0625rem solid #e3e3e3;
+    border-top: 0.0625rem solid #e3e3e3;
+    border-left: 0.0625rem solid #e3e3e3;
 }
 
 .table thead th {
@@ -2124,7 +2125,7 @@ textarea.form-control {
 }
 
 .invalid-feedback {
-  display: none;
+  /*display: none;*/
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
@@ -15333,7 +15334,7 @@ table.tablesorter thead tr .headerSortDown {
 }
 
 .main-panel>.content {
-  /*padding: 78px 30px 30px 280px;*/
+  padding: 78px 30px 30px 280px;
   min-height: calc(100vh - 70px);
 }
 
@@ -16678,12 +16679,7 @@ textarea.form-control:active {
   }
 }
 
-/*!
-Animate.css - http://daneden.me/animate
-Licensed under the MIT license - http://opensource.org/licenses/MIT
 
-Copyright (c) 2015 Daniel Eden
-*/
 
 .animated {
   -webkit-animation-duration: 1s;
@@ -17949,7 +17945,6 @@ Copyright (c) 2015 Daniel Eden
   color: rgba(34, 42, 66, 0.7);
 }
 
-/*# sourceMappingURL=dashboard-free.css.map */
 .search-form{
     margin: 14px 0;
     padding: 13px;
@@ -17968,4 +17963,51 @@ a.btn-round {
 }
 a.btn-round i{
     margin-top: 10px;
+}
+
+#loading_data_icon{
+    position: absolute;
+    display: block;
+    top: 5px;
+}
+div.detail{
+    background-color: #f5f6fa !important;
+    margin: 10px;
+    width: 90%;
+}
+.width_50{
+    width: 50%;
+}
+
+.inline{
+    display: inline-block;
+}
+.btn-remove {
+    width: 30px;
+    color: red;
+    height: 30px;
+}
+
+
+.progress {
+    margin-bottom:0;
+    margin-top:6px;
+    margin-left:10px;
+}
+
+.btn.focus {
+    outline:thin dotted #333;
+    outline:5px auto -webkit-focus-ring-color;
+    outline-offset:-2px;
+}
+
+.btn.hover {
+    color:#ffffff;
+    background-color:#3276b1;
+    border-color:#285e8e;
+}
+
+
+a.btn-remove{
+    padding: 7px;
 }

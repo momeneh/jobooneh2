@@ -15,7 +15,8 @@
         "laravel-frontend-presets/white-dashboard": "^1.0",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.2"
+        "laravel/ui": "^3.2",
+        "morilog/jalali": "3.*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

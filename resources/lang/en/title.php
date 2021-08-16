@@ -7,6 +7,7 @@ return [
     'Admin_Menus'=>'Menus',
     'Admin_links' =>'Image Links',
     'Admin_pages' => 'Static Pages',
+    'Admin_users' =>'Users',
     'menu_create'=>'Create New ',
     'create_new' => 'Create New',
     'record_edit'=>'Edit Record',
@@ -32,6 +33,7 @@ return [
     'link_list' => 'Links List',
     'location_show' => 'where to show',
     'image' =>'image',
+    'images' =>'images',
     'pages' => 'Static Pages',
     'body' => 'body',
     'read_more'=> 'Read More',
@@ -57,7 +59,25 @@ return [
     'current_password'  => 'Current Password',
     'new_password'=>'New Password',
      'confirm_new_password' => 'Confirm New Password',
-    'hello' =>'Hello!'
+    'hello' =>'Hello!',
+    'created' => 'created_at',
+    'verified' => ' is verified',
+    'yes' =>'yes',
+    'no' =>'no',
+    'business_owners' => 'Business Owners',
+    'categories' => 'Categories',
+    'products' => 'Products',
+    'confirmed' =>'Is confirmed?',
+    'sell_status' => 'Sell Status ',
+    'price' => 'Price',
+    'owner' => 'Owner',
+    'sell_status_' => ' ',
+    'sell_status_1' => 'ready or sail ',
+    'sell_status_2' => 'take order',
+    'pre_pay'=> 'prepayment',
+    'currency_title' => ' $ ',
+    'duration_of_work' => 'duration of work',
+    'alt'=>'alternative for image'
 
 
 ];

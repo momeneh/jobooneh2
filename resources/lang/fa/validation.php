@@ -1,6 +1,26 @@
 <?php
-
-return [
+$images_ar = [];
+for($i=0;$i<100;$i++){
+    $images_ar['images.'.$i] = '  تصاویر ردیف '.$i;
+}
+$attributes = [
+    'title'=>'عنوان',
+    'link'=>'آدرس',
+    'priority' => 'اولویت نمایش',
+    'body' => 'متن',
+    'name' => 'نام',
+    'email' => 'پست الکترونیکی',
+    'password' => 'رمز عبور',
+    'old_password' => 'رمز قبلی',
+    'agree_terms_and_conditions' => ' شرایط و  قوانین',
+    'mobile' => 'موبایل',
+    'image' => 'تصویر',
+    'password_confirmation' => 'تکرار رمز عبور',
+    'g-recaptcha-response' =>'من ربات نیستم ',
+    'category_id' => 'دسته بندی محصولات'
+];
+$attributes = array_merge($attributes,$images_ar);
+return  [
 
     /*
     |--------------------------------------------------------------------------
@@ -115,7 +135,7 @@ return [
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => 'فیلد  :attribute تکراری وارد شده است قبلا این داده در اطلاعات وارد شده است .',
-    'uploaded' => 'The :attribute failed to upload.',
+    'uploaded' => 'فیلد :attribute  آپلود نشد.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
     'g-recaptcha-response.recaptcha' => 'Captcha verification failed',
@@ -148,20 +168,7 @@ return [
     |
     */
 
-    'attributes' => [
-        'title'=>'عنوان',
-        'link'=>'آدرس',
-        'priority' => 'اولویت نمایش',
-        'body' => 'متن',
-        'name' => 'نام',
-        'email' => 'پست الکترونیکی',
-        'password' => 'رمز عبور',
-        'old_password' => 'رمز قبلی',
-        'agree_terms_and_conditions' => ' شرایط و  قوانین',
-        'mobile' => 'موبایل',
-        'image' => 'تصویر',
-        'password_confirmation' => 'تکرار رمز عبور',
-        'g-recaptcha-response' =>'من ربات نیستم '
-    ],
+    'attributes' => $attributes
+
 
 ];

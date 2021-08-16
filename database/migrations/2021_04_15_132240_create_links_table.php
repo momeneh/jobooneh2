@@ -20,7 +20,8 @@ class CreateLinksTable extends Migration
             $table->boolean('is_active')->default(0);
             $table->string('link')->nullable();
             $table->string('image')->nullable();
-            $table->smallInteger('location_id');
+            $table->unsignedBigInteger('location_id');
+            $table->foreign('location_id')->references('id')->on('link_locations');
             $table->text('description')->nullable();
             $table->engine = 'InnoDB';
             $table->timestamps();

@@ -56,7 +56,7 @@
                             <label>{{__('title.image')}} </label>
                             <div class="col-md-6">
                                 @if(!empty(auth()->user()->image))
-                                    <img id="image_show" src="{{asset('/storage/profile_images/'.Auth::user()->image)}}" width="180px">
+                                    <img id="image_show" src="{{asset('/profile_images/'.Auth::user()->image)}}" width="180px">
                                     <input type="hidden" name="image_name" value="{{auth()->user()->image}}"/>
                                     <span class="btn btn-danger" id="remove_image"> </span>
                                 @endif
@@ -108,7 +108,7 @@
                             <a href="#">
                                 <img class="avatar"
                                      src="
-                                        @if (!empty(auth()->user()->image) && trim(auth()->user()->image)!= '') {{asset('/storage/profile_images/'.Auth::user()->image)}}
+                                        @if (!empty(auth()->user()->image) && trim(auth()->user()->image)!= '') {{asset('/profile_images/'.Auth::user()->image)}}
                                         @else  {{ asset('white') }}/img/default-avatar.png
                                         @endif
                                      " alt="">

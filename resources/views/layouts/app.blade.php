@@ -23,7 +23,21 @@
         @endif
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{asset('pub')}}/jquery-ui.css">
+        <script src="{{asset('pub')}}/jquery-1.12.4.js"></script>
+        <script src="{{asset('pub')}}/jquery-ui.js"></script>
+
+
+        <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
+        <script src="{{ asset('white') }}/js/app.js"></script>
+        <script type="text/javascript">
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        </script>
     </head>
     <body class="white-content {{ $class ?? '' }}" STYLE="direction:
           @if(app()->getLocale() == 'fa')  rtl
@@ -69,9 +83,7 @@
         @endauth
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
-        <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
-        <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
@@ -161,5 +173,6 @@
             });
         </script>
         @stack('js')
+            @yield('scripts')
     </body>
 </html>
