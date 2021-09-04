@@ -53,3 +53,7 @@ textarea {
 #loading_data_icon {
     right: 20px;
 }
+.remove_link{
+    float: right;
+    font-weight: bold;
+}

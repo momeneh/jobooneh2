@@ -17,6 +17,12 @@
                     <p>{{ __('title.change_password') }}</p>
                 </a>
             </li>
+            <li >
+                <a href="{{ route('userProduct.index')  }}">
+                    <i class="tim-icons icon-image-02"></i>
+                    <p>{{ __('title.products') }}</p>
+                </a>
+            </li>
             <li @if ($pageSlug == 'notifications') class="active " @endif>
                 <a href="{{ route('pages.notifications') }}">
                     <i class="tim-icons icon-bell-55"></i>

@@ -73,6 +73,12 @@
                 </div>
             </li>
 
+            <li >
+                <a href="{{ route('admin.notifications') }}">
+                    <i class="tim-icons icon-bell-55"></i>
+                    <p>{{ __('title.Notifications') }} ({{count(Auth::user()->unreadNotifications)}}) </p>
+                </a>
+            </li>
 
             <li >
                 <a href="{{ route('admin.logout') }}">

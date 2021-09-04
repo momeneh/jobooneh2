@@ -92,3 +92,10 @@ textarea {
 #loading_data_icon {
     left: 20px;
 }
+.alert-success span{
+    margin-right: 20px;
+}
+.remove_link{
+    float: left;
+    font-weight: bold;
+}

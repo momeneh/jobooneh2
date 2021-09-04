@@ -77,7 +77,9 @@ return [
     'pre_pay'=> 'prepayment',
     'currency_title' => ' $ ',
     'duration_of_work' => 'duration of work',
-    'alt'=>'alternative for image'
+    'alt'=>'alternative for image',
+    'delete_all' => 'Remove All',
+    'new_row' =>'New Row'
 
 
 ];

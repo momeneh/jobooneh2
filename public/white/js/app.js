@@ -130,3 +130,28 @@
   });
 
 
+  function RemoveNotification(element){
+      console.log($(element).attr("route"));
+      $.ajax({
+          type:'delete',
+          url: $(element).attr("route"),
+          data:{},
+          dataType : 'json',
+          //can send multipledata like {data1:var1,data2:var2,data3:var3
+          //can use dataType:'text/html' or 'json' if response type expected
+          success:function(response){
+              // process on data
+              if ( response.success === true ) {
+                 return true;
+              }  else {
+                 return false;
+              }
+          },
+          error : function(jqXHR, textStatus, errorThrown) {
+              console.log('error');
+              return false;
+
+          }
+      })
+
+  }

@@ -38,8 +38,8 @@ class AppServiceProvider extends ServiceProvider
         );
         Validator::extend('recaptcha', 'App\Validators\ReCaptcha@validate');
 
-        DB::listen(function ($query) {
-            Log::debug($query->sql);
-        });
+//        DB::listen(function ($query) {
+//            Log::debug($query->sql);
+//        });
     }
 }

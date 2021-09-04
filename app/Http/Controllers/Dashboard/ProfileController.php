@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Helpers\Helper;
+use App\Http\Controllers\Controller;
 use App\Models\Link;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;

@@ -22,4 +22,8 @@ class Product extends Model
         return $this->hasOne(User::class,'id','user_id');
     }
 
+    public function lang(){
+        return $this->belongsTo(Lang::class);
+    }
+
 }

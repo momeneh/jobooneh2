@@ -1,26 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Categories;
 use App\Models\Product;
 use App\Models\ProductImages;
 use App\Models\ProductsImages;
+use App\Notifications\ProductChanged;
+use App\Notifications\ProductCreated;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
-    //todo: if admin dosent want to confirm a product could send a notification to owner about reasons
     public function __cunstruct(){
-        $this->middleware('auth:admin');
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -29,7 +33,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $result = Product::orderBy('id','DESC');
+        $result = Product::orderBy('id','DESC')->where('user_id','=',Auth::user()->id);
         if($request->title) $result = $result->where('title','LIKE','%'.$request->title.'%');
         if($request->id) $result = $result->where('id','=',$request->id);
         if(trim($request->active) == 2) $result = $result->where('confirmed','=',0);
@@ -46,8 +50,8 @@ class ProductController extends Controller
         $result->where('lang_id','=',Helper::GetLocaleNumber());
 
         $result = $result->paginate(10);
-        $categories = $this->Categories();
-        return view('product.index',['list'=> $result,'request'=>$request,'categories'=>$categories]);
+        $categories = Categories::UserProductListCategories();
+        return view('user_product.index',['list'=> $result,'request'=>$request,'categories'=>$categories]);
     }
 
     /**
@@ -58,7 +62,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Categories::orderBy('id','DESC')->where('lang_id','=',Helper::GetLocaleNumber())->get();
-        return view('product.create',['categories'=>$categories]);
+        return view('user_product.create',['categories'=>$categories]);
     }
 
     /**
@@ -69,25 +73,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $m= __('messages.owner_required');
         $this->validate($request,[
-            'owner_id' =>'required|numeric|exists:App\Models\User,id',
             'category_id' => 'required|numeric',
             'title' => 'required|min:3',
             'image.*' => 'required'
-        ],['owner_id.required'=>$m,'owner_id.numeric'=>$m,'owner_id.exists'=>$m]);
-
+        ]);
         $record = new product();
-        $record->title = $request['title'];
-        $record->user_id = $request['owner_id'];
-        $record->categories_id = $request['category_id'];
-        $record->description = $request['description'];
-        $record->confirmed = empty($request['confirmed']) ? 0 : 1;
-        $record->sell_status = $request['sell_status'];
-        $record->pre_pay = $request['pre_pay'];
-        $record->duration_of_work = $request['duration'];
-        $record->price = $request['price'];
-        $record->lang_id = Helper::GetLocaleNumber();
+        $this->SetAttriburtes($record,$request);
+        $record->confirmed = 0;
         $record->save();
 
         $alts = $request->input('alt', []);
@@ -97,8 +90,9 @@ class ProductController extends Controller
             $record->images()->save($pr_im);
         }
 
-        return redirect()->route('product.index')->with('message', __('messages.created'));
-
+        Notification::send(Admin::all(), new ProductCreated($record,Auth::user()));//for admins to confirm the product
+        Notification::send(Auth::user(), new ProductCreated($record,'owner'));//for user to wait the product confirmation
+        return redirect()->route('userProduct.index')->with('message', __('messages.created'));
     }
 
     /**
@@ -118,11 +112,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
+        $product = Product::findOrfail($id);
+        $this->authorize('update',$product )    ;
         $categories = Categories::orderBy('id','DESC')->where('lang_id','=',Helper::GetLocaleNumber())->get();
-        $product->load('images','owner');
-        return view('product.edit',compact('product','categories'));
+        $product->load('images');
+
+        return view('user_product.edit',compact('product','categories'));
     }
 
     /**
@@ -134,20 +131,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $m= __('messages.owner_required');
+        $record = Product::findOrFail($id);
+        $this->authorize('update',$record )    ;
+
         $this->validate($request,[
-            'owner_id' =>'required|numeric|exists:App\Models\User,id',
             'category_id' => 'required|numeric',
             'title' => 'required|min:3',
             'image.*' => 'required'
-        ],['owner_id.required'=>$m,'owner_id.numeric'=>$m,'owner_id.exists'=>$m]);
+        ]);
 
-        $record = Product::findOrFail($id);
         $record->title = $request['title'];
-        $record->user_id = $request['owner_id'];
+        $record->user_id = Auth::id();
         $record->categories_id = $request['category_id'];
         $record->description = $request['description'];
-        $record->confirmed = empty($request['confirmed']) ? 0 : 1;
         $record->sell_status = $request['sell_status'];
         $record->pre_pay = $request['pre_pay'];
         $record->duration_of_work = $request['duration'];
@@ -165,7 +161,9 @@ class ProductController extends Controller
         }
         $record->images()->upsert($up_arr,['id'],['image','alt']);
 
-        return redirect()->route('product.index')->with('message', __('messages.updated'));
+        $this->NotifyAdmin($record);
+
+        return redirect()->route('userProduct.index')->with('message', __('messages.updated'));
 
     }
 
@@ -178,6 +176,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $pro =  Product::findOrFail($id);
+        $this->authorize('delete',$pro )    ;
         $images = $pro->images()->get();
 
         foreach ($images as $i){
@@ -185,23 +184,14 @@ class ProductController extends Controller
             $file = 'product_images/'.$i['image'];
             if(Storage::exists($file))   Storage::delete($file);
         }
-        DB::transaction(function () use ($pro) {
-            //2:remove details
-            $pro->images()->delete();
+        //2:remove details
+        $i->where('products_id','=', $id)->delete();
 
-            //3:remove Pro
-            $pro->delete();
-        });
+        //3:remove Pro
+        $pro->delete();
         return back()->with('message', __('messages.deleted'));
     }
 
-    private function Categories(){
-        return DB::table('categories AS a')
-            ->select('a.id','a.title')
-            ->join('products As p', 'a.id', '=', 'p.categories_id')
-            ->groupBy('a.id')
-            ->get();
-    }
 
     public function UploadFile(Request $request){
         $i = preg_replace('/[^0-9]*/', '', array_keys($request->all())[0]);
@@ -211,7 +201,7 @@ class ProductController extends Controller
         ]);
         if($request->hasFile($var_name) && $request->file($var_name)->isValid()) {//no problems uploading the file
             // image file
-            $name =  Auth::id().'_'.date("Y-m-d-h-i-s")  . '.' . $request->file($var_name)->extension();
+            $name =  Auth::id().'u_'.date("Y-m-d-h-i-s")  . '.' . $request->file($var_name)->extension();
             $request->$var_name->storeAs('product_images',$name);
             return response()->json(['success' => true, 'file' => asset('/product_images/'.$name),'name'=>$name],200);
         }else{
@@ -234,5 +224,29 @@ class ProductController extends Controller
         }else{
             return response()->json( __('file not exists '),404);
         }
+    }
+
+    private function NotifyAdmin($record){
+        //if a product is confirmed and owner edit it a notification to admins send to check the product again
+        $st_changed = [];
+        if($record->confirmed == 1 ){
+            foreach(array_keys($record->getChanges()) as $title) {
+                $st_changed[] = __('messages.filed_changed',['field_title'=>$title]) ;
+            }
+            Notification::send(Admin::all(), new ProductChanged($record,Auth::user(),$st_changed));//for admins to check the product
+        }
+    }
+
+    private function SetAttriburtes(&$record,$request){
+        $record->title = $request['title'];
+        $record->user_id = Auth::id();
+        $record->categories_id = $request['category_id'];
+        $record->description = $request['description'];
+        $record->sell_status = $request['sell_status'];
+        $record->pre_pay = $request['pre_pay'];
+        $record->duration_of_work = $request['duration'];
+        $record->price = $request['price'];
+        $record->lang_id = Helper::GetLocaleNumber();
+
     }
 }

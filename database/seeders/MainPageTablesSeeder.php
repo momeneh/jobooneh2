@@ -16,6 +16,10 @@ class MainPageTablesSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('langs')->insert([ 'id'=>1,'title' => 'farsi','abr' => 'fa']);
+        DB::table('langs')->insert([ 'id'=>2,'title' => 'english','abr' => 'en']);
+
+
         DB::table('menus')->insert([ 'title' => 'Home','lang_id' => 2,'is_active' => 1,'link'=>action([MainPageController::class, 'index'])]);
         DB::table('menus')->insert([ 'title' => 'About','lang_id' => 2,'is_active' => 1,'link'=> '#abouut']);
         DB::table('menus')->insert([ 'title' => 'Products','lang_id' => 2,'is_active' => 1,'link'=> '#product']);
