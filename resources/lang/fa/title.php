@@ -80,7 +80,9 @@ return [
     'duration_of_work' => 'مدت زمان انجام کار ',
     'alt'=>'متن جایگزین تصویر',
     'delete_all' => 'حذف همگی',
-    'new_row' => 'ردیف جدید'
+    'new_row' => 'ردیف جدید',
+    'not_confirm_reason' => 'توضیح علل عدم تایید به دارنده محصول ',
+    'message_body' => 'متن پیام'
 
 
 

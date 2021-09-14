@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'created' => 'The record has been created successfully',
+    'created' => 'Data has been saved successfully',
     'updated' => 'The record has been updated successfully',
     'deleted' => 'The record has been removed successfully',
     'owner_required'=> 'the owner is required and should be selected from dynamic data',
@@ -13,6 +13,9 @@ return [
     'filed_changed' => 'The Value of :field_title Has Changed ',
     'product_changed' => 'The product Has Changed By Owner',
     'App\Notifications\ProductChanged'=> 'The Product with ID :id_product By User :name_user with Id :id_user Has changed . Since it was confirmed before so check the product and see if there is no problem   ',
+    'admin_notify' => 'A notification has sent you by admin',
+    'error_happened' => 'there is a problem in site . please contact backends',
+    'App\Notifications\AdminNotifyUser' => 'Admin :sender : :desc (about product :id_product)'
 ];
 
 ?>

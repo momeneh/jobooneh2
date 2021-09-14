@@ -9,7 +9,7 @@
             <div class="card">
 
 
-                <table border="1" cellpadding="20" class="table table-hover">
+                <table border="1" cellpadding="20" class="table table-hover" id=" list">
                     <thead>
                     <tr>
                         <th colspan="9" class="th_title">
@@ -47,7 +47,10 @@
                             <td>{{$item->title}}</td>
                             <td>{{$item->owner->name}}</td>
                             <td>{{$item->category->title}}</td>
-                            <td>{{$item->confirmed === 1 ? __('title.yes') : __('title.no')}}</td>
+                            <td>{{$item->confirmed === 1 ? __('title.yes') : __('title.no')}}
+                                @if ($r == 'product' && $item->confirmed !== 1 )
+                                    <a href="" class="confirm_user btn-light tim-icons icon-bell-55" id="{{$item->id}}" title="{{__('title.not_confirm_reason')}}"></a> @endif
+                            </td>
                             <td>{{__('title.sell_status_'.$item->sell_status)}}</td>
                             <td>{{$item->price}}</td>
                         </tr>
@@ -108,4 +111,74 @@
 
         </div>
     </div>
+    <div id="dialog-form" title="{{__('title.not_confirm_reason')}}" class="hidden">
+        <form>
+            <div class="form-search">
+                <fieldset>
+                    <label for="description">{{__('title.message_body')}}</label>
+                    <textarea name="description"  id="description" class="form-control" ></textarea>
+                    <input type="hidden" id="dialog_id_product" name="id_product">
+
+                    <input type="submit" tabindex="-1" style="position:absolute; top:-1000px" class="btn btn-primary">
+                </fieldset>
+            </div>
+        </form>
+    </div>
+@endsection
+@section('scripts')
+    <script>
+        var url = "{{ route('admin.notify_user')}}";
+        $(document).ready(function () {
+            $('td').delegate('a.confirm_user', 'click', function (e) {
+                e.preventDefault();
+                $("#dialog_id_product").val($(this).attr('id'));
+                dialog.dialog("open")
+            });
+            function send_notify() {
+                if ($( "#description" ).val().length !== 0 ){
+                    var desc = $( "#description" ).val();
+                    var id_product = $("#dialog_id_product").val();
+                    $.ajax({
+                        type:'post',
+                        url: url,
+                        data:{desc,id_product},
+                        dataType : 'json',
+                        //can send multipledata like {data1:var1,data2:var2,data3:var3
+                        //can use dataType:'text/html' or 'json' if response type expected
+                        success:function(response){
+                            demo.showNotification('top','left',"{{__('messages.created')}}",0);
+                        },
+                        error : function(jqXHR, textStatus, errorThrown) {
+                            demo.showNotification('top','left',"{{__('messages.error_happened')}}",4,0);
+                            return false;
+
+                        }
+                    })
+
+                    dialog.dialog("close");
+                }
+                // return ;
+            }
+
+            dialog = $("#dialog-form").dialog({
+                autoOpen: false,
+                width: 350,
+                modal: true,
+                buttons: {
+                    "send": send_notify,
+                    Cancel: function () {
+                        dialog.dialog("close");
+                    }
+                },
+                close: function () {
+                    form[0].reset();
+                }
+            });
+
+            form = dialog.find("form").on("submit", function (event) {
+                event.preventDefault();
+                send_notify();
+            });
+        });
+    </script>
 @endsection

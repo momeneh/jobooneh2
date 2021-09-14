@@ -99,3 +99,6 @@ textarea {
     float: left;
     font-weight: bold;
 }
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    float: left !important;
+}

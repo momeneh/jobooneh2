@@ -131,7 +131,6 @@
 
 
   function RemoveNotification(element){
-      console.log($(element).attr("route"));
       $.ajax({
           type:'delete',
           url: $(element).attr("route"),

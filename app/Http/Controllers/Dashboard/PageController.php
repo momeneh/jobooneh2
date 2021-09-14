@@ -44,7 +44,17 @@ class PageController extends Controller
      */
     public function notifications()
     {
-        return view('pages.notifications');
+//        return view('pages.notifications');
+        return view('users.notifications',['notifications'=>auth()->user()->Notifications]);
+    }
+
+    public function destroyNotifications($id){
+        auth()->user()->notifications()->where('id', $id)->delete();
+    }
+
+    public function destroyAllNotifications(){
+        auth()->user()->notifications()->delete();
+        return back()->with('message', __('messages.deleted'));
     }
 
     /**

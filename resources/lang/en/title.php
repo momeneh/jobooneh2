@@ -79,7 +79,10 @@ return [
     'duration_of_work' => 'duration of work',
     'alt'=>'alternative for image',
     'delete_all' => 'Remove All',
-    'new_row' =>'New Row'
+    'new_row' =>'New Row',
+    'not_confirm_reason' => 'Notify owner what are the reasons',
+    'message_body' => 'message body'
+
 
 
 ];

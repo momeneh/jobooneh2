@@ -18,7 +18,6 @@ use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
-    //todo: if admin dosent want to confirm a product could send a notification to owner about reasons
     public function __cunstruct(){
         $this->middleware('auth:admin');
     }
