@@ -2,9 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Contracts\Pagination\Paginator;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
@@ -36,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
         View::composer(
             'includes.menu_bar', 'App\Http\ViewComposers\MasterComposer'
         );
+        View::composer(
+        'message.*','App\Http\ViewComposers\MessageComposer'
+         );
         Validator::extend('recaptcha', 'App\Validators\ReCaptcha@validate');
 
 //        DB::listen(function ($query) {

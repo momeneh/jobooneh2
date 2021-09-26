@@ -74,6 +74,30 @@
             </li>
 
             <li >
+                <a data-toggle="collapse" href="#messages" aria-expanded="false">
+                    <i class="tim-icons icon-chat-33" ></i>
+                    <span class="nav-link-text" >{{ __('title.inbox') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse hide" id="messages">
+                    <ul class="nav pl-4">
+                        <li>
+                            <a href="{{ route('admin.message.index')  }}">
+                                <i class="tim-icons icon-email-85"></i>
+                                <p>{{ __('title.inbox') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.message_sent')  }}">
+                                <i class="tim-icons icon-send"></i>
+                                <p>{{ __('title.sent') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li >
                 <a href="{{ route('admin.notifications') }}">
                     <i class="tim-icons icon-bell-55"></i>
                     <p>{{ __('title.Notifications') }} ({{count(Auth::user()->unreadNotifications)}}) </p>

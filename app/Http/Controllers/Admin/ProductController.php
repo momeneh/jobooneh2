@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\FileController;
 use App\Models\Categories;
 use App\Models\Product;
 use App\Models\ProductImages;
@@ -205,33 +206,13 @@ class ProductController extends Controller
     public function UploadFile(Request $request){
         $i = preg_replace('/[^0-9]*/', '', array_keys($request->all())[0]);
         $var_name = 'uploadfile'.$i;
-        $this->validate($request,[
-            $var_name =>'required|image|mimes:jpeg,png,jpg|max:8192'
-        ]);
-        if($request->hasFile($var_name) && $request->file($var_name)->isValid()) {//no problems uploading the file
-            // image file
-            $name =  Auth::id().'_'.date("Y-m-d-h-i-s")  . '.' . $request->file($var_name)->extension();
-            $request->$var_name->storeAs('product_images',$name);
-            return response()->json(['success' => true, 'file' => asset('/product_images/'.$name),'name'=>$name],200);
-        }else{
-            return response()->json(['success' => false, 'msg' => __('there was problem with the file')],200);
-        }
+        $name =  Auth::id().'_'.date("Y-m-d-h-i-s")  . '.' . $request->file($var_name)->extension();
+        $file = new FileController('required|image|mimes:jpeg,png,jpg|max:8192','product_images/',$var_name,$name);
+        return $file->UploadFile($request);
     }
 
     public function RemoveFile(Request $request){
-        $this->validate($request,[
-            'img' =>'required'
-        ]);
-
-        $file = 'product_images/'.basename($request['img']);
-        if(Storage::exists($file)){
-            if(Storage::delete($file)){
-                return response()->json(['success' => true],200);
-            }else{
-                return response()->json(__('could not delete file'),304);
-            }
-        }else{
-            return response()->json( __('file not exists '),404);
-        }
+        $file = new FileController('required','product_images/','img','');
+        return $file->RemoveFile($request);
     }
 }

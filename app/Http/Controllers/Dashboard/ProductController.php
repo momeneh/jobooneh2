@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\FileController;
 use App\Models\Admin;
 use App\Models\Categories;
 use App\Models\Product;
 use App\Models\ProductImages;
 use App\Models\ProductsImages;
+use App\Models\User;
 use App\Notifications\ProductChanged;
 use App\Notifications\ProductCreated;
 use Illuminate\Database\Query\Builder;
@@ -196,34 +198,24 @@ class ProductController extends Controller
     public function UploadFile(Request $request){
         $i = preg_replace('/[^0-9]*/', '', array_keys($request->all())[0]);
         $var_name = 'uploadfile'.$i;
-        $this->validate($request,[
-            $var_name =>'required|image|mimes:jpeg,png,jpg|max:8192'
-        ]);
-        if($request->hasFile($var_name) && $request->file($var_name)->isValid()) {//no problems uploading the file
-            // image file
-            $name =  Auth::id().'u_'.date("Y-m-d-h-i-s")  . '.' . $request->file($var_name)->extension();
-            $request->$var_name->storeAs('product_images',$name);
-            return response()->json(['success' => true, 'file' => asset('/product_images/'.$name),'name'=>$name],200);
-        }else{
-            return response()->json(['success' => false, 'msg' => __('there was problem with the file')],200);
-        }
+        $name =  Auth::id().'u_'.date("Y-m-d-h-i-s")  . '.' . $request->file($var_name)->extension();
+        $uploader = new FileController('required|image|mimes:jpeg,png,jpg|max:8192','product_images/',$var_name,$name);
+        return $uploader->UploadFile($request);
     }
 
     public function RemoveFile(Request $request){
-        $this->validate($request,[
-            'img' =>'required'
-        ]);
 
-        $file = 'product_images/'.basename($request['img']);
-        if(Storage::exists($file)){
-            if(Storage::delete($file)){
-                return response()->json(['success' => true],200);
-            }else{
-                return response()->json(__('could not delete file'),304);
-            }
-        }else{
-            return response()->json( __('file not exists '),404);
+        //1: if name file is in session so user has uploaded it recently
+        $name_file = basename($request['img']);
+        if(empty(session($name_file))) {
+            //2: find product of this file
+            $pro_image = ProductsImages::select('products_id')->where('image', '=', $name_file)->get();
+            $pro = Product::findOrFail($pro_image->toarray()[0]['products_id']);
+            //3: authorize for delete product
+            $this->authorize('delete', $pro)   ;
         }
+        $file = new FileController('required','product_images/','img','');
+        return $file->RemoveFile($request);
     }
 
     private function NotifyAdmin($record){

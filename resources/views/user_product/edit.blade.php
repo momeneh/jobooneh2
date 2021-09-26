@@ -35,4 +35,4 @@
 @endsection
 
 
-@include('product.edit_scripts_common')
+@include('product.edit_scripts_common',['r'=>'user_product'])

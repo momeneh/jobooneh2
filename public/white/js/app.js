@@ -18,6 +18,9 @@
                   success: function (data) {
                       response(data);
                       $('#loading_data_icon').html('');
+                  },
+                  error : function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
                   }
 
               });

@@ -5,6 +5,7 @@ return [
     'updated' => 'The record has been updated successfully',
     'deleted' => 'The record has been removed successfully',
     'owner_required'=> 'the owner is required and should be selected from dynamic data',
+    'receiver_required'=> 'the receiver is required and should be selected from dynamic data',
     'product_created' => ' New Product Created',
     'owner_created_product' => ' has created new product . please go to your dashboard to confirm the product from this link ',
     'product_confirm' => 'Confirm The Product',

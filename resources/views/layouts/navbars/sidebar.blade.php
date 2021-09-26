@@ -23,6 +23,31 @@
                     <p>{{ __('title.products') }}</p>
                 </a>
             </li>
+
+            <li  @if ($pageSlug == 'messages') class="active " @endif>
+                <a data-toggle="collapse" href="#laravel-examples" aria-expanded="false">
+                    <i class="tim-icons icon-chat-33" ></i>
+                    <span class="nav-link-text" >{{ __('title.inbox') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse hide" id="laravel-examples">
+                    <ul class="nav pl-4">
+                        <li>
+                            <a href="{{ route('message.index')  }}">
+                                <i class="tim-icons icon-email-85"></i>
+                                <p>{{ __('title.inbox') }}</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('message_sent')  }}">
+                                <i class="tim-icons icon-send"></i>
+                                <p>{{ __('title.sent') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li @if ($pageSlug == 'notifications') class="active " @endif>
                 <a href="{{ route('pages.notifications') }}">
                     <i class="tim-icons icon-bell-55"></i>

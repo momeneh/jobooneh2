@@ -39,6 +39,14 @@ Route::group(['prefix'=>'admin'],function (){
         Route::resource('/product','Admin\ProductController');
         Route::post('/upload','Admin\ProductController@UploadFile')->name('upload_file_product');
         Route::post('/remove','Admin\ProductController@RemoveFile')->name('remove_file_product');
+        Route::name('admin.')->group(function () {
+            Route::resource('/message', 'MessageController', ['as', 'admin']);
+        });
+        Route::get('/message_Receiver', 'MessageController@autocomplete')->name('admin.autocompleteReceiver');
+        Route::post('/message_upload', 'MessageController@upload')->name('admin.upload_file_message');
+        Route::post('/message_remove', 'MessageController@remove')->name('admin.remove_file_message');
+        Route::get('/attachment_view/{name_file}', 'MessageController@show_attachments')->name('admin.show_attachments');
+        Route::get('/message_sent', 'MessageController@SentMessages')->name('admin.message_sent');
         Route::group(['prefix'=>'notification'],function (){
             Route::get('','Admin\NotificationController@index')->name('admin.notifications');
             Route::delete('{id}','Admin\NotificationController@destroy')->name('admin.delete_notifications');
@@ -68,6 +76,13 @@ Route::group( ['middleware' => 'auth'],function (){
         Route::resource('/userProduct','Dashboard\ProductController');
         Route::post('/upload','Dashboard\ProductController@UploadFile')->name('upload_file_user_product');
         Route::post('/remove','Dashboard\ProductController@RemoveFile')->name('remove_file_user_product');
+        Route::resource('/message','MessageController');
+        Route::get('/message_Receiver', 'MessageController@autocomplete')->name('autocompleteReceiver');
+        Route::post('/message_upload', 'MessageController@upload')->name('upload_file_message');
+        Route::post('/message_remove', 'MessageController@remove')->name('remove_file_message');
+        Route::get('/message_sent', 'MessageController@SentMessages')->name('message_sent');
+        Route::get('/attachment_view/{name_file}', 'MessageController@show_attachments')->name('show_attachments');
     });
 });
+
 Route::get('search/autocompleteUsers', 'UserController@autocomplete')->name('autocompleteUsers');

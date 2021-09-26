@@ -1,7 +1,7 @@
 @section('scripts')
     <script>
-        var url = "{{ route('upload_file_product')}}";
-        var url_remove = "{{ route('remove_file_product')}}";
+        var url = "{{ route('upload_file_'.$r)}}";
+        var url_remove = "{{ route('remove_file_'.$r)}}";
     </script>
     <script src="{{ asset('white/js/SimpleAjaxUploader.js')}}"></script>
     <script src="{{ asset('white/js/uploader.js') }}"></script>

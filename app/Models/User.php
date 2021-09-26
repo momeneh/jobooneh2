@@ -46,4 +46,15 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new ResetPasswordUser($token));
     }
+
+    public function messagesSender()
+    {
+        return $this->morphMany('App\Models\Message', 'sender');
+    }
+
+    public function messagesReceiver()
+    {
+        return $this->morphMany('App\Models\Message', 'receiver');
+    }
+
 }

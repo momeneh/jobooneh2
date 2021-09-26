@@ -81,7 +81,21 @@ return [
     'delete_all' => 'Remove All',
     'new_row' =>'New Row',
     'not_confirm_reason' => 'Notify owner what are the reasons',
-    'message_body' => 'message body'
+    'message_body' => 'message body',
+    'inbox' => 'inbox',
+    'sent' => 'sent',
+    'compose' => 'compose',
+    'receiver' => 'receiver ',
+    'sender' => 'sender',
+    'subject' => 'subject',
+    'date' => 'date',
+    'date_from' => 'date from',
+    'date_to' => 'date to',
+    'mark_as_read' => 'Mark as read',
+    'send' => 'Send',
+    'not_found' => ' sorry,not found data',
+    'attachments' => 'Attachment(s)',
+    'read_at' => 'seen at '
 
 
 

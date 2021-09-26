@@ -23,10 +23,12 @@
         @endif
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link href="{{ asset('white') }}/css/persian-datepicker.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="{{asset('pub')}}/jquery-ui.css">
         <script src="{{asset('pub')}}/jquery-1.12.4.js"></script>
         <script src="{{asset('pub')}}/jquery-ui.js"></script>
+        <script src="{{ asset('white') }}/js/persianDatepicker.min.js"></script>
 
 
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
@@ -94,7 +96,7 @@
         <script src="{{ asset('white') }}/js/plugins/bootstrap-notify.js"></script>
 
         <script src="{{ asset('white') }}/js/white-dashboard.min.js?v=1.0.0"></script>
-        <script src="{{ asset('white') }}/js/theme.js"></script>
+                    <script src="{{ asset('white') }}/js/theme.js"></script>
 
         @stack('js')
 

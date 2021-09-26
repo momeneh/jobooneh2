@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,5 +41,14 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function messagesSender()
+    {
+        return $this->morphMany('App\Models\Message', 'sender');
+    }
+
+    public function messagesReceiver()
+    {
+        return $this->morphMany('App\Models\Message', 'receiver');
+    }
 
 }
