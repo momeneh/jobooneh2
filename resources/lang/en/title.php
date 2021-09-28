@@ -95,7 +95,10 @@ return [
     'send' => 'Send',
     'not_found' => ' sorry,not found data',
     'attachments' => 'Attachment(s)',
-    'read_at' => 'seen at '
+    'read_at' => 'seen at ',
+    'on'=> 'On',
+    'wrote' => 'wrote '
+
 
 
 

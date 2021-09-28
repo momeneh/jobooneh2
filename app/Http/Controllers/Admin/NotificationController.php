@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\MessageController;
 use App\Models\Product;
 use App\Notifications\AdminNotifyUser;
 use Illuminate\Http\Request;
@@ -37,6 +38,16 @@ class NotificationController extends Controller
         $record = Product::findOrFail($request['id_product']);
         $user = $record->Owner()->get();
         Notification::send($user, new AdminNotifyUser($record,Auth::user(),$request['desc']));
+
+        //creat message because it is more simple for users to work with (see read at or reply to each other )
+        $message = new MessageController();
+        $request['receiver_id'] = 'user_'.$user[0]->id;
+        $request['subject'] = __('messages.admin_notify').__(' about product ').$request['id_product'];
+        $request['body'] = $request['desc'];
+        $message->send_notify = false;
+        $message->redirect = false;
+        $message->store($request);
+
         return response()->json(['success' => true],200);
     }
 }

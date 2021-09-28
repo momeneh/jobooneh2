@@ -16,7 +16,8 @@ return [
     'App\Notifications\ProductChanged' => 'محصول با شناسه  :id_product توسط  :name_user با شناسه  :id_user ویرایش شده است  . از آنجا که این محصول قبلا تایید شده بوده لطفا مجدد آن را چک کنید که مشکلی وجود نداشته باشد    ',
     'admin_notify' => 'ارسال پیام توسط ادمین ',
     'error_happened' => 'مشکلی در سیستم وجود دارد . لطفا با پشتیبانی تماس بگیرید',
-    'App\Notifications\AdminNotifyUser' => 'ادمین با شناسه :sender : :desc (در مورد محصول با شناسه  :id_product)'
+    'App\Notifications\AdminNotifyUser' => 'ادمین با شناسه :sender : :desc (در مورد محصول با شناسه  :id_product)',
+
 
 ];
 ?>

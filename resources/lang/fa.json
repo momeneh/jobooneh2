@@ -9,5 +9,8 @@
     "Reset Password" : "تغییر رمز عبور",
     "there was problem with the file" : "مشکلی در فایل وجود دارد",
     "file not exists" : "فایل موجود نیست ",
-    "could not delete file" : "امکان حذف فایل وجود ندارد"
+    "could not delete file" : "امکان حذف فایل وجود ندارد",
+    "has sent you a message in site . please check your dashboard to see the message" : "یک پیام در سایت برای شما ارسال کرده است . لطفا به کارتابل خود مراجعه نمایید تا متن پیام را مشاهده نمایید ",
+    " about product ": " در مورد محصول  ",
+    "reply : " : "پاسخ : "
 }

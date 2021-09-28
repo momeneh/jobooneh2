@@ -47,6 +47,7 @@ Route::group(['prefix'=>'admin'],function (){
         Route::post('/message_remove', 'MessageController@remove')->name('admin.remove_file_message');
         Route::get('/attachment_view/{name_file}', 'MessageController@show_attachments')->name('admin.show_attachments');
         Route::get('/message_sent', 'MessageController@SentMessages')->name('admin.message_sent');
+        Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('admin.message_reply');
         Route::group(['prefix'=>'notification'],function (){
             Route::get('','Admin\NotificationController@index')->name('admin.notifications');
             Route::delete('{id}','Admin\NotificationController@destroy')->name('admin.delete_notifications');
@@ -81,6 +82,7 @@ Route::group( ['middleware' => 'auth'],function (){
         Route::post('/message_upload', 'MessageController@upload')->name('upload_file_message');
         Route::post('/message_remove', 'MessageController@remove')->name('remove_file_message');
         Route::get('/message_sent', 'MessageController@SentMessages')->name('message_sent');
+        Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('message_reply');
         Route::get('/attachment_view/{name_file}', 'MessageController@show_attachments')->name('show_attachments');
     });
 });

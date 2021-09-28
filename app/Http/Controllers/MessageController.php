@@ -7,12 +7,17 @@ use App\Models\Message;
 use App\Models\MessageAttachments;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 use Morilog\Jalali\Jalalian;
+use Morilog\Jalali\CalendarUtils;
 
 class MessageController extends Controller
 {
+    public $send_notify = true;
+    public $redirect = true;
     /**
      * Display a listing of the resource.
      *
@@ -81,9 +86,10 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Message $message)
     {
-        return view('message.create');
+        $message->load('receiver');
+        return view('message.create',['message'=>$message,'receiver'=>'']);
 
     }
 
@@ -125,7 +131,12 @@ class MessageController extends Controller
             $request->session()->forget($images[$i]);//after user sent a message file names should be removed from session
             $record->attachments()->save($im);
         }
-        return redirect()->route('message.index')->with('message', __('messages.created'));
+
+        if ($this->send_notify)
+            Notification::send( $record->receiver()->get(), new \App\Notifications\Message(App::getLocale() ,$record));//sending mail about message
+
+        if($this->redirect)
+            return redirect()->route('message.index')->with('message', __('messages.created'));
 
     }
 
@@ -143,6 +154,7 @@ class MessageController extends Controller
 
         $type_user = Helper::BindGuardModel();
         if  ($type_user === $message->receiver_type && auth()->user()->id == $message->receiver_id) $this->SetReaded($message);
+
 
         return view('message.show',compact('message'));
     }
@@ -245,6 +257,20 @@ class MessageController extends Controller
         }
         $file = new FileController('required','attachments/','file','');
         return $file->RemoveFile($request);
+    }
+
+    public function ReplyMessages($id){
+        $message =  Message::findOrFail($id);
+        $this->authorize('reply',$message );
+        $message->load('sender');
+        $message->receiver = $message->sender;
+        $receiver = $message->sender->name.'('.$message->sender->email.')';
+        $message->receiver_id = strtolower(substr($message->sender_type,11,strlen($message->sender_type))).'_'.$message->sender_id;
+        $message->subject = __('reply : ').$message->subject;
+        if(app()->getLocale() == 'fa' ) $date = Helper::toPersianNum(CalendarUtils::strftime('Y-m-d H:i:s', strtotime($message->created_at)));
+        else $date = $message->created_at;
+            $message->body = "\r\n".'-------------'.__('title.on') ."\r\n". $date ."\r\n". $message->sender->name .' '. __('title.wrote')." : "."\r\n".$message->body;
+        return view('message.create',['message'=>$message,'receiver'=>$receiver]);
     }
 
 

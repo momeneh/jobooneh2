@@ -26,8 +26,11 @@
                             </div>
                             <p></p>
                             <div class="card-description">
+                                <a class="btn btn-icon btn-round" style="background-color: #c9f3bc;" href="{{route($prefix.'message_reply',$message->id)}}" >
+                                    <i class="tim-icons icon-send" style="top: 20%" title="reply"></i>
+                                </a>
                                 <hr>
-                                {{$message->body}}
+                                {!! nl2br(e($message->body)) !!}
                                 <hr>
                                 {{!empty(count($message->attachments)) ? count($message->attachments).' '.__('title.attachments') : ''}}
                                 @foreach($message->attachments as $attachment)

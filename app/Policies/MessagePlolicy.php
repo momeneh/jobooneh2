@@ -57,7 +57,7 @@ class MessagePlolicy
      * @param  \App\Models\Message  $message
      * @return mixed
      */
-    public function update(User $user, Message $message)
+    public function update( $user, Message $message)
     {
         $type_user = Helper::BindGuardModel();
         return  ($type_user === $message->receiver_type && $user->id == $message->receiver_id)
@@ -72,7 +72,7 @@ class MessagePlolicy
      * @param  \App\Models\Message  $message
      * @return mixed
      */
-    public function delete(User $user, Message $message)
+    public function delete( $user, Message $message)
     {
         $type_user = Helper::BindGuardModel();
         return  ($type_user === $message->receiver_type && $user->id == $message->receiver_id)
@@ -102,6 +102,13 @@ class MessagePlolicy
     public function forceDelete(User $user, Message $message)
     {
         //
+    }
+
+    public function reply($user,Message $message){
+        $type_user = Helper::BindGuardModel();
+        return  ($type_user === $message->receiver_type && $user->id == $message->receiver_id)
+            ? Response::allow()
+            : Response::deny('unauthorized .');
     }
 
 }

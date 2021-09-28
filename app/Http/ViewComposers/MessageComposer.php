@@ -22,8 +22,8 @@ class MessageComposer
      */
     public function compose(View $view)
     {
-        $navbar = strpos($this->request->route()->getPrefix() , 'admin')>0 ? ['admin' => 1] : ['page' => __('messages'), 'pageSlug' => 'message'];
-        $prefix = strpos($this->request->route()->getPrefix() , 'admin')>0 ? 'admin.' : '';
+        $navbar = strpos($this->request->route()->getPrefix() , 'admin')!== false ? ['admin' => 1] : ['page' => __('messages'), 'pageSlug' => 'message'];
+        $prefix = strpos($this->request->route()->getPrefix() , 'admin')!== false ? 'admin.' : '';
         $view->with('navbar', $navbar);
         $view->with('prefix', $prefix);
     }
