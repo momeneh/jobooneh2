@@ -48,7 +48,7 @@
                             <td>{{$item->owner->name}}</td>
                             <td>{{$item->category->title}}</td>
                             <td>{{$item->confirmed === 1 ? __('title.yes') : __('title.no')}}
-                                @if ($r == 'product' && $item->confirmed !== 1 )
+                                @if ($r == 'product' && $item->confirmed !== 1 && (empty($item->notified_at) ) || $item->notified_at < Carbon::now()->subHours(48))
                                     <a href="" class="confirm_user btn-light tim-icons icon-bell-55" id="{{$item->id}}" title="{{__('title.not_confirm_reason')}}"></a> @endif
                             </td>
                             <td>{{__('title.sell_status_'.$item->sell_status)}}</td>

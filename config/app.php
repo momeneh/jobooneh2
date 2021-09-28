@@ -227,6 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'dateConvert'=> \Morilog\Jalali\CalendarUtils::class,
+        'Carbon' => 'Carbon\Carbon',
 
     ],
 

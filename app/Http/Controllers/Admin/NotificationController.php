@@ -7,7 +7,9 @@ use App\Http\Controllers\MessageController;
 use App\Models\Product;
 use App\Notifications\AdminNotifyUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 
 class NotificationController extends Controller
@@ -48,6 +50,8 @@ class NotificationController extends Controller
         $message->redirect = false;
         $message->store($request);
 
+        $record->notified_at = Carbon::now();
+        $record->save();
         return response()->json(['success' => true],200);
     }
 }
