@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->smallInteger('lang_id');
             $table->boolean('is_active')->default(0);
             $table->bigInteger('parent_id')->nullable();
+            $table->string('icon')->nullable();
             $table->engine = 'InnoDB';
             $table->timestamps();
         });

@@ -57,6 +57,7 @@ class ProductCategoryController extends Controller
     {
         $this->validate($request,[
             'title' => 'required|unique:categories|min:3|max:15',
+            'icon' =>'required|image|mimes:png|max:8192|dimensions:max_width=1920,max_height=796'
         ]);
 
         $record = new Categories();
@@ -65,6 +66,13 @@ class ProductCategoryController extends Controller
         $record->parent_id = empty($request['parent_id']) ? NULL : $request['parent_id'] ;
         $record->lang_id = Helper::GetLocaleNumber();
         $record->save();
+        if($request->hasFile('icon') && $request->file('icon')->isValid()) {//no problems uploading the file
+            // image file
+            $name =  $record->id . '.' . $request->file('icon')->extension();
+            $request->file('icon')->move(public_path('category_icons'), $name);
+            $record->icon = $name;
+            $record->save();
+        }
         return redirect()->route('product_category.index')->with('message', __('messages.created'));
 
     }
@@ -102,14 +110,32 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
+        $rules=[
             'title' => ['required','min:3','max:15',Rule::unique('categories')->ignore($id)],
-        ]);
+            'icon' =>'required|image|mimes:png|max:8192|dimensions:max_width=1920,max_height=796'
+        ];
+
+        $uplaod_need = true;
+        if(empty($request['icon']) && !empty($request['icon_name'])){
+            $request['icon'] = $request['icon_name'];
+            $uplaod_need = false;
+            unset($rules['icon']);
+        }
+        $this->validate($request,$rules);
         $record = Categories::findOrFail($id);
         $record->title = $request['title'];
         $record->is_active = empty($request['is_active']) ? 0 : 1;
         $record->parent_id = empty($request['parent_id']) ? NULL : $request['parent_id'] ;
         $record->save();
+
+        if($uplaod_need)
+        if($request->hasFile('icon') && $request->file('icon')->isValid()) {//no problems uploading the file
+            // image file
+            $name =  $record->id . '.' . $request->file('icon')->extension();
+            $request->file('icon')->move(public_path('category_icons'), $name);
+            $record->icon = $name;
+            $record->save();
+        }
         return redirect()->route('product_category.index')->with('message', __('messages.updated'));
 
     }

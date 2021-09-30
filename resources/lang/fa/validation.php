@@ -20,6 +20,8 @@ $attributes = [
     'category_id' => 'دسته بندی محصولات'
 ];
 $attributes = array_merge($attributes,$images_ar);
+$titles = include_once ('title.php');
+$attributes = array_merge($attributes,$titles);
 return  [
 
     /*

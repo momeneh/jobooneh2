@@ -33,16 +33,31 @@
                                     {{ old('is_active') ? 'checked="1"' : 'checked="0"' }} >
                             </div>
                         </div>
-                        <div class="form-search">
-                            <label for="parent_id">{{ __('title.parent_id')}}:  </label>
+                        <div class="form-group">
+                            <label for="parent_id" class="col-md-4 control-label">{{ __('title.parent_id')}}:  </label>
+                            <div class="col-md-6">
                             <select id="parent_id" class="form-control" name="parent_id"  autofocus>
                                 <option value="">{{__('title.select_one')}}</option>
                                 @foreach($parents as $item)
                                     <option value="{{$item->id}}" {{!empty($request->parent_id) && $request->parent_id == $item->id? 'selected = selected' : ''}}>{{$item->title}}</option>
                                 @endforeach
                             </select>
+                            </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('icon') ? ' has-error' : '' }}">
+                            <label for="icon" class="col-md-4 control-label">{{__('title.icon')}} <span class="require">*</span> </label>
+                            <div class="col-md-6">
+                                @if(!empty(old('icon')))
+                                    <img id="image_show" src="{{asset('/category_icons/'.old('icon'))}}" width="180px">
+                                    <input type="hidden" name="icon_name" value="{{old('icon')}}"/>
+                                    <span class="btn btn-danger" id="remove_image"> </span>
+                                @endif
+                                <input id="image" type="file"  class="form-control @if(!empty(old('icon'))) hidden @endif" name="icon"  accept="image/pn" required  autofocus title="400*400 image file">
+
+                                @include('alerts.feedback', ['field' => 'icon'])
+                            </div>
+                        </div>
 
                         <div class="form-group_submit  ">
                             <div class="">

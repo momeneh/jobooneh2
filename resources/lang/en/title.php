@@ -97,7 +97,8 @@ return [
     'attachments' => 'Attachment(s)',
     'read_at' => 'seen at ',
     'on'=> 'On',
-    'wrote' => 'wrote '
+    'wrote' => 'wrote ',
+    'icon' => 'icon'
 
 
 

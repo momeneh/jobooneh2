@@ -14,7 +14,7 @@
                 <table border="1" cellpadding="20" class="table table-hover">
                     <thead>
                     <tr>
-                        <th colspan="6" class="th_title">
+                        <th colspan="7" class="th_title">
                             <span>{{__('title.categories')}}</span>
                             <a href="{{route('product_category.create')}}" class="btn btn-create" >  {{ __('title.create_new')}}</a>
                         </th>
@@ -25,6 +25,7 @@
                         <td>{{ __('title.id')}}</td>
                         <td>{{ __('title.title')}}</td>
                         <td>{{ __('title.active')}}</td>
+                        <td>{{ __('title.icon')}}</td>
                         <td>{{ __('title.parent_id')}}</td>
                     </tr>
                     </thead>
@@ -45,6 +46,7 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->title}}</td>
                                 <td>{{$item->is_active === 1 ? __('title.yes') : __('title.no')}}</td>
+                                <td>@if (!empty($item->icon))<img src="{{asset('/category_icons/'.$item->icon)}}" style="height: 50px;background-color: #052501"> @endif</td>
                                 <td>{{!empty($item->parent->title) ? $item->parent->title : ''}}</td>
                             </tr>
                         @endforeach

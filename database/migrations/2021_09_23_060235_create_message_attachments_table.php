@@ -18,6 +18,7 @@ class CreateMessageAttachmentsTable extends Migration
             $table->foreignId('messages_id')->constrained()->onDelete('cascade');
             $table->string('file');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

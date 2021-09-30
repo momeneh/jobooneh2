@@ -18,6 +18,7 @@ class CreateLangsTable extends Migration
             $table->string('title');
             $table->string('abr');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

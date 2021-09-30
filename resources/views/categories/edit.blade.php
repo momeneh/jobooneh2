@@ -34,8 +34,9 @@
                                     {{ old('is_active',$record['is_active']) ? 'checked="1"' : 'checked="0"' }} >
                             </div>
                         </div>
-                        <div class="form-search">
-                            <label for="parent_id">{{ __('title.parent_id')}}:  </label>
+                        <div class="form-group">
+                            <label for="parent_id" class="col-md-4 control-label">{{ __('title.parent_id')}}:  </label>
+                            <div class="col-md-6">
                             <select id="parent_id" class="form-control" name="parent_id"  autofocus>
                                 <option value="">{{__('title.select_one')}}</option>
                                 @foreach($parents as $item)
@@ -43,6 +44,20 @@
                                     <option value="{{$item->id}}" {{!empty($id_p) && $id_p == $item->id? 'selected = selected' : ''}}>{{$item->title}}</option>
                                 @endforeach
                             </select>
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('icon') ? ' has-error' : '' }}">
+                            <label for="icon" class="col-md-4 control-label">{{__('title.icon')}} <span class="require">*</span> </label>
+                            <div class="col-md-6">
+                                @if(!empty(old('icon',$record['icon'])))
+                                    <img id="image_show" src="{{asset('/category_icons/'.old('icon',$record['icon']))}}" width="60px">
+                                    <input type="hidden" name="icon_name" value="{{old('icon',$record['icon'])}}"/>
+                                    <span class="btn btn-danger" id="remove_image"> </span>
+                                @endif
+                                <input id="image" type="file"  class="form-control @if(!empty(old('icon',$record['icon']))) hidden @endif" name="icon"  accept="image/pn" required  autofocus title="60*60 png file">
+
+                                @include('alerts.feedback', ['field' => 'icon'])
+                            </div>
                         </div>
 
                         <div class="form-group_submit  ">

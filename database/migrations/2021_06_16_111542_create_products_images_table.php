@@ -19,6 +19,7 @@ class CreateProductsImagesTable extends Migration
             $table->string('image');
             $table->string('alt')>nullable();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 
