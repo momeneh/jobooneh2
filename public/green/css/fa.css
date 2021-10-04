@@ -67,3 +67,16 @@ h2{
 .verify_mail_message{
     text-align: right;
 }
+.for_box_bg .for_box h3 {
+    font-size: 21px;
+}
+.read_more{
+    padding: 14px;
+}
+.arrow{
+    transform: rotate(180deg);
+    margin-left: 10px;
+}
+.footer_links{
+    text-align: right;
+}

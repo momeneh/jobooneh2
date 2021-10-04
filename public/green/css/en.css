@@ -8,3 +8,6 @@ h2{
 .carousel-caption span {
     text-shadow: 2px 2px #342020;
 }
+a.read_more{
+    padding: 1px;
+}

@@ -24,15 +24,16 @@
     <link rel="stylesheet" href="{{ asset('green') }}/css/bootstrap.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="{{ asset('green') }}/css/style.css">
+    @if(app()->getLocale() == 'fa')
+        <link rel="stylesheet" href="{{ asset('green') }}/css/fa.css">
+    @else
+        <link rel="stylesheet" href="{{ asset('green') }}/css/en.css">
+    @endif
     <!-- Responsive-->
     <link rel="stylesheet" href="{{ asset('green') }}/css/responsive.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="{{ asset('green') }}/css/jquery.mCustomScrollbar.min.css">
-    @if(app()->getLocale() == 'fa')
-        <link href="{{ asset('green') }}/css/fa.css?v=1.0.0" rel="stylesheet" />
-    @else
-        <link href="{{ asset('green') }}/css/en.css?v=1.0.0" rel="stylesheet" />
-    @endif
+
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -100,8 +101,6 @@
             <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
                 <div class="about_box">
                     {!! $about_us[0]['body'] !!}
-{{--                    <h2>About moon<br><strong class="black"> Farm and company</strong></h2>--}}
-{{--                    <p>dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>--}}
                     <a href="{{route('pages.show',$about_us[0]['id'])}}">{{__('title.read_more')}}</a>
                 </div>
             </div>
@@ -118,34 +117,15 @@
 <div class="for_box_bg">
     <div class="container">
         <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
-                <div class="for_box">
-                    <i><img src="{{ asset('green') }}/images/1.png" alt="#"/></i>
-                    <span>1996923</span>
-                    <h3>Harvesta</h3>
+            @foreach($category_pros as $cp)
+                <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
+                    <div class="for_box">
+                        <i><img src="{{ asset('category_icons/'.$cp->icon) }}" alt="#"/></i>
+                        <span>{{$cp->count_pro}}</span>
+                        <h3>{{$cp->title}}</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
-                <div class="for_box">
-                    <i><img src="{{ asset('green') }}/images/2.png" alt="#"/></i>
-                    <span>8000</span>
-                    <h3>Units of Cattle</h3>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
-                <div class="for_box">
-                    <i><img src="{{ asset('green') }}/images/3.png" alt="#"/></i>
-                    <span>60002</span>
-                    <h3>Farm</h3>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
-                <div class="for_box">
-                    <i><img src="{{ asset('green') }}/images/4.png" alt="#"/></i>
-                    <span>1623</span>
-                    <h3>Units of Technic</h3>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -156,7 +136,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="title">
-                    <h2>Special <strong class="black"> Offers</strong></h2>
+                    <h2 >{{__("NEW")}} <strong class="black"> {{__("PRODUCTS")}}</strong></h2>
                 </div>
             </div>
         </div>
@@ -164,34 +144,28 @@
     <div class="offer-bg">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 ">
-                    <div class="offer_box">
-                        <h3>Agriculture Products</h3>
-                        <figure><img src="{{ asset('green') }}/images/offer1.png" alt="img" /></figure>
-                        <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                @php $style_ar=['','margin_ttt','margin-lkk'] @endphp
+                @foreach($new_products as $i=>$np)
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 {{$style_ar[$i]}}">
+                        <div class="offer_box">
+                            <h3>{{$np->title}}</h3>
+                            @if(!empty($np->images[0]->image))
+                                <figure><img src="{{ asset('product_images/'.$np->images[0]->image) }}" alt="img" /></figure>
+                            @endif
+                            <p>{{substr($np->description,0,500)}}</p>
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margin_ttt">
-                    <div class="offer_box">
-                        <h3>Fresh Vegatables</h3>
-                        <figure><img src="{{ asset('green') }}/images/offer2.png" alt="img" /></figure>
-                        <p>consectetur adipiscing elit, sed do eiusmodmpor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margin-lkk">
-                    <div class="offer_box">
-                        <h3>Farm Factory</h3>
-                        <figure><img src="{{ asset('green') }}/images/offer3.png" alt="img" /></figure>
-                        <p>consectetur adipiscing elit, sed do eiusmodmpor incididunt ut labore et dolore magna</p>
-                    </div>
-                </div>
 
-                <div class="col-md-12">
-                    <a class="read-more">See More</a>
-                </div>
+                @endforeach
             </div>
+
+
         </div>
+
+    </div>
+    <div class="read_more">
+        <a class="read-more">See More</a>
     </div>
 </div>
 
@@ -204,7 +178,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="title">
-                        <h2>Moon <strong class="black"> products</strong></h2>
+                        <h2 >{{__('title.most_visited')}} <strong class="black"> {{__('title.products')}}</strong></h2>
                     </div>
                 </div>
             </div>
@@ -213,45 +187,14 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            @foreach($most_visited_products as $mv)
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="product_box">
-                            <figure><img src="{{ asset('green') }}/images/product_img1.jpg" alt="#" />
-                                <h3>Fresh Apple </h3></figure>
+                            <figure><img src="{{ asset('product_images/'.$mv->images[0]->image)}}" alt="#" />
+                                <h3>{{$mv->title}}</h3></figure>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                        <div class="product_box">
-                            <figure><img src="{{ asset('green') }}/images/product_img2.jpg" alt="#" />
-                                <h3>Fresh Aalu  </h3>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        <div class="product_box">
-                            <figure><img src="{{ asset('green') }}/images/product_img4.jpg" alt="#" />
-                                <h3>Rice Field </h3></figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        <div class="product_box">
-                            <figure><img src="{{ asset('green') }}/images/product_img3.jpg" alt="#" />
-                                <h3>Vegetables</h3></figure>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        <div class="product_box">
-                            <figure><img src="{{ asset('green') }}/images/product_img5.jpg" alt="#" />
-                                <h3>Field Wheat </h3></figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -264,7 +207,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="title">
-                    <h2>testimonial</h2>
+                    <h2  >{{__('title.business_owners')}}</h2>
                 </div>
             </div>
         </div>
@@ -280,83 +223,35 @@
                 <li data-target="#testimonial_slider" data-slide-to="2" class=""></li>
             </ul>
             <!-- The slideshow -->
-            <div class="carousel-inner">
-                <div class="carousel-item">
-                    <div class="testomonial_section">
+            <div class="carousel-inner" style="direction: ltr">
+                @foreach($testimontal as $i=>$t)
+                    <div class="carousel-item @if($i==1) active @endif">
+                        <div class="testomonial_section" >
 
-                        <div class="full testimonial_cont text_align_center cross_layout">
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 pa_right">
-                                    <div class="testomonial_img">
-                                        <i><img src="{{ asset('green') }}/images/tes.jpg" alt="#"/></i>
+                            <div class="full testimonial_cont text_align_center cross_layout">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 pa_right">
+                                        <div class="testomonial_img">
+                                            <i><img src="{{ asset('profile_images/'.$t->owner['image']) }}" alt="#"/></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 pa_left">
-                                    <div class="cross_inner">
-                                        <h3>Johndue<br><strong class="ornage_color">Farm & CO</strong></h3>
-                                        <p><img src="{{ asset('green') }}/icon/1.png" alt="#" />ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                            <img src="{{ asset('green') }}/icon/2.png" alt="#" />
-                                        </p>
+                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 pa_left">
+                                        <div class="cross_inner">
+                                            <h3>{{$t->owner->name}}<br><strong class="ornage_color">{{$t->owner->job_title}}</strong></h3>
+                                            <p><img src="{{ asset('green') }}/icon/1.png" alt="#" />
+                                                {{$t->owner->description}}
+                                                <img src="{{ asset('green') }}/icon/2.png" alt="#" />
+                                            </p>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item active">
-
-                    <div class="testomonial_section">
-                        <div class="full center">
-                        </div>
-                        <div class="full testimonial_cont text_align_center cross_layout">
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 pa_right">
-                                    <div class="testomonial_img">
-                                        <i><img src="{{ asset('green') }}/images/tes.jpg" alt="#"/></i>
-                                    </div>
-                                </div>
-                                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 pa_left">
-                                    <div class="cross_inner">
-                                        <h3>Johndue<br><strong class="ornage_color">Farm & CO</strong></h3>
-                                        <p><img src="{{ asset('green') }}/icon/1.png" alt="#" />ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                            <img src="{{ asset('green') }}/icon/2.png" alt="#" />
-                                        </p>
-
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                @endforeach
 
-                <div class="carousel-item">
-
-                    <div class="testomonial_section">
-                        <div class="full center">
-                        </div>
-                        <div class="full testimonial_cont text_align_center cross_layout">
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 pa_right">
-                                    <div class="testomonial_img">
-                                        <i><img src="{{ asset('green') }}/images/tes.jpg" alt="#"/></i>
-                                    </div>
-                                </div>
-                                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 pa_left">
-                                    <div class="cross_inner">
-                                        <h3>Johndue<br><strong class="ornage_color">Farm & CO</strong></h3>
-                                        <p><img src="{{ asset('green') }}/icon/1.png" alt="#" />ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                            <img src="{{ asset('green') }}/icon/2.png" alt="#" />
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
@@ -365,58 +260,6 @@
 </div>
 
 <!-- end clients -->
-<!-- contact -->
-
-<div id="contact" class="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="title">
-                    <h2>Get In <strong class="black"> Toucgh</strong></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid padddd">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 padddd">
-        <div class="map_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-
-                        <form class="main_form">
-                            <div class="row">
-
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Name" type="text" name="Name">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Email" type="text" name="Email">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Phone" type="text" name="Phone">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <button class="send">Send</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div id="map">
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-<!-- end contact -->
 
 <!-- footer -->
 <!--  footer -->
@@ -427,44 +270,46 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="address">
-                        <a href="index.html"> <img src="{{ asset('green') }}/images/logo.png" alt="logo" /></a>
-                        <p>dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et sdolor sit amet, consectetur adipiscing elit, </p>
+                        <div class="logo">
+                            @if(app()->getLocale() == 'fa')
+                                <a href="index.html"><img src="{{ asset('green') }}/images/logofa.png" alt="#"></a>
+                            @else
+                                <a href="index.html"><img src="{{ asset('green') }}/images/logoen.png" alt="#"></a>
+                            @endif
+                        </div>
+                        <div class="clearfix"></div>
+                        <p  style="font-size: 15px;text-align: justify">
+                            {!! $footer_desc[0]['body'] !!}
+                        </p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="address">
-                        <h3>Quick links</h3>
-                        <ul class="Links_footer">
-                            <li><img src="{{ asset('green') }}/icon/3.png" alt="#" /> <a href="#"> Join Us</a> </li>
-                            <li><img src="{{ asset('green') }}/icon/3.png" alt="#" /> <a href="#">Maintenance</a> </li>
-                            <li><img src="{{ asset('green') }}/icon/3.png" alt="#" /> <a href="#">Language Packs</a> </li>
-                            <li><img src="{{ asset('green') }}/icon/3.png" alt="#" /> <a href="#">LearnPress</a> </li>
-                            <li><img src="{{ asset('green') }}/icon/3.png" alt="#" /> <a href="#">Release Status</a> </li>
+                    <div class="address footer_links">
+                        <h3>{{__('Quick links')}}</h3>
+                        <ul class="">
+                            @foreach($main_menus as $menu_item)
+                                <li > <img class="arrow" src="{{ asset('green') }}/icon/3.png" alt="#" /> <a href="{{$menu_item['link']}}">{{$menu_item['title']}}</a> </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="address">
-                        <h3>Subcribe email</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do </p>
+                    <div class="address footer_links">
+                        <h3>{{__('Subcribe email')}}</h3>
+                        <p style="font-size: 15px;text-align: justify" > {{__('With subscribe you can be aware of news in our site')}} </p>
                         <input class="form-control" placeholder="Your Email" type="type" name="Your Email">
                         <button class="submit-btn">Submit</button>
                     </div>
                 </div>
 
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="address">
-                        <h3>Contact Us</h3>
+                    <div class="address footer_links">
+                        <h3>{{__('Contact Us')}}</h3>
 
                         <ul class="loca">
-                            <li>
-                                <a href="#"><img src="{{ asset('green') }}/icon/loc.png" alt="#" /></a>London 145
-                                <br>United Kingdom </li>
-                            <li>
-                                <a href="#"><img src="{{ asset('green') }}/icon/email.png" alt="#" /></a>demo@gmail.com </li>
-                            <li>
-                                <a href="#"><img src="{{ asset('green') }}/icon/call.png" alt="#" /></a>+12586954775 </li>
+                            <li style="font-size: 14px;"> <a href="#"><img src="{{ asset('green') }}/icon/email.png" alt="#" />   momeneh.jafari@gmail.com </a></li>
+                            <li> <a href="#"><img src="{{ asset('green') }}/icon/call.png" alt="#" />  +12586954775</a> </li>
                         </ul>
                     </div>
                 </div>
@@ -474,7 +319,7 @@
 
     <div class="copyright">
         <div class="container">
-            © 2020 made with momeneh.jafari@gmail.com thanks to
+            © 2021 made with momeneh.jafari@gmail.com thanks to
             <a href="https://creative-tim.com" target="_blank">{{ _('Creative Tim') }}</a> &amp;
             <a href="https://updivision.com" target="_blank">{{ _('Updivision') }}</a>
 

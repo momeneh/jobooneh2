@@ -98,7 +98,9 @@ return [
     'read_at' => 'seen at ',
     'on'=> 'On',
     'wrote' => 'wrote ',
-    'icon' => 'icon'
+    'icon' => 'icon',
+    'most_visited' => 'MOST VISITED',
+    'footer_desc' => 'footer main page desc'
 
 
 

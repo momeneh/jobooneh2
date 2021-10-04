@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Faker\Factory as Faker;
 
 class ProductController extends Controller
 {
@@ -30,6 +31,11 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+//        Product::factory(10)->create();
+//        $faker = Faker::create('App\User');
+//        DB::table('users')->update([
+//            'description' => $faker->sentence()]);
+
         $result = Product::orderBy('id','DESC');
         if($request->title) $result = $result->where('title','LIKE','%'.$request->title.'%');
         if($request->id) $result = $result->where('id','=',$request->id);

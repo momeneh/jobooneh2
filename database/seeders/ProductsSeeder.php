@@ -26,12 +26,12 @@ class ProductsSeeder extends Seeder
         DB::table('categories')->insert([ 'title' => 'منبت','lang_id'=>'1', 'is_active'=>'1','parent_id'=>'2','icon'=>'monabat.png']);
         DB::table('categories')->insert([ 'title' => 'شیرینی پزی','lang_id'=>'1', 'is_active'=>'1','icon'=>'pastry.png']);
         DB::table('categories')->insert([ 'title' => 'کارهای کامپیوتری','lang_id'=>'1', 'is_active'=>'1','icon'=>'computer.png']);
-        DB::table('categories')->insert([ 'title' => 'cook','lang_id'=>'2', 'is_active'=>'1','icon'=>'cook.png']);
-        DB::table('categories')->insert([ 'title' => 'hand made','lang_id'=>'2', 'is_active'=>'1','icon'=>'hand_made1.png']);
-        DB::table('categories')->insert([ 'title' => 'sewing','lang_id'=>'2', 'is_active'=>'1','icon'=>'sew.png']);
-        DB::table('categories')->insert([ 'title' => 'painting','lang_id'=>'2', 'is_active'=>'1','icon'=>'paint.png']);
-        DB::table('categories')->insert([ 'title' => 'statuary','lang_id'=>'2', 'is_active'=>'1','icon'=>'statue.png']);
-        DB::table('categories')->insert([ 'title' => 'pastry','lang_id'=>'2', 'is_active'=>'1','icon'=>'pastry.png']);
-        DB::table('categories')->insert([ 'title' => 'computer jobs','lang_id'=>'2', 'is_active'=>'1','icon'=>'computer.png']);
+        DB::table('categories')->insert([ 'title' => 'Cook','lang_id'=>'2', 'is_active'=>'1','icon'=>'cook.png']);
+        DB::table('categories')->insert([ 'title' => 'Hand made','lang_id'=>'2', 'is_active'=>'1','icon'=>'hand_made1.png']);
+        DB::table('categories')->insert([ 'title' => 'Sewing','lang_id'=>'2', 'is_active'=>'1','icon'=>'sew.png']);
+        DB::table('categories')->insert([ 'title' => 'Painting','lang_id'=>'2', 'is_active'=>'1','icon'=>'paint.png']);
+        DB::table('categories')->insert([ 'title' => 'Statuary','lang_id'=>'2', 'is_active'=>'1','icon'=>'statue.png']);
+        DB::table('categories')->insert([ 'title' => 'Pastry','lang_id'=>'2', 'is_active'=>'1','icon'=>'pastry.png']);
+        DB::table('categories')->insert([ 'title' => 'Computer jobs','lang_id'=>'2', 'is_active'=>'1','icon'=>'computer.png']);
     }
 }

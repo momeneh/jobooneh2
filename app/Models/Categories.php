@@ -28,4 +28,19 @@ class Categories extends Model
             ->groupBy('a.id')
             ->get();
     }
+
+    public static function CategoriesProductCount(){
+        return DB::table('categories AS cat')
+            ->select(DB::raw('cat.icon,cat.title,count(distinct p.id) as count_pro'))
+            ->join('products AS p',function ($join){
+                $join->on('cat.id', '=', 'p.categories_id')
+                    ->where('p.confirmed', 1)
+                    ->where('cat.lang_id',Helper::GetLocaleNumber())
+                    ->where('cat.is_active',1);
+            } )
+            ->orderBy('count_pro', 'DESC')
+            ->limit(4)
+            ->groupBy('cat.id')
+            ->get();
+    }
 }

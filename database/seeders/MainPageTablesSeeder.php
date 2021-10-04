@@ -92,5 +92,8 @@ class MainPageTablesSeeder extends Seeder
                     <a href="#">Read More</a>
                 ','is_active'=>1,'lang_id'=>2]);
 
+        DB::Table('pages')->insert(['title'=>'توضیحات پایین صفحه اصلی','body'=>'                   هدف از ایجاد این سایت این بوده است که هنرمندان یا افراد دیگر اگر در خانه مشغول تولید خلاقیت های خود می باشند بتوانند در این سایت محصول خود را به نمایش گذاشته یا حتی بتوانند آن را به فروش برسانند و یا حتی بتوانند برای آینده خود سفارشاتی دریافت کنند                ','is_active'=>1,'lang_id'=>1]);
+
+        DB::table('pages')->insert(['title'=>'footer main page desc','body'=>'                 dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex dolor sit amet, consectetur adipiscing elit  ','is_active'=>1,'lang_id'=>2]);
    }
 }

@@ -27,12 +27,13 @@ class ProductFactory extends Factory
         return [
             'title' => $this->faker->realText(20),
             'description' => $this->faker->paragraph(),
-            'confirmed' => rand(1,2),
+            'confirmed' => 1,
             'sell_status' => rand(1,2),
             'price' =>  $this->faker->numberBetween(5000,1000000),
-            'lang_id' => 1,
+            'lang_id' => rand(1,2),
             'categories_id' => Categories::all(['id'])->random(),
             'user_id' => User::all(['id'])->random(),
+            'visited_count' => rand(0,1000)
         ];
     }
 }
