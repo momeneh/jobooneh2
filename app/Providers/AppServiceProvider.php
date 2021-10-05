@@ -33,10 +33,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         View::composer(
-            'includes.menu_bar', 'App\Http\ViewComposers\MasterComposer'
-        );
-        View::composer(
-            'layouts.app2', 'App\Http\ViewComposers\MasterComposer'
+            'layouts.green_layout', 'App\Http\ViewComposers\MasterComposer'
         );
         View::composer(
         'message.*','App\Http\ViewComposers\MessageComposer'

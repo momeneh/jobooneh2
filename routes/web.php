@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainPageController@index')->name('MainPage');
+Route::get('/homePage', 'MainPageController@index')->name('MainPage');
 Route::get('lang/{locale}', 'LangController@lang')->name('lang');
 Route::get('page/{id}', 'Dashboard\PageController@show')->name('pages.show');
 
@@ -59,9 +60,9 @@ Route::group(['prefix'=>'admin'],function (){
 });
 
 
-Route::get('/test', function (){
-    return view('emails.user_create_product');
-});
+//Route::get('/test', function (){
+//    return view('emails.user_create_product');
+//});
 //--------------------Normal Users------------------------------
 /*dashboard*/ Route::get('/home', 'UserController@dashboard')->name('dashboard')->middleware('verified');
 Route::group( ['middleware' => 'auth'],function (){

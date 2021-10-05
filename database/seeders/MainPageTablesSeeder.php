@@ -21,15 +21,15 @@ class MainPageTablesSeeder extends Seeder
 
 
         DB::table('menus')->insert([ 'title' => 'Home','lang_id' => 2,'is_active' => 1,'link'=>action([MainPageController::class, 'index'])]);
-        DB::table('menus')->insert([ 'title' => 'About','lang_id' => 2,'is_active' => 1,'link'=> '#abouut']);
+        DB::table('menus')->insert([ 'title' => 'About','lang_id' => 2,'is_active' => 1,'link'=> route('MainPage').'#about']);
         DB::table('menus')->insert([ 'title' => 'Products','lang_id' => 2,'is_active' => 1,'link'=> '#product']);
         DB::table('menus')->insert([ 'title' => 'Testimonial','lang_id' => 2,'is_active' => 1,'link'=> '#testimonial']);
         DB::table('menus')->insert([ 'title' => 'Contact Us','lang_id' => 2,'is_active' => 1,'link'=> '#contact']);
 
         DB::table('menus')->insert([ 'title' => 'صفحه اصلی','lang_id' => 1,'is_active' => 1,'link'=> '#home']);
-        DB::table('menus')->insert([ 'title' => 'درباره ما','lang_id' => 1,'is_active' => 1,'link'=> '#abouut']);
+        DB::table('menus')->insert([ 'title' => 'درباره ما','lang_id' => 1,'is_active' => 1,'link'=> route('MainPage').'#about']);
         DB::table('menus')->insert([ 'title' => 'تماس با ما','lang_id' => 1,'is_active' => 1,'link'=> '#contact']);
-        DB::table('menus')->insert([ 'title' => 'محصولات','lang_id' => 1,'is_active' => 1,'link'=> '#products']);
+        DB::table('menus')->insert([ 'title' => 'محصولات','lang_id' => 1,'is_active' => 1,'link'=> '#product']);
 
         DB::table('link_locations')->insert([ 'title' => 'slider','lang_id' => 2,'id'=>1]);
         DB::table('link_locations')->insert([ 'title' => 'اسلایدر','lang_id' => 1,'id'=>2]);
@@ -41,7 +41,7 @@ class MainPageTablesSeeder extends Seeder
                                     <p>
             با ثبت نام در بخش هنرمندان و فروشندگان و اشتراک محصولات و هنرهای خود می توانید در منزل به کسب درآمد بپردازید و از طریق این سایت بیشتر دیده شوید
              </p>
-                                    <a class=\"buynow\" href=\"#about\">درباره ما</a><a class=\"buynow ggg\" href=\"#\">نظر سنجی</a>"]);
+                                    <a class=\"buynow\" href=\"".route('MainPage')."#about\">درباره ما</a><a class=\"buynow ggg\" href=\"#\">نظر سنجی</a>"]);
 
         DB::table('links')->insert([ "title"=> "دسترسی آسان به کسب وکار های خانگی در محله ", "lang_id"=> 1, "is_active"=> 1,
             "link"=> "/about",  "image"=> "link-2.jpg", "location_id"=> 2,
@@ -87,7 +87,7 @@ class MainPageTablesSeeder extends Seeder
 
         DB::table('pages')->insert(['title'=>'About Us','body'=>'
 
-                    <h2>About Us<br><strong class="black"> household products</strong></h2>
+                    <h2>About Us<br><strong class="black"> homemade products</strong></h2>
                     <p>dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
                     <a href="#">Read More</a>
                 ','is_active'=>1,'lang_id'=>2]);
