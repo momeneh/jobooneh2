@@ -11,3 +11,6 @@ h2{
 a.read_more{
     padding: 1px;
 }
+.send{
+    float: right;
+}

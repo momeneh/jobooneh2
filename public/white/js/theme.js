@@ -729,7 +729,7 @@ demo = {
       message: message
     }, {
       type: type[color],
-      timer: 8000,
+      timer: 100000,
       placement: {
         from: from,
         align: align

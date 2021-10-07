@@ -29,6 +29,7 @@
     @else
         <link rel="stylesheet" href="{{ asset('green') }}/css/en.css">
     @endif
+    <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
     <!-- Responsive-->
     <link rel="stylesheet" href="{{ asset('green') }}/css/responsive.css">
     <!-- Scrollbar Custom CSS -->
@@ -53,6 +54,9 @@
     <script src="{{ asset('green') }}/js/custom.js"></script>
     <!-- javascript -->
     <script src="{{ asset('green') }}/js/owl.carousel.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="{{ asset('white') }}/js/plugins/bootstrap-notify.js"></script>
+    <script src="{{ asset('white') }}/js/theme.js"></script>
 {{--    <script src="{{ asset('green') }}/js/jquery.fancybox.min.js"></script>--}}
 </head>
 <body class="main-layout " STYLE="direction:
@@ -103,7 +107,7 @@
     </div>
 </div>
 <!-- end header inner -->
-
+@include('includes.message_js')
 @yield('content')
 
 <!--  footer -->

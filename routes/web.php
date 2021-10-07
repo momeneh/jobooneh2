@@ -17,6 +17,8 @@ Route::get('/', 'MainPageController@index')->name('MainPage');
 Route::get('/homePage', 'MainPageController@index')->name('MainPage');
 Route::get('lang/{locale}', 'LangController@lang')->name('lang');
 Route::get('page/{id}', 'Dashboard\PageController@show')->name('pages.show');
+Route::get('contact_us/', 'ContactController@contact_form')->name('pages.contact_form');
+Route::post('contact_us/', 'ContactController@contact_us')->name('pages.contact_us');
 
 Auth::routes(['verify' => true]);
 
@@ -49,6 +51,8 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('/attachment_view/{name_file}', 'MessageController@show_attachments')->name('admin.show_attachments');
         Route::get('/message_sent', 'MessageController@SentMessages')->name('admin.message_sent');
         Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('admin.message_reply');
+        Route::get('/contacts','ContactController@index')->name('admin.contacts');
+        Route::get('/contacts/{id}','ContactController@show')->name('admin.show_contacts');
         Route::group(['prefix'=>'notification'],function (){
             Route::get('','Admin\NotificationController@index')->name('admin.notifications');
             Route::delete('{id}','Admin\NotificationController@destroy')->name('admin.delete_notifications');

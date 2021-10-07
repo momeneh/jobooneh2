@@ -17,6 +17,7 @@ return [
     'admin_notify' => 'A notification has sent you by admin',
     'error_happened' => 'there is a problem in site . please contact backends',
     'App\Notifications\AdminNotifyUser' => 'Admin :sender : :desc (about product :id_product)',
+    'message_sent' => 'Thank you . Your message has been sent'
 ];
 
 ?>

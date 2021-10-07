@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -81,8 +82,8 @@ class PageController extends Controller
 
     public function show($id){
         $record = Page::findOrfail($id);
-
         return view('page.show',compact('record'));
-
     }
+
+
 }

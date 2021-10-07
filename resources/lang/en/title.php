@@ -100,7 +100,8 @@ return [
     'wrote' => 'wrote ',
     'icon' => 'icon',
     'most_visited' => 'MOST VISITED',
-    'footer_desc' => 'footer main page desc'
+    'footer_desc' => 'footer main page desc',
+    'phone'=>'phone'
 
 
 

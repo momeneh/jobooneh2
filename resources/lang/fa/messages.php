@@ -17,6 +17,7 @@ return [
     'admin_notify' => 'ارسال پیام توسط ادمین ',
     'error_happened' => 'مشکلی در سیستم وجود دارد . لطفا با پشتیبانی تماس بگیرید',
     'App\Notifications\AdminNotifyUser' => 'ادمین با شناسه :sender : :desc (در مورد محصول با شناسه  :id_product)',
+    'message_sent' => 'ممنون از توجهتون . پیامتون ارسال شد '
 
 
 ];

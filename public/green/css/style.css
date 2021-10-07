@@ -2067,19 +2067,20 @@ transform: skew(190deg);
 }
 
 .main_form {
-    position: absolute;
-    z-index: 990;
-    background: #142313;
-   margin-top: 80px;
+    /*position: absolute;*/
+    /*z-index: 990;*/
+    /*background: #142313;*/
+   margin-top: 10px;
     padding: 60px 40px;
 }
 
 .form-control {
-    border: #fff solid 1px;
+    border: #7a8b72 solid 1px;
     border-radius: inherit;
-    margin-bottom: 20px;
+    margin-top: 20px;
     padding: 8px 20px;
     font-family: poppins;
+    border-radius: 0.4285rem;
 }
 
 .form-control:focus {
@@ -2089,12 +2090,13 @@ transform: skew(190deg);
 
 .textarea {
     font-family: poppins;
-    border: #fff solid 2px;
+    border: #7a8b72 solid 1px;
     margin-bottom: 20px;
     padding: 0px 20px;
     padding-top: 0px;
     width: 100%;
     padding-top: 30px;
+    border-radius: 0.4285rem;
 }
 
 .send {
@@ -2102,8 +2104,8 @@ transform: skew(190deg);
     float: left;
     margin: 0 auto;
     display: block;
-    background: #fff;
-    color: #000;
+    background: #142313;
+    color: #fff;
     max-width: 165px;
     padding: 13px 0px;
     width: 100%;
@@ -2314,7 +2316,7 @@ div.title h2{
 }
 .inner_page {
     padding: 90px 0;
-
+    background: #f5f6fa;
 }
 
 .inner_page .inner_page_img figure {
@@ -2362,3 +2364,47 @@ div.title h2{
 .inner_page_img {margin-top: 25px;}
 .inner_page_img figure {margin: 0;}
 .inner_page_img figure img {width: 100%;}
+.inner_page_box{
+    margin: auto;
+    width: 100%;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+    padding: 0 40px;
+}
+.form-control::placeholder {
+    color: #adb5bd;
+    opacity: 1;
+}
+.invalid-feedback{
+    display:block;
+    margin: 10px;
+}
+.alert{
+    position: relative ;
+    padding: 1.9rem 2.25rem;
+    margin-bottom: 1rem;
+    border: 0.0625rem solid transparent;
+    border-radius: 0.2857rem;
+}
+.alert.alert-primary {
+    background-color: #00bf9a;
+}
+.tim-icons {
+    display: inline-block;
+    font: normal normal normal 1em/1 'Nucleo';
+    font-size: 1em;
+    vertical-align: middle;
+    speak: none;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+i.tim-icons {
+    font-size: 1rem;
+}
+
+#site_search_box{
+    margin-top: 0;
+    border-radius: 0;
+}
