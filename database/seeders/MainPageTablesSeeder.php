@@ -22,14 +22,14 @@ class MainPageTablesSeeder extends Seeder
 
         DB::table('menus')->insert([ 'title' => 'Home','lang_id' => 2,'is_active' => 1,'link'=>action([MainPageController::class, 'index'])]);
         DB::table('menus')->insert([ 'title' => 'About','lang_id' => 2,'is_active' => 1,'link'=> route('MainPage').'#about']);
-        DB::table('menus')->insert([ 'title' => 'Products','lang_id' => 2,'is_active' => 1,'link'=> '#product']);
+        DB::table('menus')->insert([ 'title' => 'Products','lang_id' => 2,'is_active' => 1,'link'=> route('pages.categories')]);
         DB::table('menus')->insert([ 'title' => 'Testimonial','lang_id' => 2,'is_active' => 1,'link'=> '#testimonial']);
         DB::table('menus')->insert([ 'title' => 'Contact Us','lang_id' => 2,'is_active' => 1,'link'=> route('pages.contact_form')]);
 
         DB::table('menus')->insert([ 'title' => 'صفحه اصلی','lang_id' => 1,'is_active' => 1,'link'=> '#home']);
         DB::table('menus')->insert([ 'title' => 'درباره ما','lang_id' => 1,'is_active' => 1,'link'=> route('MainPage').'#about']);
         DB::table('menus')->insert([ 'title' => 'تماس با ما','lang_id' => 1,'is_active' => 1,'link'=> route('pages.contact_form')]);
-        DB::table('menus')->insert([ 'title' => 'محصولات','lang_id' => 1,'is_active' => 1,'link'=> '#product']);
+        DB::table('menus')->insert([ 'title' => 'محصولات','lang_id' => 1,'is_active' => 1,'link'=> route('pages.categories')]);
 
         DB::table('link_locations')->insert([ 'title' => 'slider','lang_id' => 2,'id'=>1]);
         DB::table('link_locations')->insert([ 'title' => 'اسلایدر','lang_id' => 1,'id'=>2]);

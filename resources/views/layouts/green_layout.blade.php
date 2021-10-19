@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="{{ asset('green') }}/css/bootstrap.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="{{ asset('green') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('green') }}/css/xzoom.css">
+    <link rel="stylesheet" href="{{ asset('green') }}/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ asset('green') }}/css/starability-growRotate.css">
     @if(app()->getLocale() == 'fa')
         <link rel="stylesheet" href="{{ asset('green') }}/css/fa.css">
     @else
@@ -36,8 +39,8 @@
     <link rel="stylesheet" href="{{ asset('green') }}/css/jquery.mCustomScrollbar.min.css">
 
     <!-- Tweaks for older IEs-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" href="{{ asset('green') }}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('green') }}/css/jquery.fancybox.min.css" media="screen">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -57,6 +60,13 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="{{ asset('white') }}/js/plugins/bootstrap-notify.js"></script>
     <script src="{{ asset('white') }}/js/theme.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
 {{--    <script src="{{ asset('green') }}/js/jquery.fancybox.min.js"></script>--}}
 </head>
 <body class="main-layout " STYLE="direction:
@@ -172,6 +182,7 @@
     </div>
 </div>
 <!-- end footer -->
+@yield('scripts')
 
 </body>
 </html>

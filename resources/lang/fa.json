@@ -20,5 +20,14 @@
     "With subscribe you can be aware of news in our site" : "با عضویت در خبرنامه می توانید از آخرین خبرهای سایت مطلع شوید",
     "Contact Us" : "تماس با ما ",
     "Contact us notify": "یک پیام از فرم تماس با ما",
-    "One user with below information has filled contact form : ": "یک کاربر فرم تماس با ما را به صورت زیر پر کرده است :"
-}
+    "One user with below information has filled contact form : ": "یک کاربر فرم تماس با ما را به صورت زیر پر کرده است :",
+    "comments" : "نظر سنجی",
+    "Are you sure for rate ::rate ?" : "آیا امتیاز ::rate ثبت شود ؟ مطمئن هستید ؟ ",
+    "you have rated before to this item " : "شما قبلا به این آیتم امتیاز داده اید ",
+    "thank you for rating to this item " : "ممنون . امتیازتون ثبت شد ",
+    "from" : "از  ",
+    "from sum": " از مجموع ",
+    "rates" : "امتیاز",
+    "others comments" : "نظرات سایرین ",
+    " times visited " : " بار دیده شده  "
+ }

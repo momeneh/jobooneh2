@@ -1932,7 +1932,7 @@ margin-top: -114px;
 
 /** product **/
 
-.product {padding: 90px 0px 60px 0px;}
+.product {padding: 0px 0px 60px 0px;}
 .product .title h2 {max-width: 512px;
  width: 100%;
 }
@@ -2345,21 +2345,11 @@ div.title h2{
     font-weight: 500;
 }
 .inner_page .inner_page_box a {
-    color: #fff;
-    font-size: 17px;
-    line-height: 29px;
-    background: #142313;
-    border: #142313 solid 1px;
-    padding: 12px 40px;
-    display: inline-block;
-    width: 231px;
-    text-align: center;
-    border-radius: 18px;
+    color: #666666;
+
 }
 .inner_page .inner_page_box a:hover {
-    color: #fff;
-    background: #4bc714;
-    border: #4bc714 solid 1px;
+    color: #0a314b;
 }
 .inner_page_img {margin-top: 25px;}
 .inner_page_img figure {margin: 0;}
@@ -2407,4 +2397,107 @@ i.tim-icons {
 #site_search_box{
     margin-top: 0;
     border-radius: 0;
+}
+.categories_list img{
+    background-color: #142313;
+    border-radius: 5px;
+    width: 40px;
+    border:solid 5px #142313;
+}
+.categories_list div{
+    padding: 15px;
+}
+.product_box div{
+    width: 100%;
+    padding: 12px;
+    background-color: #2e3a2b12;
+    padding-bottom: 20px;
+
+}
+.product_box div span{
+    float: left;
+}
+
+.swiper {
+    width: 230px;
+    height: 180px;
+}
+p.desc_pro{
+    padding: 0 !important;
+}
+.color-g_l{
+    color: #4bc714;
+}
+.star_desc{
+    text-align: left;
+    font-size: 0.7em;
+    border-top: 1px solid;
+    padding: 10px;
+    color: #4bc714;
+}
+.comments h3{
+    color:#4bc714;
+    border-bottom: solid 1px;
+}
+.inline {
+    display: inline-block;
+}
+.comments .control-label{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.comments .form-control{
+    margin-top: 0;
+}
+.comments form{
+    margin-bottom: 50px;
+}
+.comments h4{
+    color: #4bc714;
+    border-bottom: solid 1px;
+    font-size: 14px;
+}
+.comment_date{
+    padding: 14px;
+    color: #ddd;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 10px;
+}
+.comments_detail{
+    margin: 5px;
+    padding: 10px;
+}
+.comment_body{
+    padding: 5px;
+    line-height: 18px;
+}
+.comment_name{
+    padding: 5px;
+    color: #4bc714;
+}
+.navigations{
+    padding: 20px;
+    border-top:solid 1px #4bc714;
+}
+.inner_page_box  .navigations nav{
+    display: none;
+}
+.refresh_button{
+    background-image: url('../images/icons8-refresh-16.png');
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    top: -30px;
+    position: relative;
+}
+.product .navigations{
+    width: 100%;
+    text-align: center;
+}
+.hidden{
+    display: none;
+}
+.refresh_gif{
+    position: relative;
+    top: -29px;
 }

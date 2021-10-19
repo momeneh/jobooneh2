@@ -32,12 +32,12 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             Log::info( '-----attachments------');
             $this->RemoveUnusedFiles('attachments',MessageAttachments::class,'file');
-        }) ->daily() ->appendOutputTo(storage_path() . "/logs/laravel.log");
+        }) ->everyMinute() ->appendOutputTo(storage_path() . "/logs/laravel.log");
 
         $schedule->call(function () {
             Log::info( '-----product_images------');
             $this->RemoveUnusedFiles('product_images',ProductsImages::class,'image');
-        }) ->daily() ->appendOutputTo(storage_path() . "/logs/laravel.log");;
+        }) ->everyMinute() ->appendOutputTo(storage_path() . "/logs/laravel.log");;
     }
 
     /**

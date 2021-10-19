@@ -2294,7 +2294,7 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
   }
-  .form-inline .custom-control-label {
+  .form-inline .custom-control-label control-label {
     margin-bottom: 0;
   }
 }

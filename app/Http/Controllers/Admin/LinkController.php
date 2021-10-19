@@ -23,7 +23,7 @@ class LinkController extends Controller
      */
     public function index(Request $request)
     {
-//        DB::enableQueryLog();
+//        DB::enableQueryLog();  EQLog();
         $result = Link::with('link_locations')->orderBy('id','DESC');
         if($request->title) $result = $result->where('title','LIKE','%'.$request->title.'%');
         if($request->id) $result = $result->where('id','=',$request->id);
@@ -36,7 +36,7 @@ class LinkController extends Controller
         $locations = Link_locations::orderBy('id','DESC')->where('lang_id','=',Helper::GetLocaleNumber())->get();
 
 //        dd($result->all());
-//        dd(DB::getQueryLog());
+//        dd(DB::getQueryLog()); dd(GQLog();
         return view('link.index',['list'=> $result,'request'=>$request,'locations'=>$locations]);
     }
 

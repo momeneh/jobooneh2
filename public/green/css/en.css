@@ -14,3 +14,22 @@ a.read_more{
 .send{
     float: right;
 }
+.star_desc{
+    padding: 2px;
+}
+.comments h3{
+    margin-top: 20px;
+}
+.comment_date{
+    font-size: 10px;
+    padding: 2px;
+}
+.comment_name,.comment_body{
+    padding: 1px;
+}
+.inner_page button{
+    line-height: 1px;
+}
+.comments .control-label {
+    margin-top: 15px;
+}

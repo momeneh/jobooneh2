@@ -72,7 +72,7 @@ return [
     'price' => 'Price',
     'owner' => 'Owner',
     'sell_status_' => ' ',
-    'sell_status_1' => 'ready or sail ',
+    'sell_status_1' => 'ready for sail ',
     'sell_status_2' => 'take order',
     'pre_pay'=> 'prepayment',
     'currency_title' => ' $ ',
@@ -101,7 +101,9 @@ return [
     'icon' => 'icon',
     'most_visited' => 'MOST VISITED',
     'footer_desc' => 'footer main page desc',
-    'phone'=>'phone'
+    'phone'=>'phone',
+    'category'=>'category',
+    'comment'=>'comment',
 
 
 

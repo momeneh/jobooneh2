@@ -82,7 +82,7 @@
     <!-- end offer -->
 
     <!-- product -->
-    <div id="product" class="product">
+    <div id="product" class="product" style="margin-top: 40px">
         <div class="container">
             <div class="container">
                 <div class="row">

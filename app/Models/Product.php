@@ -28,6 +28,11 @@ class Product extends Model
         return $this->belongsTo(Lang::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class,'products_id','id');
+    }
+
     public static function NewProducts(){
         return self::orderBy('id','DESC')
             ->where('confirmed','1')
@@ -68,5 +73,19 @@ class Product extends Model
             ->get();
 
     }
+
+    public static function GetProductsByCatId($id){
+        return self::orderBy('visited_count','DESC')
+            ->where('confirmed','1')
+            ->where('lang_id','=',Helper::GetLocaleNumber())
+            ->where('categories_id','=',$id)
+//            ->whereHas('images', function ( $query)  {
+//                $query->whereNotNull('image');
+//            })
+            ->with('images')
+            ->cursorPaginate(12);
+    }
+
+
 
 }

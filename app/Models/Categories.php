@@ -12,9 +12,25 @@ class Categories extends Model
 {
     use HasFactory;
 
+
     public function parent()
     {
         return $this->hasOne(self::class,'id','parent_id');
+    }
+
+    public function parents()
+    {
+        return $this->belongsTo('App\Models\Categories', 'parent_id');
+    }
+
+    public function getParentsNames($b = []) {
+        if($this->parents) {
+            $b[] = ['title'=>$this->title,'id'=>$this->id];
+            return $this->parents->getParentsNames($b);
+        } else {
+            $b[] = ['title'=>$this->title,'id'=>$this->id];
+            return $b;
+        }
     }
 
     public static  function UserProductListCategories(){
@@ -29,17 +45,18 @@ class Categories extends Model
             ->get();
     }
 
-    public static function CategoriesProductCount(){
+    public static function CategoriesProductCount($limit=4){
         return DB::table('categories AS cat')
-            ->select(DB::raw('cat.icon,cat.title,count(distinct p.id) as count_pro'))
+            ->select(DB::raw('cat.id,cat.icon,cat.title,count(distinct p.id) as count_pro'))
             ->join('products AS p',function ($join){
                 $join->on('cat.id', '=', 'p.categories_id')
                     ->where('p.confirmed', 1)
                     ->where('cat.lang_id',Helper::GetLocaleNumber())
+                    ->where('p.lang_id',Helper::GetLocaleNumber())
                     ->where('cat.is_active',1);
             } )
             ->orderBy('count_pro', 'DESC')
-            ->limit(4)
+            ->limit($limit)
             ->groupBy('cat.id')
             ->get();
     }

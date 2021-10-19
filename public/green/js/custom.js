@@ -218,7 +218,7 @@ $(function () {
 		},
 	});
 
-	
+
 	/* Product Filters
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
@@ -359,12 +359,14 @@ $(function () {
 		});
 	});
 
-	/* Product slider 
+	/* Product slider
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 	// optional
 	$('#blogCarousel').carousel({
 		interval: 5000
 	});
+
+
 
 
 });

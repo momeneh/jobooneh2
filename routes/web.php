@@ -19,6 +19,12 @@ Route::get('lang/{locale}', 'LangController@lang')->name('lang');
 Route::get('page/{id}', 'Dashboard\PageController@show')->name('pages.show');
 Route::get('contact_us/', 'ContactController@contact_form')->name('pages.contact_form');
 Route::post('contact_us/', 'ContactController@contact_us')->name('pages.contact_us');
+Route::get('categories/', 'ProductController@categories')->name('pages.categories');
+Route::get('categories/{id}', 'ProductController@cat_products')->name('pages.cat_products');
+Route::get('product/{id}', 'ProductController@show')->name('pages.product');
+Route::get('productOwner/{id}', 'ProductController@owner')->name('pages.owner');
+Route::post('comment_store/', 'ProductController@commentStore')->name('comment.store');
+Route::post('product/', 'ProductController@rateStore')->name('pages.productRate');
 
 Auth::routes(['verify' => true]);
 

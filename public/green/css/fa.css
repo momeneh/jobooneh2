@@ -83,3 +83,6 @@ h2{
 .inner_page{
     text-align: right;
 }
+.direction {
+    direction: rtl;
+}
