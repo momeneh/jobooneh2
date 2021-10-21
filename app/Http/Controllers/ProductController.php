@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\Categories;
 use App\Models\Comment;
 use App\Models\Product;
+use App\Models\User;
 use http\Params;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -36,7 +37,6 @@ class ProductController extends Controller
         }
         return view('site_products.cat_products',['products'=> $result,'category'=>$category]);
     }
-
 
     public function show($id,Request $request){
 //              Comment::factory(20)->create();
@@ -101,6 +101,16 @@ class ProductController extends Controller
 
     }
 
+    public function Owner($id,Request $request){
+        $owner = User::findOrFail($id);
 
+        $products = Product::GetProductsByOwnerId($id);
+        if($request->ajax()) {
+            //ajax paging
+            $view = view('site_products.cat_products_list', ['products' => $products])->render();
+            return response()->json(['view' => $view], 200)->throwResponse();
+        }
+        return view('site_products.owner',['owner'=> $owner,'products'=>$products]);
+    }
 
 }

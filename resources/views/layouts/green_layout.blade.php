@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('green') }}/css/bootstrap.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="{{ asset('green') }}/css/style.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('green') }}/css/xzoom.css">
     <link rel="stylesheet" href="{{ asset('green') }}/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="{{ asset('green') }}/css/starability-growRotate.css">

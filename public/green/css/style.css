@@ -1936,7 +1936,20 @@ margin-top: -114px;
 .product .title h2 {max-width: 512px;
  width: 100%;
 }
-.product .product_box {margin-bottom: 30px;}
+.product .product_box {
+    margin-bottom: 30px;
+    /*border: 1px solid;*/
+    padding: 10px;
+    /*color: #0a4517;*/
+    /*border-radius: 3px;*/
+}
+.product .product_box{
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+}
+.product .product_box:hover{
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.3);
+}
 .product .product_box figure {margin: 0px; position: relative;}
 .product .product_box figure h3 {
  position: absolute;
@@ -2500,4 +2513,189 @@ p.desc_pro{
 .refresh_gif{
     position: relative;
     top: -29px;
+}
+.white-content .card:not(.card-white) {
+    background: #ffffff;
+    box-shadow: 0 1px 15px 0 rgba(123, 123, 123, 0.05);
+}
+.card-user {
+    overflow: hidden;
+    min-height: 265px;
+}
+.card {
+    background: #27293d;
+    border: 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #ffffff;
+    background-clip: border-box;
+    border: 0.0625rem solid rgba(34, 42, 66, 0.05);
+    border-radius: 0.2857rem;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.5rem;
+}
+.card-user .author {
+    text-align: center;
+    text-transform: none;
+    margin-top: 25px;
+}
+.card-user .author .block.block-one {
+    background: rgba(117, 225, 78, 0.6);
+    background: -webkit-linear-gradient(to right, rgba(117, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: -o-linear-gradient(to right, rgba(105, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: -moz-linear-gradient(to right, rgba(129, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: linear-gradient(to right, rgba(129, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+    -webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    -o-transform: rotate(150deg);
+    transform: rotate(150deg);
+    margin-top: -90px;
+    margin-left: -50px;
+}
+.card-user .author .block {
+    position: absolute;
+    height: 100px;
+    width: 250px;
+}
+.card-user .author .block.block-two {
+    background: rgba(134, 225, 78, 0.6);
+    background: -webkit-linear-gradient(to right, rgba(105, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: -o-linear-gradient(to right, rgba(122, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: -moz-linear-gradient(to right, rgba(117, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: linear-gradient(to right, rgba(117, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    transform: rotate(30deg);
+    margin-top: -40px;
+    margin-left: -100px;
+}
+.card-user .author .block.block-three {
+    background: rgba(122, 225, 78, 0.6);
+    background: -webkit-linear-gradient(to right, rgba(110, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: -o-linear-gradient(to right, rgba(110, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: -moz-linear-gradient(to right, rgba(110, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: linear-gradient(to right, rgba(110, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+    -webkit-transform: rotate(170deg);
+    -moz-transform: rotate(170deg);
+    -ms-transform: rotate(170deg);
+    -o-transform: rotate(170deg);
+    transform: rotate(170deg);
+    margin-top: -70px;
+    right: -45px;
+}
+.card-user .author .block.block-four {
+    background: rgba(110, 225, 78, 0.6);
+    background: -webkit-linear-gradient(to right, rgba(110, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: -o-linear-gradient(to right, rgba(110, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: -moz-linear-gradient(to right, rgba(110, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    background: linear-gradient(to right, rgba(110, 225, 78, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+    -webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    -o-transform: rotate(150deg);
+    transform: rotate(150deg);
+    margin-top: -25px;
+    right: -45px;
+}
+.card-user .author a + p.description {
+    margin-top: -7px;
+    color: #1d253b;
+    font-weight: 300;
+    margin-bottom: 5px;
+    font-size: 1.14em;
+}
+.card .card-footer {
+    background-color: transparent;
+    border: 0;
+    padding: 15px;
+}
+
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.btn.btn-icon, .navbar .navbar-nav > a.btn.btn-icon {
+    height: 2.375rem;
+    min-width: 2.375rem;
+    width: 2.375rem;
+    padding: 0;
+    font-size: 0.9375rem;
+    overflow: hidden;
+    position: relative;
+    line-height: normal;
+}
+a.btn-round {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 30px;
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 8px 9px;
+    font-size: 0.875rem;
+    line-height: 1.35em;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.card-user .avatar {
+    width: 124px;
+    height: 124px;
+    border: 5px solid #2b3553;
+    border-bottom-color: rgb(43, 53, 83);
+    border-bottom-color: transparent;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.card h5 {
+    font-size: 0.8125rem;
+    background-color: #7a7a7a;
+    color: #ffffff !important;
+    padding: 16px !important;
+}
+.card-description{
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 12px;
+}
+.fab {
+    font-family: Font Awesome 5 Brands;
+}
+.card-footer i:hover{
+}
+.card-footer a:hover{
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: #4bc714 !important;
+}
+.owner_products{
+    padding: 0;
+    margin: 20px;
+}
+.owner_products h3{
+    border-bottom: #4bc714 solid 1px;
+
 }

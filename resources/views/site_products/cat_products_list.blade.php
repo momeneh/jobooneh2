@@ -1,5 +1,5 @@
 @foreach($products as $pro)
-    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+    <div class="col-xl-4 ">
         <div class="product_box">
             <figure>
                 <a href="{{route('pages.product',$pro->id)}}">

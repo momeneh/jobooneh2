@@ -33,3 +33,16 @@ a.read_more{
 .comments .control-label {
     margin-top: 15px;
 }
+.card-user .button-container {
+    margin-bottom: 6px;
+    text-align: center;
+    position:absolute;
+    bottom:2px;
+    right:11px;
+}
+a.btn.btn-round{
+    padding: 5px;
+}
+.product_box div span {
+    float: right;
+}

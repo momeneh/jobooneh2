@@ -101,6 +101,7 @@ return [
     'wrote' => 'نوشت ',
     'icon' => 'آیکن',
     'most_visited' => 'پر بازدیدترین',
+    'more_visited' => ' پر بازدید ',
     'footer_desc' => 'توضیحات پایین صفحه اصلی',
     'phone' => 'تلفن',
     'category'=>'دسته بندی',

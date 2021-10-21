@@ -13,7 +13,7 @@ body, html {
     font-family: Yekan,IRANSansFaNum,IRANSans,sans-serif;
     font-weight: 400;
     font-size: 14px;
-    line-height: 0;
+    line-height: 1;
     direction: rtl;
     scroll-behavior: smooth;
 }
@@ -85,4 +85,11 @@ h2{
 }
 .direction {
     direction: rtl;
+}
+.card-user .button-container {
+    margin-bottom: 6px;
+    text-align: center;
+    position:absolute;
+    bottom:2px;
+    left:11px;
 }

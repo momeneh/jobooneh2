@@ -76,6 +76,7 @@ class Product extends Model
 
     public static function GetProductsByCatId($id){
         return self::orderBy('visited_count','DESC')
+            ->orderBy('id','DESC')
             ->where('confirmed','1')
             ->where('lang_id','=',Helper::GetLocaleNumber())
             ->where('categories_id','=',$id)
@@ -87,5 +88,14 @@ class Product extends Model
     }
 
 
+    public static function GetProductsByOwnerId($id){
+        return self::orderBy('visited_count','DESC')
+            ->orderBy('id','DESC')
+            ->where('confirmed','1')
+            ->where('lang_id','=',Helper::GetLocaleNumber())
+            ->where('user_id','=',$id)
+            ->with('images')
+            ->cursorPaginate(6);
+    }
 
 }
