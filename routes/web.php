@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainPageController@index')->name('MainPage');
 Route::get('/homePage', 'MainPageController@index')->name('MainPage');
+Route::post('/homePage', 'MainPageController@subscribe')->name('subscribe');
 Route::get('lang/{locale}', 'LangController@lang')->name('lang');
 Route::get('page/{id}', 'Dashboard\PageController@show')->name('pages.show');
 Route::get('contact_us/', 'ContactController@contact_form')->name('pages.contact_form');
@@ -46,6 +47,7 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('/','Admin\AdminController@index')->name('admin.dashboard');
         Route::resource('user', 'Admin\UserController', ['except' => ['create','store']]);
         Route::resource('/product','Admin\ProductController');
+        Route::post('/newsletter_upload', 'Admin\SubscribeController@UploadFile')->name('admin.upload_file_newsletter');
         Route::post('/upload','Admin\ProductController@UploadFile')->name('upload_file_product');
         Route::post('/remove','Admin\ProductController@RemoveFile')->name('remove_file_product');
         Route::name('admin.')->group(function () {
@@ -59,6 +61,9 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('admin.message_reply');
         Route::get('/contacts','ContactController@index')->name('admin.contacts');
         Route::get('/contacts/{id}','ContactController@show')->name('admin.show_contacts');
+        Route::resource('/subscribe','Admin\SubscribeController');
+        Route::get('/subscribe_excel/{id}','Admin\SubscribeController@receivers')->name('subscribe_excel');
+        Route::get('/subscribe_send/{id}','Admin\SubscribeController@send')->name('subscribe_send');
         Route::group(['prefix'=>'notification'],function (){
             Route::get('','Admin\NotificationController@index')->name('admin.notifications');
             Route::delete('{id}','Admin\NotificationController@destroy')->name('admin.delete_notifications');
@@ -71,7 +76,9 @@ Route::group(['prefix'=>'admin'],function (){
 
 
 //Route::get('/test', function (){
-//    return view('emails.user_create_product');
+//    $n=\App\Models\Newsletter::findOrFail(4);
+//
+//    return view('emails.newsletter',['body'=>$n->body]);
 //});
 //--------------------Normal Users------------------------------
 /*dashboard*/ Route::get('/home', 'UserController@dashboard')->name('dashboard')->middleware('verified');

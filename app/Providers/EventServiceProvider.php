@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Notifications\Newsletter;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Notifications\Events\NotificationSent;
+use App\Listeners\NewsletterReceiversSave;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        NotificationSent::class =>[
+            NewsletterReceiversSave::class
+        ]
     ];
 
     /**

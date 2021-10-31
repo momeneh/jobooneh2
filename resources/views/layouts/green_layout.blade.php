@@ -55,7 +55,7 @@
     <script src="{{ asset('green') }}/js/plugin.js"></script>
     <!-- sidebar -->
     <script src="{{ asset('green') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="{{ asset('green') }}/js/custom.js"></script>
+    <script src="{{ asset('green/js/custom.js') }}"></script>
     <!-- javascript -->
     <script src="{{ asset('green') }}/js/owl.carousel.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -154,10 +154,10 @@
 
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div class="address footer_links">
-                    <h3>{{__('Subcribe email')}}</h3>
+                    <h3>{{__('Subscribe')}}</h3>
                     <p style="font-size: 15px;text-align: justify" > {{__('With subscribe you can be aware of news in our site')}} </p>
-                    <input class="form-control" placeholder="Your Email" type="type" name="Your Email">
-                    <button class="submit-btn">Submit</button>
+                    <input class="form-control" placeholder="Your Email" type="type" name="subscribe_mail" id="subscribe_mail" url="{{route('subscribe')}}">
+                    <button class="submit-btn" onclick="subscribe()">Submit</button>
                 </div>
             </div>
 

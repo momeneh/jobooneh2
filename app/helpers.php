@@ -1,13 +1,14 @@
 <?php
 use Illuminate\Support\Facades\DB;
 
-if(!function_exists('EQLog')){
-    function EQLog(){
+if(!function_exists('ESql')){
+    function ESql(){
         DB::enableQueryLog();
     }
 }
-if(!function_exists('GQLog')){
-    function GQLog(){
+if(!function_exists('DSql')){
+    function DSql($dump = 0){
+        if($dump == 1 ) dd(DB::getQueryLog());
         return DB::getQueryLog();
     }
 }

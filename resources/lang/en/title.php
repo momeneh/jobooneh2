@@ -105,6 +105,15 @@ return [
     'phone'=>'phone',
     'category'=>'category',
     'comment'=>'comment',
+    'user_creator' => 'Inserted By ',
+    'receivers_count' => 'Receivers count',
+    'is_sent' => 'Is Sent',
+    'not_sent' => 'Is NOT Sent',
+    'sent_at' => 'Sent at',
+    'date_sent_from' => 'Sent from date',
+    'date_sent_to' => 'Sent to date',
+    'lang' => 'language'
+
 
 
 

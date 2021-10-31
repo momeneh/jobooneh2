@@ -370,3 +370,25 @@ $(function () {
 
 
 });
+
+function subscribe() {
+    var mail = $('#subscribe_mail').val();
+    var url = $('#subscribe_mail').attr('url');
+    $.ajax({
+        url: url,
+        type:"POST",
+        dataType: "json",
+        data: {
+            'mail': mail
+        },
+        success:function(data){
+            // console.log(data);
+            // process on data
+            demo.showNotification('bottom','center',data.msg,1,'tim-icons icon-satisfied');
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            demo.showNotification('bottom','center',"something is broken .Maybe the mail is not correct or repeated",2,'tim-icons icon-alert-circle-exc');
+        }
+
+    });
+}

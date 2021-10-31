@@ -109,6 +109,12 @@
                     <p>{{ __('Contact Us') }}  </p>
                 </a>
             </li>
+            <li >
+                <a href="{{ route('subscribe.index') }}">
+                    <i class="tim-icons icon-spaceship"></i>
+                    <p>{{ __('Newsletter') }}  </p>
+                </a>
+            </li>
 
             <li >
                 <a href="{{ route('admin.logout') }}">

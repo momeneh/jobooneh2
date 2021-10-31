@@ -11205,6 +11205,8 @@ fieldset[disabled] .btn-warning.active {
     background-position: top right;
     width: 30px;
     height: 30px;
+    border: 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .btn-danger {
@@ -11214,7 +11216,37 @@ fieldset[disabled] .btn-warning.active {
     width: 30px;
     height: 30px;
 }
-
+.btn-show{
+    background-image :  url('../img/icon-view.png')  ;
+    background-size: 100% 100%;
+    background-position: top right;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.btn-excel{
+    background-image :  url('../img/excel-download.png')  ;
+    background-size: 100% 100%;
+    background-position: top right;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.btn-send{
+     background-image :  url('../img/send_news.png')  ;
+     background-size: 100% 100%;
+     background-position: top right;
+     width: 30px;
+     height: 30px;
+     border: 0;
+     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+ }
+.btn-show:hover ,.btn-edit:hover, .btn-excel:hover,.btn-send:hover{
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+}
 .btn-danger.animation-on-hover:hover {
   background-position: bottom left;
   transition: 0.3s ease-in-out;
@@ -18040,4 +18072,9 @@ a.btn-remove{
     margin: 17px;
     direction: ltr;
     text-align: left;
+}
+.document-editor__editable-container {
+    border: 1px solid rgba(29, 37, 59, 0.5);
+    border-radius: 6px;
+    min-height: 300px;
 }

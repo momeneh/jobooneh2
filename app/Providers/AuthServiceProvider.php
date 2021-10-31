@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Models\Message;
+use App\Models\Newsletter;
 use App\Models\Product;
 use App\Policies\MessagePlolicy;
 use App\Policies\ProductPolicy;
+use App\Policies\SubscribePolicy;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -22,7 +24,8 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         Product::class => ProductPolicy::class,
-        Message::class => MessagePlolicy::class
+        Message::class => MessagePlolicy::class,
+        Newsletter::class => SubscribePolicy::class
     ];
 
     /**

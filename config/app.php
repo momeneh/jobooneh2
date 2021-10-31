@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -228,7 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'dateConvert'=> \Morilog\Jalali\CalendarUtils::class,
         'Carbon' => 'Carbon\Carbon',
-
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

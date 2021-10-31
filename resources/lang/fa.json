@@ -16,7 +16,7 @@
     "NEW": "جدیدترین",
     "PRODUCTS" : "محصولات",
     "Quick links": " لینک های کوتاه ",
-    "Subcribe email" : "عضویت در خبرنامه",
+    "Subscribe" : "عضویت در خبرنامه",
     "With subscribe you can be aware of news in our site" : "با عضویت در خبرنامه می توانید از آخرین خبرهای سایت مطلع شوید",
     "Contact Us" : "تماس با ما ",
     "Contact us notify": "یک پیام از فرم تماس با ما",
@@ -29,5 +29,9 @@
     "from sum": " از مجموع ",
     "rates" : "امتیاز",
     "others comments" : "نظرات سایرین ",
-    " times visited " : " بار دیده شده  "
+    " times visited " : " بار دیده شده  ",
+    "thank you for subscribing.We would send any news to your mail " : "ممنون از ثبت نامتون در خبرنامه . از این به بعد آخرین خبرهامون رو به ایمیلتون ارسال می کنیم ",
+    "Newsletter" : "خبرنامه",
+    "Receivers list" : "مشاهده دریافت کنندگان ایمیل",
+    "Send Newsletter" : "ارسال خبرنامه"
  }
