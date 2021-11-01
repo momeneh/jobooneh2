@@ -103,17 +103,23 @@
     </div>
 @endsection
 @section('scripts')
-    // TODO: fill date picker on selected vaules
+    // TODO: fill date picker on selected values
     <script>
-        $(document).ready(function() {
-            $(".date").persianDatepicker({
-                initialValue: false,
-                formatDate: "YYYY-0M-0D",
-                // selectedDate:$(this).val()
-
-            });
+    @if(app()->getLocale() == 'fa')
+    $(document).ready(function() {
+        $(".date").persianDatepicker({
+            initialValue: false,
+            formatDate: "YYYY-0M-0D",
+            // selectedDate:$(this).val()
 
         });
-    </script>
+
+    });
+    @else
+     $(".date").datepicker({
+        format: 'Y-m-d',
+    });
+    @endif
+</script>
 @endsection
 

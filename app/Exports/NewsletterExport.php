@@ -32,7 +32,7 @@ class NewsletterExport implements FromCollection,WithHeadings
             __('title.email'),
             __('title.lang'),
             __('title.sent_at'),
-            __('title.created'),
+            __('title.signed_at'),
         ];
     }
 

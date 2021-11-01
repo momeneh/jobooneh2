@@ -42,13 +42,17 @@ class SubscribeController extends Controller
             });
         }
         if($request->date_from) {
-            $date_from = Jalalian::fromFormat('Y-m-d',  $request->date_from );
-            $date_from =  $date_from->toCarbon()->toDateTimeString() ;
+            if(app()->getLocale() == 'fa') {
+                $date_from = Jalalian::fromFormat('Y-m-d', $request->date_from);
+                $date_from = $date_from->toCarbon()->toDateTimeString();
+            }else  $date_from = date('Y-m-d ',strtotime($request->date_from));
             $result = $result->where('sent_at','>=',$date_from);
         }
         if($request->date_to) {
-            $date_to = Jalalian::fromFormat('Y-m-d',  $request->date_to );
-            $date_to =  $date_to->toCarbon()->toDateTimeString() ;
+            if(app()->getLocale() == 'fa') {
+                $date_to = Jalalian::fromFormat('Y-m-d', $request->date_to);
+                $date_to = $date_to->toCarbon()->toDateTimeString();
+            }else  $date_to = date('Y-m-d ',strtotime($request->date_to));
             $result = $result->where('sent_at','<=',$date_to);
         }
 
@@ -167,12 +171,16 @@ class SubscribeController extends Controller
    public function receivers($id){
         $record = Newsletter::findOrFail($id);
         $record->load('subscribers');
-        if(App::getLocale() == 'fa')
-            foreach ($record->subscribers as $s){
+        foreach ($record->subscribers as $s){
+            if(App::getLocale() == 'fa') {
                 $s->created_at2 = CalendarUtils::strftime('Y/m/d H:i:s', $s->created_at);
-                $s->sent_at =    CalendarUtils::strftime('Y/m/d H:i:s', $s->sent_at) ;
-                unset($s->created_at);
+                $s->sent_at = CalendarUtils::strftime('Y/m/d H:i:s', $s->sent_at);
+            }else{
+                $s->created_at2 = date('Y-m-d H:i:s',strtotime($s->created_at));
+                $s->sent_at = date('Y-m-d H:i:s',strtotime( $s->sent_at));
             }
+            unset($s->created_at);
+        }
 
        $filename = '\report_excels\newsletter_receivers_'.$id.'.xlsx';
        Excel::store(new NewsletterExport($record->subscribers),$filename);

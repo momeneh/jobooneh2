@@ -112,7 +112,8 @@ return [
     'sent_at' => 'Sent at',
     'date_sent_from' => 'Sent from date',
     'date_sent_to' => 'Sent to date',
-    'lang' => 'language'
+    'lang' => 'language',
+    'signed_at' => 'Signed at'
 
 
 
