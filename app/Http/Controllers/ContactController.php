@@ -40,16 +40,8 @@ class ContactController extends Controller
         $result = Contact::orderBy('id','DESC');
         if($request->name) $result = $result->where('name','LIKE','%'.$request->name.'%');
         if($request->email) $result = $result->where('email','LIKE','%'.$request->email.'%');
-        if($request->date_from) {
-            $date_from = Jalalian::fromFormat('Y-m-d',  $request->date_from );
-            $date_from =  $date_from->toCarbon()->toDateTimeString() ;
-            $result = $result->where('created_at','>=',$date_from);
-        }
-        if($request->date_to) {
-            $date_to = Jalalian::fromFormat('Y-m-d',  $request->date_to );
-            $date_to =  $date_to->toCarbon()->toDateTimeString() ;
-            $result = $result->where('created_at','<=',$date_to);
-        }
+        if($request->date_from) $result = $result->where('created_at','>=',StringToDate($request->date_from));
+        if($request->date_to) $result = $result->where('created_at','<=',StringToDate($request->date_to));
 
         $result = $result->paginate(10);
         return view('contact.index',['list'=> $result,'request'=>$request]);

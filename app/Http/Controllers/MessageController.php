@@ -36,16 +36,8 @@ class MessageController extends Controller
                 $query->where('name', 'like', '%'.$request->sender.'%');
             });
         }
-        if($request->date_from) {
-            $date_from = Jalalian::fromFormat('Y-m-d',  $request->date_from );
-            $date_from =  $date_from->toCarbon()->toDateTimeString() ;
-            $result = $result->where('created_at','>=',$date_from);
-        }
-        if($request->date_to) {
-            $date_to = Jalalian::fromFormat('Y-m-d',  $request->date_to );
-            $date_to =  $date_to->toCarbon()->toDateTimeString() ;
-            $result = $result->where('created_at','<=',$date_to);
-        }
+        if($request->date_from)  $result = $result->where('created_at','>=',StringToDate($request->date_from));
+        if($request->date_to)   $result = $result->where('created_at','<=',StringToDate($request->date_to));
 
 //        $result->where('lang_id','=',Helper::GetLocaleNumber()); // user get all messges from all languages
         $result = $result->paginate(10);
@@ -64,16 +56,8 @@ class MessageController extends Controller
                 $query->where('name', 'like', '%'.$request->receiver.'%');
             });
         }
-        if($request->date_from) {
-            $date_from = Jalalian::fromFormat('Y-m-d',  $request->date_from );
-            $date_from =  $date_from->toCarbon()->toDateTimeString() ;
-            $result = $result->where('created_at','>=',$date_from);
-        }
-        if($request->date_to) {
-            $date_to = Jalalian::fromFormat('Y-m-d',  $request->date_to );
-            $date_to =  $date_to->toCarbon()->toDateTimeString() ;
-            $result = $result->where('created_at','<=',$date_to);
-        }
+        if($request->date_from)   $result = $result->where('created_at','>=',StringToDate($request->date_from));
+        if($request->date_to)  $result = $result->where('created_at','<=',StringToDate($request->date_to));
 
 //        $result->where('lang_id','=',Helper::GetLocaleNumber()); // user get all messges from all languages
         $result = $result->paginate(10);

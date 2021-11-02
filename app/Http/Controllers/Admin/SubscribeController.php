@@ -41,20 +41,8 @@ class SubscribeController extends Controller
                 $query->where('name', 'like', '%'.$request->creator.'%');
             });
         }
-        if($request->date_from) {
-            if(app()->getLocale() == 'fa') {
-                $date_from = Jalalian::fromFormat('Y-m-d', $request->date_from);
-                $date_from = $date_from->toCarbon()->toDateTimeString();
-            }else  $date_from = date('Y-m-d ',strtotime($request->date_from));
-            $result = $result->where('sent_at','>=',$date_from);
-        }
-        if($request->date_to) {
-            if(app()->getLocale() == 'fa') {
-                $date_to = Jalalian::fromFormat('Y-m-d', $request->date_to);
-                $date_to = $date_to->toCarbon()->toDateTimeString();
-            }else  $date_to = date('Y-m-d ',strtotime($request->date_to));
-            $result = $result->where('sent_at','<=',$date_to);
-        }
+        if($request->date_from) $result = $result->where('sent_at','>=',StringToDate($request->date_from));
+        if($request->date_to)  $result = $result->where('sent_at','<=',StringToDate($request->date_to));
 
         $result->where('lang_id','=',Helper::GetLocaleNumber());
 

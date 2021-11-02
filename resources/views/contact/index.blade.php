@@ -73,6 +73,7 @@
 @section('scripts')
     // TODO: fill date picker on selected vaules
     <script>
+        @if(app()->getLocale() == 'fa')
         $(document).ready(function() {
             $(".date").persianDatepicker({
                 initialValue: false,
@@ -82,6 +83,11 @@
             });
 
         });
+        @else
+        $(".date").datepicker({
+            format: 'Y-m-d',
+        });
+        @endif
     </script>
 @endsection
 

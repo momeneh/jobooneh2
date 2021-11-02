@@ -27,3 +27,13 @@ if(!function_exists('PersianNo')){
         return $number;
     }
 }
+
+if(!function_exists('StringToDate')){
+    function StringToDate($string) {
+        if(app()->getLocale() == 'fa') {
+            $date = \Morilog\Jalali\Jalalian::fromFormat('Y-m-d', $string);
+            $date = $date->toCarbon()->toDateTimeString();
+        }else  $date = date('Y-m-d ',strtotime($string));
+        return $date;
+    }
+}

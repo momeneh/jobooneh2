@@ -69,6 +69,12 @@
                                 <p>{{ __('title.products') }}</p>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('comment.index')  }}">
+                                <i class="tim-icons icon-chat-33"></i>
+                                <p>{{ __('title.comments') }}</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>

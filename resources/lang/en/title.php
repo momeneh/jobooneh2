@@ -60,7 +60,7 @@ return [
     'new_password'=>'New Password',
      'confirm_new_password' => 'Confirm New Password',
     'hello' =>'Hello!',
-    'created' => 'created_at',
+    'created' => 'created at',
     'verified' => ' is verified',
     'yes' =>'yes',
     'no' =>'no',
@@ -113,7 +113,8 @@ return [
     'date_sent_from' => 'Sent from date',
     'date_sent_to' => 'Sent to date',
     'lang' => 'language',
-    'signed_at' => 'Signed at'
+    'signed_at' => 'Signed at',
+    'product_title' => 'product title '
 
 
 

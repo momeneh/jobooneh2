@@ -61,6 +61,7 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('admin.message_reply');
         Route::get('/contacts','ContactController@index')->name('admin.contacts');
         Route::get('/contacts/{id}','ContactController@show')->name('admin.show_contacts');
+        Route::resource('/comment','Admin\CommentController');
         Route::resource('/subscribe','Admin\SubscribeController');
         Route::get('/subscribe_excel/{id}','Admin\SubscribeController@receivers')->name('subscribe_excel');
         Route::get('/subscribe_send/{id}','Admin\SubscribeController@send')->name('subscribe_send');
@@ -80,6 +81,11 @@ Route::group(['prefix'=>'admin'],function (){
 //
 //    return view('emails.newsletter',['body'=>$n->body]);
 //});
+Route::get('/rl',function (){
+    \Illuminate\Support\Facades\Artisan::call('route:list');
+    dd(\Illuminate\Support\Facades\Artisan::output());
+
+});
 //--------------------Normal Users------------------------------
 /*dashboard*/ Route::get('/home', 'UserController@dashboard')->name('dashboard')->middleware('verified');
 Route::group( ['middleware' => 'auth'],function (){

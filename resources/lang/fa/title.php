@@ -106,6 +106,7 @@ return [
     'phone' => 'تلفن',
     'category'=>'دسته بندی',
     'comment'=>'نظر',
+    'comments'=>'نظرات',
     'user_creator' => 'کاربر ایجاد کننده',
     'receivers_count' => 'تعداد دریافت کنندگان ایمیل ',
     'is_sent' => 'ارسال شده',
@@ -114,7 +115,8 @@ return [
     'date_sent_from' => 'تاریخ ارسال از',
     'date_sent_to' => ' تاریخ ارسال تا ',
     'lang' => 'زبان',
-    'signed_at' => 'عضو شده در تاریخ'
+    'signed_at' => 'عضو شده در تاریخ',
+    'product_title' => 'نام محصول'
 
 
 
