@@ -56,7 +56,7 @@
                 </table>
             </div>
         {{$list->appends(request()->query())->links()}} <!-- PAGINATION-->
-            <form method="'get" action="{{route($prefix.'message.index')}}" class="search-form">
+            <form method="get" action="{{route($prefix.'message.index')}}" class="search-form">
                 <div class="form-search">
                     <label for="subject">{{ __('title.subject')}}: </label>
                     <input type="text" name="subject" value="{{$request->subject}}" class="form-control"  >

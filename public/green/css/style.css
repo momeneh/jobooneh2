@@ -2699,3 +2699,34 @@ a.btn-round {
     border-bottom: #4bc714 solid 1px;
 
 }
+.S_header{
+    color: #535353;
+    letter-spacing: .2px;
+    font-weight: 700;
+    line-height: 1.571;
+    padding: 8px 16px 10px 15px;
+    border-bottom: 1px solid #f2f2f2;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+.cat_search{
+    margin: 5px;
+    max-height: 250px;
+    overflow: hidden;
+    line-height: 30px;
+    padding-right: 15px;
+}
+.box_side{
+    margin-top: 10px;
+    margin-left: 0;
+    padding-bottom: 10px;
+}
+.cat_search_is_parent{
+
+}
+.color_green{
+    color: #4bc714;
+}
+.search_link:hover{
+    cursor: pointer;
+}

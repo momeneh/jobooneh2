@@ -26,6 +26,7 @@ Route::get('product/{id}', 'ProductController@show')->name('pages.product');
 Route::get('productOwner/{id}', 'ProductController@owner')->name('pages.owner');
 Route::post('comment_store/', 'ProductController@commentStore')->name('comment.store');
 Route::post('product/', 'ProductController@rateStore')->name('pages.productRate');
+Route::get('search/', 'ProductController@search')->name('pages.search');
 
 Auth::routes(['verify' => true]);
 
@@ -82,8 +83,8 @@ Route::group(['prefix'=>'admin'],function (){
 //    return view('emails.newsletter',['body'=>$n->body]);
 //});
 Route::get('/rl',function (){
-    \Illuminate\Support\Facades\Artisan::call('route:list');
-    dd(\Illuminate\Support\Facades\Artisan::output());
+//    \Illuminate\Support\Facades\Artisan::call('route:list');
+//    dd(\Illuminate\Support\Facades\Artisan::output());
 
 });
 //--------------------Normal Users------------------------------

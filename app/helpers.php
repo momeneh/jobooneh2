@@ -37,3 +37,23 @@ if(!function_exists('StringToDate')){
         return $date;
     }
 }
+
+//parent_id in fields
+if(!function_exists('ArrayToTree')){
+    function ArrayToTree(array $elements, $parentId = 0) {
+        $branch = array();
+
+        foreach ($elements as $element) {
+            if ($element['parent_id'] == $parentId) {
+                $children = ArrayToTree($elements, $element['id']);
+                if ($children) {
+                    $element['children'] = $children;
+                }
+                $branch[] = $element;
+            }
+        }
+
+        return $branch;
+    }
+
+}

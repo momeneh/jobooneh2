@@ -55,7 +55,7 @@
             </div>
              {{$list->links()}} <!-- PAGINATION-->
 {{--            <h2>{{ __('title.search')}}</h2>--}}
-            <form method="'get" action="{{route('link.index')}}" class="search-form">
+            <form method="get" action="{{route('link.index')}}" class="search-form">
                 <div class="form-search">
                     <label for="id">{{ __('title.id')}}: </label>
                     <input type="text" name="id" value="{{$request->id}}" class="form-control"  >

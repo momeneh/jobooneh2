@@ -16,9 +16,9 @@
 
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                <form class="search">
+                <form class="search" method="get" action="{{route('pages.search')}}" >
                     <button><img src="{{ asset('green') }}/images/search_icon.png"></button>
-                    <input class="form-control" id="site_search_box" type="text" placeholder="{{__('title.search')}}">
+                    <input class="form-control" id="site_search_box" type="text" placeholder="{{__('title.search')}}" name="search_key" @if(!empty($request->search_key)) value="{{$request->search_key}}" @endif>
                 </form>
             </div>
         </div>

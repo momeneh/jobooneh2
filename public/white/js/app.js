@@ -157,3 +157,10 @@
       })
 
   }
+
+  function Redirect(element) {
+      type = $(element).attr('type');
+      request[type+'_id'] = $(element).attr("link_id");
+      st = (Object.keys(request).map(key => `${key}=${encodeURIComponent(request[key])}`).join('&'));
+      window.location = url +'?'+ st;
+  }
