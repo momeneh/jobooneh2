@@ -98,20 +98,26 @@ class Product extends Model
             ->cursorPaginate(6);
     }
 
+    private static function GetProductsSearchPart($request,$q){
+        return $q->where('p.confirmed','1')
+            ->where('p.lang_id','=',Helper::GetLocaleNumber())
+            ->where('c.lang_id','=',Helper::GetLocaleNumber())
+            ->join('categories As c', 'c.id', '=', 'p.categories_id')
+            ->where(function ($q) use ($request ){
+                $q->where('p.title' ,'LIKE','%'.$request->search_key.'%')
+                    ->orWhere('p.description','LIKE','%'.$request->search_key.'%')
+                    ->orWhere('c.title','LIKE','%'.$request->search_key.'%')
+                ;
+            });
+    }
+
     public static function GetProductsSearch($request){
         $result = self::from('products AS p')
             ->select('p.*','c.title as category')
             ->orderBy('visited_count','DESC')
-            ->orderBy('p.id','DESC')
-            ->where('p.confirmed','1')
-            ->where('p.lang_id','=',Helper::GetLocaleNumber())
-            ->join('categories As c', 'c.id', '=', 'p.categories_id')
-            ->where(function ($q) use ($request ){
-                $q->where('p.title' ,'LIKE','%'.$request->search_key.'%')
-                    ->orWhere('description','LIKE','%'.$request->search_key.'%')
-                    ->orWhere('c.title','LIKE','%'.$request->search_key.'%')
-                    ;
-            });
+            ->orderBy('p.id','DESC');
+        $result = self::GetProductsSearchPart($request,$result);
+
         if(!empty($request->cat_id)) $result = $result->where('c.id','=',$request->cat_id);
         if(!empty($request->owner_id)) $result = $result->where('p.user_id','=',$request->owner_id);
 
@@ -122,39 +128,27 @@ class Product extends Model
         return $result;
     }
 
-    public static function GetCategoriesSearch($key){
-        return self::from('products AS p')
-            ->select('c.id','c.title','c.parent_id')
-            ->where('p.confirmed','1')
-            ->where('p.lang_id','=',Helper::GetLocaleNumber())
-            ->join('categories As c', 'c.id', '=', 'p.categories_id')
-            ->where(function ($q) use ($key){
-                $q->where('p.title' ,'LIKE','%'.$key.'%')
-                    ->orWhere('description','LIKE','%'.$key.'%')
-                    ->orWhere('c.title','LIKE','%'.$key.'%')
-                ;
-            })
-            ->groupBy('c.id')
-            ->get()
-        ;
+    public static function GetCategoriesSearch($request){
+        $result = self::from('products AS p')
+                    ->select('c.id','c.title','c.parent_id') ;
+
+        $result = self::GetProductsSearchPart($request,$result);
+
+        $result = $result->groupBy('c.id')->get()   ;
+        return $result;
     }
 
-    public static function GetOwnersSearch($key){
-        return self::from('products AS p')
+    public static function GetOwnersSearch($request){
+        $result = self::from('products AS p')
             ->select('u.id','u.name')
-            ->where('p.confirmed','1')
-            ->where('p.lang_id','=',Helper::GetLocaleNumber())
-            ->join('categories As c', 'c.id', '=', 'p.categories_id')
-            ->join('users As u', 'u.id', '=', 'p.user_id')
-            ->where(function ($q) use ($key){
-                $q->where('p.title' ,'LIKE','%'.$key.'%')
-                    ->orWhere('p.description','LIKE','%'.$key.'%')
-                    ->orWhere('c.title','LIKE','%'.$key.'%')
-                ;
-            })
-            ->groupBy('u.id')
-            ->get()
-            ;
+            ->join('users As u', 'u.id', '=', 'p.user_id');
+
+        $result = self::GetProductsSearchPart($request,$result);
+
+        $result = $result->groupBy('u.id')->get();
+        return $result;
     }
+
+
 
 }

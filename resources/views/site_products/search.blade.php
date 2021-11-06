@@ -11,7 +11,7 @@
     <div class="inner_page">
         <div class="col-xl-12 row">
             @if(!empty($categories[0]) || !empty($owners[0]))
-            <div class="col-xl-3 " style="margin-right: 110px" >
+            <div class="col-xl-3 search-side" >
                 @if(!empty($categories[0]))
                     <div class="inner_page_box box_side">
                         <div class="S_header">{{__('Categories result')}}</div>
