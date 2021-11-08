@@ -12,7 +12,7 @@
                 <table border="1" cellpadding="20" class="table table-hover" id=" list">
                     <thead>
                     <tr>
-                        <th colspan="9" class="th_title">
+                        <th colspan="10" class="th_title">
                             <span>{{__('title.products')}}</span>
                             <a href="{{route($r.'.create')}}" class="btn btn-create" >  {{ __('title.create_new')}}</a>
                         </th>
@@ -26,6 +26,7 @@
                         <td>{{ __('title.categories')}}</td>
                         <td>{{ __('title.confirmed')}}</td>
                         <td>{{ __('title.sell_status')}}</td>
+                        <td>{{ __('title.stock')}}</td>
                         <td>{{ __('title.price')}}</td>
                     </tr>
                     </thead>
@@ -52,6 +53,7 @@
                                     <a href="" class="confirm_user btn-light tim-icons icon-bell-55" id="{{$item->id}}" title="{{__('title.not_confirm_reason')}}"></a> @endif
                             </td>
                             <td>{{__('title.sell_status_'.$item->sell_status)}}</td>
+                            <td><a href="{{route('productCountLog',$item->id)}}">{{$item->count}}</a></td>
                             <td>{{$item->price}}</td>
                         </tr>
                     @endforeach

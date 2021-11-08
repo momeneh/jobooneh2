@@ -114,7 +114,9 @@ return [
     'date_sent_to' => 'Sent to date',
     'lang' => 'language',
     'signed_at' => 'Signed at',
-    'product_title' => 'product title '
+    'product_title' => 'product title ',
+    'stock' => 'stock',
+    'log' => 'log'
 
 
 

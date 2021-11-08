@@ -13,6 +13,7 @@ use App\Models\ProductsImages;
 use App\Models\User;
 use App\Notifications\ProductChanged;
 use App\Notifications\ProductCreated;
+use Carbon\Carbon;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -78,12 +79,14 @@ class ProductController extends Controller
         $this->validate($request,[
             'category_id' => 'required|numeric',
             'title' => 'required|min:3',
-            'image.*' => 'required'
+            'image.*' => 'required',
+            'count' =>'required|numeric'
         ]);
         $record = new product();
         $this->SetAttriburtes($record,$request);
         $record->confirmed = 0;
         $record->save();
+        Storage::put('product_count_logs/'.$record->id.'.txt',Carbon::now().': ----' .$record->count . ' inserted to db ----');//count_log
 
         $alts = $request->input('alt', []);
         $images = $request->input('image', []);
@@ -119,9 +122,9 @@ class ProductController extends Controller
         $product = Product::findOrfail($id);
         $this->authorize('update',$product )    ;
         $categories = Categories::orderBy('id','DESC')->where('lang_id','=',Helper::GetLocaleNumber())->get();
+        $log = Storage::get('product_count_logs/'.$product->id.'.txt');
         $product->load('images');
-
-        return view('user_product.edit',compact('product','categories'));
+        return view('user_product.edit',compact('product','categories','log'));
     }
 
     /**
@@ -139,19 +142,16 @@ class ProductController extends Controller
         $this->validate($request,[
             'category_id' => 'required|numeric',
             'title' => 'required|min:3',
-            'image.*' => 'required'
+            'image.*' => 'required',
+            'count'=> 'required|numeric'
         ]);
 
-        $record->title = $request['title'];
-        $record->user_id = Auth::id();
-        $record->categories_id = $request['category_id'];
-        $record->description = $request['description'];
-        $record->sell_status = $request['sell_status'];
-        $record->pre_pay = $request['pre_pay'];
-        $record->duration_of_work = $request['duration'];
-        $record->price = $request['price'];
-        $record->lang_id = Helper::GetLocaleNumber();
+        if($record->count != $request['count'])
+            Storage::append('product_count_logs/'.$record->id.'.txt', Carbon::now().': ---- the owner changed count to  ' .$request['count'] . '  ---- ');
+
+        $this->SetAttriburtes($record,$request) ;
         $record->save();
+
 
         $alts = $request->input('alt', []);
         $images = $request->input('image', []);
@@ -179,6 +179,10 @@ class ProductController extends Controller
     {
         $pro =  Product::findOrFail($id);
         $this->authorize('delete',$pro )    ;
+
+        if(Storage::exists('product_count_logs/'.$pro->id.'.txt'))
+            Storage::delete('product_count_logs/'.$pro->id.'.txt');
+
         $images = $pro->images()->get();
 
         foreach ($images as $i){
@@ -239,6 +243,7 @@ class ProductController extends Controller
         $record->duration_of_work = $request['duration'];
         $record->price = $request['price'];
         $record->lang_id = Helper::GetLocaleNumber();
+        $record->count = $request['count'];
 
     }
 }

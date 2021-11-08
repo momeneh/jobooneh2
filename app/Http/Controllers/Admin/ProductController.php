@@ -95,7 +95,9 @@ class ProductController extends Controller
         $record->duration_of_work = $request['duration'];
         $record->price = $request['price'];
         $record->lang_id = Helper::GetLocaleNumber();
+        $record->count = $request['count'];
         $record->save();
+        Storage::put('product_count_logs/'.$record->id.'.txt',Carbon::now().': ----' .$record->count . ' inserted to db ----');//count_log
 
         $alts = $request->input('alt', []);
         $images = $request->input('image', []);
@@ -129,7 +131,8 @@ class ProductController extends Controller
     {
         $categories = Categories::orderBy('id','DESC')->where('lang_id','=',Helper::GetLocaleNumber())->get();
         $product->load('images','owner');
-        return view('product.edit',compact('product','categories'));
+        $log = Storage::get('product_count_logs/'.$product->id.'.txt');
+        return view('product.edit',compact('product','categories','log'));
     }
 
     /**
@@ -150,6 +153,8 @@ class ProductController extends Controller
         ],['owner_id.required'=>$m,'owner_id.numeric'=>$m,'owner_id.exists'=>$m]);
 
         $record = Product::findOrFail($id);
+        if($record->count != $request['count'])
+            Storage::append('product_count_logs/'.$record->id.'.txt', Carbon::now().': ---- the owner changed count to  ' .$request['count'] . '  ---- ');
         $record->title = $request['title'];
         $record->user_id = $request['owner_id'];
         $record->categories_id = $request['category_id'];
@@ -160,6 +165,7 @@ class ProductController extends Controller
         $record->duration_of_work = $request['duration'];
         $record->price = $request['price'];
         $record->lang_id = Helper::GetLocaleNumber();
+        $record->count = $request['count'];
         $record->save();
 
         $alts = $request->input('alt', []);
@@ -185,6 +191,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $pro =  Product::findOrFail($id);
+        Storage::delete('file.jpg');
+
+        if(Storage::exists('product_count_logs/'.$pro->id.'.txt'))
+            Storage::delete('product_count_logs/'.$pro->id.'.txt');
+
         $images = $pro->images()->get();
 
         foreach ($images as $i){

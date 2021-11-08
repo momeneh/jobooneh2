@@ -67,6 +67,13 @@
         @include('alerts.feedback', ['field' => 'price'])
     </div>
 </div>
+<div  id="stock" class="form-group{{ $errors->has('count') ? ' has-danger' : '' }}" >
+    <label class="col-md-4 control-label ">{{ __('title.stock') }}<span class="require">*</span></label>
+    <div class="col-md-6">
+        <input type="number" name="count" class="form-control{{ $errors->has('count') ? ' is-invalid' : '' }}"    value="{{ old('count') }}" required   >
+        @include('alerts.feedback', ['field' => 'count'])
+    </div>
+</div>
 
 <div class="card detail" >
     <div class="card-header">

@@ -100,6 +100,11 @@ Route::group( ['middleware' => 'auth'],function (){
         Route::delete('notifications/{id}','Dashboard\PageController@destroyNotifications')->name('delete_notifications');
         Route::get('notifications/delete_all','Dashboard\PageController@destroyAllNotifications')->name('destroy_notifications');
         Route::resource('/userProduct','Dashboard\ProductController');
+        Route::get('/productCountLog/{id}',function ($id){
+            if(\Illuminate\Support\Facades\Storage::exists('product_count_logs/'.$id.'.txt'))
+                return \Illuminate\Support\Facades\Storage::download('product_count_logs/'.$id.'.txt');
+            else abort(404);
+        })->name('productCountLog');
         Route::post('/upload','Dashboard\ProductController@UploadFile')->name('upload_file_user_product');
         Route::post('/remove','Dashboard\ProductController@RemoveFile')->name('remove_file_user_product');
         Route::resource('/message','MessageController');

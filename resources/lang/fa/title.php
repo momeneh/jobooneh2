@@ -116,7 +116,9 @@ return [
     'date_sent_to' => ' تاریخ ارسال تا ',
     'lang' => 'زبان',
     'signed_at' => 'عضو شده در تاریخ',
-    'product_title' => 'نام محصول'
+    'product_title' => 'نام محصول',
+    'stock' => 'موجودی',
+    'log' => 'تاریخچه تغییرات'
 
 
 
