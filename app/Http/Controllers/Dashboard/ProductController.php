@@ -122,7 +122,7 @@ class ProductController extends Controller
         $product = Product::findOrfail($id);
         $this->authorize('update',$product )    ;
         $categories = Categories::orderBy('id','DESC')->where('lang_id','=',Helper::GetLocaleNumber())->get();
-        $log = Storage::get('product_count_logs/'.$product->id.'.txt');
+        $log = Storage::exists('product_count_logs/'.$product->id.'.txt') ?  Storage::get('product_count_logs/'.$product->id.'.txt') : '';
         $product->load('images');
         return view('user_product.edit',compact('product','categories','log'));
     }

@@ -159,8 +159,17 @@
   }
 
   function Redirect(element) {
-      type = $(element).attr('type');
+      type = $(element).attr('Stype');
       request[type+'_id'] = $(element).attr("link_id");
+      st = (Object.keys(request).map(key => `${key}=${encodeURIComponent(request[key])}`).join('&'));
+      window.location = url +'?'+ st;
+  }
+
+  function RedirectCheck(element) {
+      type = $(element).attr('Stype');
+      if ($(element).is(':checked') == 1)
+        request[type] = 1 ;
+      else request[type] = 0 ;
       st = (Object.keys(request).map(key => `${key}=${encodeURIComponent(request[key])}`).join('&'));
       window.location = url +'?'+ st;
   }

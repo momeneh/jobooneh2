@@ -31,7 +31,7 @@
                             <ul class="cat_search">
                                 @foreach($owners as $owner)
                                     <li>
-                                        <span > <a class="search_link" onclick="Redirect(this)" link_id="{{$owner->id}}" type="owner"
+                                        <span > <a class="search_link" onclick="Redirect(this)" link_id="{{$owner->id}}" Stype="owner"
                                                    @if(!empty($request->owner_id) && $request->owner_id == $owner->id) style="color: #4bc714;" @endif
                                             > {{$owner['name']}}</a>    </span>
                                     </li>
@@ -40,6 +40,21 @@
                         </div>
                     </div>
                 @endif
+
+                <div class="inner_page_box box_side">
+                    <div class="custom-control custom-switch" style="padding:10px 43px">
+                        <input type="checkbox" class="custom-control-input" id="available" onclick="RedirectCheck(this)"  Stype="available"
+                            @if(!empty($request->available)) checked="true" @endif>
+                        <label class="custom-control-label" for="available">{{__('title.available')}}
+
+                    </div>
+                    <div class="custom-control custom-switch" style="padding:10px 43px">
+                        <input type="checkbox" class="custom-control-input" id="can_order" onclick="RedirectCheck(this)"  Stype="can_order"
+                               @if(!empty($request->can_order)) checked="true" @endif >
+                        <label class="custom-control-label" for="can_order">{{__('title.can_order')}}</label>
+                    </div>
+
+                </div>
 
             </div>
             @endif

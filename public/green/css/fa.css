@@ -96,3 +96,9 @@ h2{
 .search-side{
     margin-right: 110px;
 }
+.custom-switch .custom-control-label::before {
+    right: -2.2rem;
+}
+.custom-switch .custom-control-label::after {
+    right: calc(-2.2rem + 12px);
+}

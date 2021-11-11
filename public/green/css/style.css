@@ -2420,15 +2420,12 @@ i.tim-icons {
 .categories_list div{
     padding: 15px;
 }
-.product_box div{
+.product_box div.product_info{
     width: 100%;
     padding: 12px;
     background-color: #2e3a2b12;
     padding-bottom: 20px;
 
-}
-.product_box div span{
-    float: left;
 }
 
 .swiper {
@@ -2731,3 +2728,22 @@ a.btn-round {
 .search_link:hover{
     cursor: pointer;
 }
+.product_info .row{
+    padding-bottom: 15px;
+}
+.product_info_stock{
+
+}
+.product_info_order{
+    text-align: left;
+}
+.color_red{
+    color: #bd2130;
+}
+.product-info_price{
+    padding-bottom: 5px;
+    float: left;
+}
+
+
+

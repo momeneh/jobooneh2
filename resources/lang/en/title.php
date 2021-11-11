@@ -116,7 +116,8 @@ return [
     'signed_at' => 'Signed at',
     'product_title' => 'product title ',
     'stock' => 'stock',
-    'log' => 'log'
+    'log' => 'log',
+    'can_order' => 'Can be ordered'
 
 
 

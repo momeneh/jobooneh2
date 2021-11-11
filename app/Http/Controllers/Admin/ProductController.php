@@ -131,7 +131,7 @@ class ProductController extends Controller
     {
         $categories = Categories::orderBy('id','DESC')->where('lang_id','=',Helper::GetLocaleNumber())->get();
         $product->load('images','owner');
-        $log = Storage::get('product_count_logs/'.$product->id.'.txt');
+        $log = Storage::exists('product_count_logs/'.$product->id.'.txt') ?  Storage::get('product_count_logs/'.$product->id.'.txt') : '';
         return view('product.edit',compact('product','categories','log'));
     }
 

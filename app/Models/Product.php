@@ -120,6 +120,8 @@ class Product extends Model
 
         if(!empty($request->cat_id)) $result = $result->where('c.id','=',$request->cat_id);
         if(!empty($request->owner_id)) $result = $result->where('p.user_id','=',$request->owner_id);
+        if(!empty($request->available)) $result = $result->where('p.count','>' ,'0');
+        if(!empty($request->can_order)) $result = $result->where('p.sell_status','=','2');
 
         $result = $result
             ->with('images')
