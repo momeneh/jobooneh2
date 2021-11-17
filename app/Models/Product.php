@@ -151,6 +151,29 @@ class Product extends Model
         return $result;
     }
 
+    public static function GetBasketProducts($pros,$get = ''){
+        $result = self::from('products AS p')
+            ->where('p.confirmed','1')
+            ->where('p.lang_id','=',Helper::GetLocaleNumber())
+            ->whereIn('p.id',$pros)
+            ->join('users As u', 'u.id', '=', 'p.user_id')
+           ;
+
+        if($get == 'owners')
+            $result = $result->distinct('u.id')-> select('u.*');
+
+        else $result = $result->select('p.*','u.id as user_id','u.name')
+            ->orderBy('p.user_id','ASC')
+            ->orderBy('p.id','DESC')
+            ->with('images');
+
+        $result = $result->get();
+
+        return $result;
+    }
+
+
+
 
 
 }

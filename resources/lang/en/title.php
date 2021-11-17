@@ -117,7 +117,9 @@ return [
     'product_title' => 'product title ',
     'stock' => 'stock',
     'log' => 'log',
-    'can_order' => 'Can be ordered'
+    'can_order' => 'Can be ordered',
+    'postal_code' => 'Post Code',
+    'buy_item' => '  Add to my basket '
 
 
 

@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\User;
 use http\Params;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Faker\Factory as Faker;
 
@@ -38,7 +39,7 @@ class ProductController extends Controller
         return view('site_products.cat_products',['products'=> $result,'category'=>$category]);
     }
 
-    public function show($id,Request $request){
+    public function show($id,Request $request,BasketContract $basket){
 //              Comment::factory(20)->create();
         $comments = $this->LoadComments($id,$request);
 
@@ -55,7 +56,13 @@ class ProductController extends Controller
         if($product->sum_rate > 0 )
             $product->rate = round($product->sum_rate / $product->count_rate,0);
         else $product->rate = 0;
-        return view('site_products.product',['product'=> $product,'comments'=>$comments]);
+
+        $number_basket =  $basket->IsBasket($product->id)  ;
+        $is_in_basket = empty($number_basket) ? false :true ;
+        $show_add_basket = ($product->count >0 && !$is_in_basket ) ? 1 : 0 ;
+        $show_plus_btn = $product->count - $number_basket > 0 ? 1 : 0;
+
+        return view('site_products.product',compact('product','comments','show_add_basket','number_basket','show_plus_btn'));
     }
 
     private function LoadComments($pro_id,$request){
@@ -125,5 +132,9 @@ class ProductController extends Controller
         $owners = Product::GetOwnersSearch($request);
         return view('site_products.search',['products'=> $result,'request'=>$request,'categories'=>$cats,'owners'=>$owners]);
     }
+
+
+
+
 
 }

@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\BasketContract;
+use App\Http\Controllers\BasketController;
+use App\Http\Controllers\TmpBasketController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
@@ -22,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
         if (file_exists($file)) {
             require_once($file);
         }
+
+        $this->app->singleton(BasketContract::class,function (){
+            if(empty(auth()->id())) return new TmpBasketController( );
+            return new BasketController();
+        });
     }
 
     /**

@@ -107,7 +107,10 @@
                             @else <a class="en" href="{{ route('lang','fa') }}" > Farsi </a>
                             @endif
                         </li>
-                        <li><img src="{{ asset('green') }}/icon/email1.png" />info@mamanDooz.com</li>
+                        <li>
+                            <a href="{{route('login')}}"><img src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /> {{__('login')}}</a>
+                            <a href="{{route('basket.index')}}"><img src="{{ asset('green') }}/icon/bask.png" onmouseover="this.src='{{asset('green')}}/icon/bask1.png'" onmouseout="this.src='{{asset('green')}}/icon/bask.png'"  /></a>
+                        </li>
 
                         {{--                            <li><img src="{{ asset('green') }}/icon/call1.png" />(+71)9876543109</li>--}}
                     </ul>

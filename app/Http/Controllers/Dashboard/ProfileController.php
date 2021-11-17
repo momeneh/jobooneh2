@@ -36,8 +36,9 @@ class ProfileController extends Controller
             'name' => ['required','min:3','max:50'],
             'email' =>['required', 'string', 'email',Rule::unique('users')->ignore(auth()->user()->id)],
             'mobile' => ['nullable','numeric'],
-            'image' =>'nullable|image|mimes:jpeg,png,jpg|max:8192|dimensions:max_width=800,max_height=800'
-        ];
+            'image' =>'nullable|image|mimes:jpeg,png,jpg|max:8192|dimensions:max_width=800,max_height=800',
+            'postal' => ['nullable','digits:10'],
+      ];
         $uplaod_need = true;
         if(empty($request['image']) && !empty($request['image_name'])){
             $request['image'] = $request['image_name'];
@@ -55,6 +56,7 @@ class ProfileController extends Controller
         $record->g_plus_address = $request['gplus'];
         $record->insta_address = $request['insta'];
         $record->facebook_address = $request['facebook'];
+        $record->postal_code = $request['postal'];
         $record->save();
 
         if($uplaod_need)

@@ -61,7 +61,7 @@
                                     <i class="tim-icons icon-chat-33"></i>
                                 </div>
                             </div>
-                            <input type="tel" name="mobile" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" placeholder="{{ __('title.mobile') }}">
+                            <input type="tel" name="mobile" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" placeholder="{{ __('title.mobile') }}" value="{{old('mobile')}}">
                             @include('alerts.feedback', ['field' => 'mobile'])
                         </div>
 
@@ -72,8 +72,18 @@
                                     <i class="tim-icons icon-square-pin"></i>
                                 </div>
                             </div>
-                            <textarea  name="address" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" placeholder="{{ __('title.address') }}"></textarea>
+                            <textarea  name="address" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" placeholder="{{ __('title.address') }}">{{old('address')}}</textarea>
                             @include('alerts.feedback', ['field' => 'address'])
+                        </div>
+
+                        <div class="input-group{{ $errors->has('postal') ? ' has-danger' : '' }}">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="tim-icons icon-square-pin"></i>
+                                </div>
+                            </div>
+                            <input type="text" name="postal" id="postal" maxlength="10" class="form-control{{ $errors->has('postal') ? ' is-invalid' : '' }}" value="{{old('postal')}}" placeholder="{{ __('title.postal_code') }}"  >
+                            @include('alerts.feedback', ['field' => 'postal'])
                         </div>
 
                         @if(config('services.recaptcha.key'))

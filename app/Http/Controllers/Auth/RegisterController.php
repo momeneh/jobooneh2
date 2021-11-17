@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'agree_terms_and_conditions' => ['required'],
             'mobile' => ['nullable','numeric'],
+            'postal' => ['nullable','digits:10'],
             'g-recaptcha-response' => 'required|recaptcha'
       ]);
     }
@@ -71,7 +72,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'mobile_no' => $data['mobile'],
-            'address' => $data['address']
+            'address' => $data['address'],
+            'postal_code' => $data['postal']
         ]);
         event(new Registered($user));
     }

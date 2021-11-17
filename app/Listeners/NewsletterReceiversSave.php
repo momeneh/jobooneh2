@@ -26,7 +26,9 @@ class NewsletterReceiversSave
      */
     public function handle(NotificationSent $event)
     {
-        //1:count_receilvers in newsletter
+       if(strpos(get_class($event->notification),"Newsletter") == false ) return;
+
+        //1:count_receivers in newsletter
         $event->notification->SetCountReceivers();
 
         //2:detail newsletter_receivers

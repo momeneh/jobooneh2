@@ -173,3 +173,10 @@
       st = (Object.keys(request).map(key => `${key}=${encodeURIComponent(request[key])}`).join('&'));
       window.location = url +'?'+ st;
   }
+
+  $(document).ready(function() {
+      $("#postal").keyup(function() {
+          var dInput = $(this).val();
+          $("#postal").val(dInput.replace(/\D/g, ""));
+      });
+  });

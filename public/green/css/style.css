@@ -2744,6 +2744,73 @@ a.btn-round {
     padding-bottom: 5px;
     float: left;
 }
-
-
-
+.basket_part{
+    float: left;
+    font-size: 13px;
+    cursor: pointer;
+}
+.btn_add_basket {
+    background-color: #0a4517;
+    color: #fff;
+    padding: 0 8px;
+    border: 1px solid #1e7e34;
+    border-radius: 7px;
+}
+.btn_add_basket:hover{
+    box-shadow: 0 1px 5px 0px rgb(25, 23, 23);
+}
+.basket_btn{
+    direction: ltr;
+    line-height: 30px;
+    padding: 0 8px;
+    border: 1px solid #1e7e34;
+    border-radius: 7px;
+}
+.plus_basket{
+    font-size: 22px;
+    margin-left: 3px;
+    width: 17px;
+}
+.basket_remove{
+    width: 22px;
+    margin-bottom: 5px;
+}
+.basket .basket_btn{
+    width: 74px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.basket .basket_part{
+    float: none;
+}
+.basket_part a{
+    float: left;
+    margin-left: 9px;
+}
+.basket_item{
+    border-bottom: #9599a4 solid 1px;
+    padding: 15px 0;
+}
+.basket .owner{
+    text-align: center;
+    border-bottom: 1px solid #4bc714;
+    width: 50%;
+    margin:12px auto;
+    min-height: 10px;
+}
+.basket .buy_basket{
+    text-align: left;
+    margin-top: -7px;
+}
+.basket .buy_basket a{
+    background-color: #bd2130;
+    padding: 5px 12px;
+    color: #fff;
+    border-radius: 10px;
+}
+.basket .buy_basket span{
+    background-color: #1e7e34;
+    padding: 5px 12px;
+    color: #fff;
+    border-radius: 10px;
+}

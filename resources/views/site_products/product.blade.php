@@ -30,7 +30,13 @@
                 </div>
 
                 <div class="col-xl-7 col-lg-5 col-md-5 col-sm-12" id="record_id" val_id="{{$product->id}}">
-                    <h1 class="product__name">{{$product->title}} </h1>
+                    <h1 class="product__name">{{$product->title}}
+                        <div class="basket_part">
+                            @include('site_products.basket_part')
+
+
+                        </div>
+                    </h1>
                     <h3><a href="{{route('pages.owner',$product->owner->id)}}">
                             <span class="color-g_l">{{__('title.owner')}} </span> :
                             {{$product->owner->name}}</a>

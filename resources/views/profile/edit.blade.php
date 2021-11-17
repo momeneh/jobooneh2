@@ -39,6 +39,12 @@
                             @include('alerts.feedback', ['field' => 'address'])
                         </div>
 
+                        <div class="form-group{{ $errors->has('postal') ? ' has-danger' : '' }}">
+                            <label>{{__('title.postal_code')}}</label>
+                            <input type="text" name="postal" id="postal" maxlength="10" class="form-control{{ $errors->has('postal') ? ' is-invalid' : '' }}" value="{{old('postal',auth()->user()->postal_code)}}"   >
+                            @include('alerts.feedback', ['field' => 'postal'])
+                        </div>
+
                         <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                             <label>{{ __('title.job_title') }}</label>
                             <input type="text" name="title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"  value="{{ old('title', auth()->user()->job_title) }}">

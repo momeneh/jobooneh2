@@ -275,7 +275,6 @@ $(function () {
 
 	$('.deal-slider').slick({
 		dots: false,
-		infinite: false,
 		prevArrow: '.previous-deal',
 		nextArrow: '.next-deal',
 		speed: 500,
@@ -368,7 +367,6 @@ $(function () {
 
 
 
-
 });
 
 function subscribe() {
@@ -388,6 +386,34 @@ function subscribe() {
         },
         error : function(jqXHR, textStatus, errorThrown) {
             demo.showNotification('bottom','center',"something is broken .Maybe the mail is not correct or repeated",2,'tim-icons icon-alert-circle-exc');
+        }
+
+    });
+}
+
+function Basket(element,pro_id,method,reload=0) {
+    var view = $(element).attr('view');
+    $.ajax({
+        url: $(element).attr('Burl'),
+        method:method,
+        dataType: "json",
+        data: {
+            'id': pro_id,
+            'view' : view
+        },
+        success:function(data){
+            if(data.msg != '')
+                demo.showNotification('bottom','center',data.msg,1,'tim-icons icon-satisfied');
+
+            if(reload == 1 )  location.reload();
+            else {
+                if (data.view) {
+                    $(element).parents(".basket_part").html(data.view);
+                }
+            }
+         },
+        error : function(jqXHR, textStatus, errorThrown) {
+            demo.showNotification('bottom','center',"sorry ! something is broken .",2,'tim-icons icon-alert-circle-exc');
         }
 
     });
