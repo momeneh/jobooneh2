@@ -17,7 +17,7 @@ body, html {
     direction: rtl;
     scroll-behavior: smooth;
 }
-.main-menu ul>li a{
+.main-menu ul>li a,.profile-dropdown a{
     font-family: Yekan,IRANYekan, sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -101,4 +101,7 @@ h2{
 }
 .custom-switch .custom-control-label::after {
     right: calc(-2.2rem + 12px);
+}
+.profile-dropdown{
+    text-align: right;
 }

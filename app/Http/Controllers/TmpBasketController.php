@@ -5,15 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class TmpBasketController extends Controller implements BasketContract
 {
     private $pro;
 
+    public function __construct()
+    {
+        $this->middleware('basket');
+    }
 
     public function store(Request $request)
     {
-        dd('ttemp');
+                    dd(auth()->id(),'ttemp');
+//        dd('ttemp');
         $this->validate($request,[
             'id' =>'required|numeric',
         ]);
@@ -67,6 +73,7 @@ class TmpBasketController extends Controller implements BasketContract
 
     public function Index(Request $request)
     {
+        dd('TmpBasketController==>Index');
         $list = [];
        foreach($_COOKIE as $name => $value){
            if(!is_numeric($value)) continue;

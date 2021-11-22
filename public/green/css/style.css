@@ -2814,3 +2814,58 @@ a.btn-round {
     color: #fff;
     border-radius: 10px;
 }
+.icon-user-info{
+    font-size: 10px !important;
+    margin-top: 15px;
+    margin-right: 3px;
+}
+.profile-dropdown {
+    display: none;
+     position: absolute;
+    top: calc(100% + 2px);
+    left: 26px;
+    width: 200px;
+    -webkit-box-shadow: 0 3px 8px 0 rgb(0 0 0 / 30%);
+    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 30%);
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    z-index: 1000;
+    color: #505257;
+    padding: 13px;
+    line-height: 22px;
+}
+.profile-dropdown a{
+    color: #505257;
+}
+.profile-dropdown .card-user .avatar{
+    width: 57px;
+    height: 60px;
+    padding: 0;
+    line-height: 0;
+    margin: 0;
+}
+.profile-dropdown .card-user{
+    min-height: 0;
+    padding-left: 12px;
+}
+.profile-dropdown-user{
+    display: flex;
+    border-bottom: dashed 1px;
+}
+.profile-dropdown-account{
+    border-bottom: solid 1px #dadcde;
+    padding-bottom: 4px;
+}
+.profile-dropdown a:hover{
+    color: #0b2e13;
+}
+.user_info_show{
+    position: relative
+}
+.profile-dropdown-user ,.profile-dropdown-account,.profile-dropdown-actions {
+    padding: 3px;
+}
+.profile-dropdown-user:hover ,.profile-dropdown-account:hover,.profile-dropdown-actions:hover{
+    background-color: #dbdee2;
+}

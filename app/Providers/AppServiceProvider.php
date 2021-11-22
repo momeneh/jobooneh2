@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Http\Controllers\BasketContract;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\TmpBasketController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
@@ -12,6 +14,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,20 +29,24 @@ class AppServiceProvider extends ServiceProvider
         if (file_exists($file)) {
             require_once($file);
         }
+        $this->app->call([$this, 'RegisterBasket']);
 
-        $this->app->singleton(BasketContract::class,function (){
-            dd(auth()->id(),'app');
-            if(empty(auth()->id())) return new TmpBasketController();
-            return new BasketController();
-        });
     }
 
+    public function RegisterBasket(Request $request){
+        $this->app->bind(BasketContract::class, function ($app) use ($request) {
+
+            if (!empty($request->user('web'))) return $app->make(BasketController::class);
+            else return $app->make(TmpBasketController::class);
+
+        });
+    }
     /**
      * Bootstrap any application services.
      *
      * @return void
      */
-    public function boot()
+    public function boot(Request $request)
     {
         Schema::defaultStringLength(191);
         View::composer(

@@ -10,11 +10,9 @@ use Illuminate\Http\Response;
 class BasketController extends Controller implements BasketContract
 {
 
-    private $user_id;
-    private $pro;
     public function __construct()
     {
-        $this->user_id = auth()->id();
+        $this->middleware('auth');
     }
 
     /**
@@ -24,7 +22,7 @@ class BasketController extends Controller implements BasketContract
      */
     public function index(Request $request)
     {
-        //
+        dd('BasketController->index');
     }
 
 
@@ -61,6 +59,7 @@ class BasketController extends Controller implements BasketContract
 
 
     public function IsBasket($id){
+        dd('basket');
         $result = Basket::select('count')->where('products_id','=',$id)->where('users_id','=',$this->user_id)->get();
         return !empty($result->count) ? $result->count : 0 ;
     }

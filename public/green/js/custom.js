@@ -46,7 +46,24 @@ $(function () {
 		$(".main-menu ul li.megamenu").mouseleave(function () {
 			$("#wrapper").removeClass('overlay');
 		});
-	});
+
+        $(".user_info").click(function(){
+            $("#box_user_info").toggle();
+        });
+        $(document).mouseup(function(e)
+        {
+            var mouse_is_inside = false;
+            $('#box_user_info').hover(function(){
+                mouse_is_inside=true;
+            }, function(){
+                mouse_is_inside=false;
+            });
+
+            $("body").mouseup(function(){
+                if(! mouse_is_inside) $('#box_user_info').hide();
+            });
+        });
+    });
 
 	/* NiceScroll
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
@@ -399,7 +416,8 @@ function Basket(element,pro_id,method,reload=0) {
         dataType: "json",
         data: {
             'id': pro_id,
-            'view' : view
+            'view' : view,
+            'user_id' : 'sdsd'
         },
         success:function(data){
             if(data.msg != '')

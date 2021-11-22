@@ -49,3 +49,22 @@ a.btn.btn-round{
 .search-side{
     margin-left: 110px;
 }
+.location_icon_bottum_tt {
+    text-align: right;
+}
+.profile-dropdown{
+    text-align: left;
+}
+#icon-user{
+    padding-left: 10px;
+    padding-right: 0;
+}
+.profile-dropdown .card-user{
+    padding-right: 12px;
+}
+.icon-user-info{
+    margin-left: 3px;
+}
+.profile-dropdown {
+    font-size: 12px;
+}
