@@ -27,7 +27,7 @@ Route::get('productOwner/{id}', 'ProductController@owner')->name('pages.owner');
 Route::post('comment_store/', 'ProductController@commentStore')->name('comment.store');
 Route::post('product/', 'ProductController@rateStore')->name('pages.productRate');
 Route::get('search/', 'ProductController@search')->name('pages.search');
-Route::resource('/basket','ParentBasketController');
+Route::resource('/basket','basket\ParentBasketController');
 
 Auth::routes(['verify' => true]);
 

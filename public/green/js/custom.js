@@ -417,7 +417,6 @@ function Basket(element,pro_id,method,reload=0) {
         data: {
             'id': pro_id,
             'view' : view,
-            'user_id' : 'sdsd'
         },
         success:function(data){
             if(data.msg != '')

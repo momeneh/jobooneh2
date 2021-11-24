@@ -1,4 +1,3 @@
-
 @extends('layouts.green_layout')
 @section('title')
     | {{__('title.basket')}}
@@ -8,6 +7,7 @@
     <div class="inner_page">
         <div class="col-xl-8 col-lg-5 col-md-5 co-sm-l2 inner_page_box" >
             <div class="basket" style="padding-top: 50px">
+                @if(!empty($owners))
                 @foreach($owners as $owner)
                     <div>
                     <div class="owner  card-user">
@@ -56,7 +56,15 @@
                         <a href="" >{{__('I want to buy')}}</a>
                     </div>
                 @endforeach
-                </div>
+                @else
+                    <div class="c-listing-not-found">
+                        <div class="c-message-light c-message-light--info c-listing-not-found__message">
+                            <div class="c-message-light__justify">
+                                <p>{{__('messages.basket_is_empty')}} </p>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

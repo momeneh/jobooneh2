@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\basket;
 
+use App\Http\Controllers\Controller;
 use App\Models\Basket;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class BasketController extends Controller implements BasketContract
 {
@@ -22,7 +22,14 @@ class BasketController extends Controller implements BasketContract
      */
     public function index(Request $request)
     {
-        dd('BasketController->index');
+        $owners = Product::GetBasketProducts('','owners',false);
+
+        $result = Product::GetBasketProducts('','',false);
+
+        foreach ($result as $product){
+            $product->show_plus_btn = $product->count - $product->basket_count > 0 ? 1 : 0;
+        }
+        return view('basket.index',['list'=> $result,'owners'=>$owners]);
     }
 
 
@@ -35,7 +42,6 @@ class BasketController extends Controller implements BasketContract
      */
     public function store(Request $request)
     {
-        dd('here');
         $this->validate($request,[
             'id' =>'required|numeric',
         ]);
@@ -43,12 +49,10 @@ class BasketController extends Controller implements BasketContract
         if($this->pro->count == 0 )
             return response()->json(['success' => false,'msg'=>__('out of stock ')],200);
 
-        var_dump($this->IsBasket($request['id']));die;
         if(!($this->IsBasket($request['id'])) ){
-            dd('here');
             $basket = new Basket();
             $basket->products_id  = $request['id'];
-            $basket->users_id = $this->user_id;
+            $basket->users_id = auth()->id();
             $basket->count = 1;
             $basket->save();
         }
@@ -59,12 +63,9 @@ class BasketController extends Controller implements BasketContract
 
 
     public function IsBasket($id){
-        dd('basket');
-        $result = Basket::select('count')->where('products_id','=',$id)->where('users_id','=',$this->user_id)->get();
-        return !empty($result->count) ? $result->count : 0 ;
+        $result = Basket::select('count')->where('products_id','=',$id)->where('users_id','=',auth()->id())->first();
+        return !empty($result->count) ? $result->count : 0;
     }
-
-
 
     /**
      * Update the specified resource in storage.
@@ -75,6 +76,19 @@ class BasketController extends Controller implements BasketContract
      */
     public function update(Request $request, $id)
     {
+        $pro = Product::findOrFail($request['id']);
+
+        $basket = Basket::where('products_id','=',$id)->where('users_id','=',auth()->id())->first();
+        if (empty($basket->id))
+            return response()->json(['success' => false,'msg'=>__('something is wrong .pls refresh the page')],200);
+
+        $basket->count = $basket->count+1;
+        $show_plus_btn = ($pro->count - $basket->count) > 0 ? 1 : 0;
+
+        $basket->save();
+
+        $view = view($request['view'], ['show_add_basket' =>0 ,'number_basket'=>$basket->count ,'show_plus_btn'=>$show_plus_btn,'product'=>$pro])->render();
+        response()->json(['success' => true,'msg'=>'','view' => $view], 200)->throwResponse();
     }
 
     /**
@@ -85,7 +99,15 @@ class BasketController extends Controller implements BasketContract
      */
     public function destroy($id,Request $request)
     {
+        $pro = Product::findOrFail($id);
+        $basket = Basket::where('products_id','=',$id)->where('users_id','=',auth()->id())->first();
+        if (empty($basket->id))
+            return response()->json(['success' => false,'msg'=>__('something is wrong .pls refresh the page')],200);
 
+        $basket->delete();
+
+        $view = view($request['view'], ['show_add_basket' =>1 ,'number_basket'=> 0,'show_plus_btn'=>1,'product'=>$pro])->render();
+        response()->json(['success' => true,'msg'=>'','view' => $view], 200)->throwResponse();
     }
 
 

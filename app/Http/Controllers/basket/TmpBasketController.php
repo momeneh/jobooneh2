@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\basket;
 
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class TmpBasketController extends Controller implements BasketContract
 {
@@ -18,8 +19,6 @@ class TmpBasketController extends Controller implements BasketContract
 
     public function store(Request $request)
     {
-                    dd(auth()->id(),'ttemp');
-//        dd('ttemp');
         $this->validate($request,[
             'id' =>'required|numeric',
         ]);
@@ -52,7 +51,7 @@ class TmpBasketController extends Controller implements BasketContract
     public function destroy($id,Request $request){
         $this->pro = Product::findOrFail($id);
         if(!$request->ajax()){
-            unset($_COOKIE['tmp_basket_pro_id_'.$id]);
+            Cookie::queue(Cookie::forget('tmp_basket_pro_id_' . $id));
             return back();
         }
         if (!isset($_COOKIE['tmp_basket_pro_id_'.$id]))
@@ -61,7 +60,7 @@ class TmpBasketController extends Controller implements BasketContract
         $view = view($request['view'], ['show_add_basket' =>1 ,'number_basket'=> 0,'show_plus_btn'=>1,'product'=>$this->pro])->render();
         $response = new Response(json_encode(['success' => true,'msg'=> '','view' => $view], 200));
 
-        unset($_COOKIE['tmp_basket_pro_id_'.$id]);
+        Cookie::queue(Cookie::forget('tmp_basket_pro_id_' . $id));
         $response->withCookie('tmp_basket_pro_id_'.$id,0,time() - (60 * 60 * 48))
             ->throwResponse();
         return $response;
@@ -73,8 +72,7 @@ class TmpBasketController extends Controller implements BasketContract
 
     public function Index(Request $request)
     {
-        dd('TmpBasketController==>Index');
-        $list = [];
+        $list = [];$result=[];$owners=[];
        foreach($_COOKIE as $name => $value){
            if(!is_numeric($value)) continue;
            if(  strpos($name,'tmp_basket_pro_id') === false) continue;
@@ -84,7 +82,7 @@ class TmpBasketController extends Controller implements BasketContract
            $pros[] = $id;
        }
        if(empty($pros))
-           return view('basket.index',['list'=> []]);
+           return view('basket.index',['list'=> $result,'basket'=>$list,'owners'=>$owners]);
 
        $owners = Product::GetBasketProducts($pros,'owners');
 

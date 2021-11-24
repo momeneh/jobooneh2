@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\basket;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 interface BasketContract
 {

@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Http\Controllers\basket\BasketContract;
 use App\Models\Categories;
 use App\Models\Comment;
 use App\Models\Product;
 use App\Models\User;
-use http\Params;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Cookie;
-use Faker\Factory as Faker;
 
 class ProductController extends Controller
 {

@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\basket;
 
-use App\Models\Product;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 
 class ParentBasketController extends Controller
 {
     //auth->id is not set when routing an interface so I could not use the interface name in route/web.php
-    //but auth->id is set when type hint and date inject the interface so i had to
+    //but auth->id is set when type hint and data inject the interface so i had to
     //make this controller as a second route between basket and tmpBasket
 
     public function store(Request $request,BasketContract $basket)
@@ -29,6 +27,6 @@ class ParentBasketController extends Controller
 
     public function Index(Request $request,BasketContract $basket)
     {
-        $basket->Index($request);
+        return $basket->Index($request);
     }
 }

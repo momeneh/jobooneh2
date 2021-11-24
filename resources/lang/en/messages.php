@@ -23,7 +23,8 @@ return [
     'search_try_again' => 'try:
                             - use more common words.
                             - check the word dictation.',
-    'reduce_filters' => 'reduce some of filers'
+    'reduce_filters' => 'reduce some of filers',
+    'basket_is_empty' => 'Your basket is empty ! '
 ];
 
 ?>

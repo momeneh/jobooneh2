@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Basket extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'created_at',
+        'updated_at',
+        'products_id',
+        'users_id',
+        'count'
+    ];
 }

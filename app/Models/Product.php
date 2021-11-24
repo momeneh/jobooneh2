@@ -151,11 +151,10 @@ class Product extends Model
         return $result;
     }
 
-    public static function GetBasketProducts($pros,$get = ''){
+    public static function GetBasketProducts($pros,$get = '',$tmp_basket = true){
         $result = self::from('products AS p')
             ->where('p.confirmed','1')
             ->where('p.lang_id','=',Helper::GetLocaleNumber())
-            ->whereIn('p.id',$pros)
             ->join('users As u', 'u.id', '=', 'p.user_id')
            ;
 
@@ -166,6 +165,20 @@ class Product extends Model
             ->orderBy('p.user_id','ASC')
             ->orderBy('p.id','DESC')
             ->with('images');
+
+        if($tmp_basket)
+            $result = $result
+                ->whereIn('p.id',$pros);
+        else {
+            $result = $result
+                ->join('baskets AS b', function ($join) {
+                    $join->on('b.products_id', '=', 'p.id')
+                        ->where('b.users_id', '=', auth()->id());
+                });
+            if($get == '')
+                $result = $result
+                    ->addSelect('b.count as basket_count');
+        }
 
         $result = $result->get();
 

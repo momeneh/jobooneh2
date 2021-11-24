@@ -30,7 +30,7 @@
                 @foreach($category_pros as $cp)
                     <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
                         <div class="for_box">
-                            <i><img src="{{ asset('category_icons/'.$cp->icon) }}" alt="#"/></i>
+                            <i><a href="{{route('pages.cat_products',$cp->id)}}"> <img src="{{ asset('category_icons/'.$cp->icon) }}" alt="#"/></a></i>
                             <span>{{$cp->count_pro}}</span>
                             <h3>{{$cp->title}}</h3>
                         </div>
@@ -58,12 +58,13 @@
                     @foreach($new_products as $i=>$np)
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 {{$style_ar[$i]}}">
                             <div class="offer_box">
+                                <a href="{{route('pages.product',$np->id)}}">
                                 <h3>{{$np->title}}</h3>
                                 @if(!empty($np->images[0]->image))
-                                    <figure><img src="{{ asset('product_images/'.$np->images[0]->image) }}" alt="img" /></figure>
+                                    <figure>    <img src="{{ asset('product_images/'.$np->images[0]->image) }}" alt="img" /></figure>
                                 @endif
                                 <p>{{substr($np->description,0,500)}}</p>
-
+                                </a>
                             </div>
                         </div>
 
@@ -100,8 +101,10 @@
                 @foreach($most_visited_products as $mv)
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="product_box">
+                            <a href="{{route('pages.product',$mv->id)}}">
                             <figure><img src="{{ asset('product_images/'.$mv->images[0]->image)}}" alt="#" />
                                 <h3>{{$mv->title}}</h3></figure>
+                            </a>
                         </div>
                     </div>
                 @endforeach
@@ -148,11 +151,13 @@
                                         </div>
                                         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 pa_left">
                                             <div class="cross_inner">
+                                                <a href="{{route('pages.owner',$t->owner->id)}}">
                                                 <h3>{{$t->owner->name}}<br><strong class="ornage_color">{{$t->owner->job_title}}</strong></h3>
                                                 <p><img src="{{ asset('green') }}/icon/1.png" alt="#" />
                                                     {{$t->owner->description}}
                                                     <img src="{{ asset('green') }}/icon/2.png" alt="#" />
                                                 </p>
+                                                </a>
 
                                             </div>
                                         </div>

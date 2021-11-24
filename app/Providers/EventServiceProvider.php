@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Listeners\BasketTempSave;
 use App\Notifications\Newsletter;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -23,7 +24,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         NotificationSent::class =>[
             NewsletterReceiversSave::class
-        ]
+        ],
+        'Illuminate\Auth\Events\Login' => [
+            BasketTempSave::class
+        ],
     ];
 
     /**
