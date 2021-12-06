@@ -106,3 +106,23 @@
     display: none;
 }
 
+
+
+.slider {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.slick-slide {
+    margin: 0px 5px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #1e7e34;
+}
+

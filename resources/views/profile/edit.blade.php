@@ -94,6 +94,10 @@
                             </div>
                         </div>
 
+                        @if(auth()->user()->is_owner == 1 )
+                            @include('profile.owner_part',['user'=>auth()->user()])
+                        @endif
+
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ __('title.edit') }}</button>
@@ -145,4 +149,9 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script>
+        var msg_invalid_card = "{{ __("card number is invalid")}}";
+    </script>
 @endsection

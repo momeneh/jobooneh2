@@ -119,7 +119,16 @@ return [
     'log' => 'log',
     'can_order' => 'Can be ordered',
     'postal_code' => 'Post Code',
-    'buy_item' => '  Add to my basket '
+    'buy_item' => '  Add to my basket ',
+    'post_price' => 'Add the price for sending your product with post to customers',
+    'card_number' => 'Enter your card number',
+    'card_owner' => 'Name of card Owner',
+    'address_delivery' => 'Address to receive product ',
+    'count' => 'count',
+    'post_price_2' =>' Post Price',
+    'sum_price' => 'Sum Should Pay',
+    'receipt' => '  receipt image',
+    'orders' => 'orders'
 
 
 

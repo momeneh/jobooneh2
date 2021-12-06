@@ -58,8 +58,9 @@ class UserController extends Controller
     {
         $rules=[
             'name' => ['required','min:3','max:50'],
-            'image' =>'nullable|image|mimes:jpeg,png,jpg|max:8192|dimensions:max_width=800,max_height=800'
-        ];
+            'image' =>'nullable|image|mimes:jpeg,png,jpg|max:8192|dimensions:max_width=800,max_height=800',
+            'card' => ['nullable','numeric']
+      ];
         $uplaod_need = true;
         if(empty($request['image']) && !empty($request['image_name'])){
             $request['image'] = $request['image_name'];
@@ -75,6 +76,10 @@ class UserController extends Controller
         $record->g_plus_address = $request['gplus'];
         $record->insta_address = $request['insta'];
         $record->facebook_address = $request['facebook'];
+        $record->is_owner = empty($request['is_owner']) ? 0: 1;
+        $record->post_price = $request['post_price'];
+        $record->card_number = $request['card'];
+        $record->card_owner = $request['card_owner'];
         $record->save();
 
         if($uplaod_need)
@@ -98,7 +103,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::findOrFail($id)->delete();
+        ESql();
+        $user = User::findOrFail($id);
+        if($user->Baskets()->count()){
+            return back()->with('error', __('messages.can_not_delete_for_pro_basket'));
+        }
+        DSql(1);
+        $user->delete();
         return back()->with('message', __('messages.deleted'));
     }
 

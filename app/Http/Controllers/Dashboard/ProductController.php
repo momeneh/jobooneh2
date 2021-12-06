@@ -179,6 +179,9 @@ class ProductController extends Controller
     {
         $pro =  Product::findOrFail($id);
         $this->authorize('delete',$pro )    ;
+        if($pro->Baskets()->count()){
+            return back()->with('error', __('messages.can_not_delete_for_basket'));
+        }
 
         if(Storage::exists('product_count_logs/'.$pro->id.'.txt'))
             Storage::delete('product_count_logs/'.$pro->id.'.txt');

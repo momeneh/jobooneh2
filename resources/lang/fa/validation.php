@@ -57,7 +57,7 @@ return  [
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
     'different' => 'فیلد :attribute و :other نباید یکسان باشند  .',
-    'digits' => 'The :attribute must be :digits digits.',
+    'digits' => 'فیلد :attribute باید :digits کاراکترعددی داشته باشد ',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'فیلد  :attribute دارای طول و عرض مناسب نمی باشد.',
     'distinct' => 'The :attribute field has a duplicate value.',

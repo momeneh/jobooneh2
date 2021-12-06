@@ -126,3 +126,7 @@
 .require {
     color: red;
 }
+.img_valid , .img_invalid{
+    width: 15px;
+    margin: 0 3px ;
+}

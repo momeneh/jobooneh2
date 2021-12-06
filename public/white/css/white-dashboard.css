@@ -5393,13 +5393,17 @@ input[type="button"].btn-block {
 }
 
 .alert-warning {
-  color: #8cff72;
-  background-color: #ff9f89;
-  border-color: #ff9f89;
+  color: #fff;
+  background-color: #860918;
+  border-color: #860918;
+    padding: 15px;
 }
-
+.alert-warning p{
+    color: #fff !important;
+    font-weight: 500;
+}
 .alert-warning hr {
-  border-top-color: #ff8a70;
+  border-top-color: #860918;
 }
 
 .alert-warning .alert-link {

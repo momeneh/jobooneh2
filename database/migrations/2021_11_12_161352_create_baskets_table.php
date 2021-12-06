@@ -15,10 +15,11 @@ class CreateBasketsTable extends Migration
     {
         Schema::create('baskets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('products_id')->constrained()->onDelete('cascade');
-            $table->foreignId('users_id')->constrained()->onDelete('cascade');
+            $table->foreignId('products_id')->constrained()->onDelete('restrict');
+            $table->foreignId('users_id')->constrained()->onDelete('restrict');
+            $table->foreignId('orders_id')->nullable()->constrained()->onDelete('set null');
             $table->integer('count')->default(0);
-            $table->unique(['products_id','users_id'],'uniqueCheck');
+            $table->unique(['products_id','users_id','orders_id'],'uniqueCheck');
             $table->engine = 'InnoDB';
             $table->timestamps();
         });

@@ -38,6 +38,7 @@ class ProfileController extends Controller
             'mobile' => ['nullable','numeric'],
             'image' =>'nullable|image|mimes:jpeg,png,jpg|max:8192|dimensions:max_width=800,max_height=800',
             'postal' => ['nullable','digits:10'],
+            'card' => ['nullable','numeric']
       ];
         $uplaod_need = true;
         if(empty($request['image']) && !empty($request['image_name'])){
@@ -57,6 +58,9 @@ class ProfileController extends Controller
         $record->insta_address = $request['insta'];
         $record->facebook_address = $request['facebook'];
         $record->postal_code = $request['postal'];
+        $record->post_price = $request['post_price'];
+        $record->card_number = $request['card'];
+        $record->card_owner = $request['card_owner'];
         $record->save();
 
         if($uplaod_need)

@@ -94,7 +94,7 @@
 
               // join number by .
               var s = input.attr("currency_title");
-              input_val = s + left_side + "." + right_side;
+              input_val = s + left_side //+ "." + right_side;
 
           } else {
               // no decimal entered
@@ -106,7 +106,7 @@
 
               // final formatting
               if (blur === "blur") {
-                  input_val += ".00";
+                  // input_val += ".00";
               }
           }
 
@@ -180,3 +180,39 @@
           $("#postal").val(dInput.replace(/\D/g, ""));
       });
   });
+  function checkCartDigit(code) {
+      var L=code.length;
+      if(L<16 || parseInt(code.substr(1,10),10)==0 || parseInt(code.substr(10,6),10)==0) return false;
+      var c=parseInt(code.substr(15,1),10);
+      var s=0;
+      var k,d;
+      for(var i=0;i<16;i++)
+      {
+          k=(i%2==0) ? 2 :1;
+          d=parseInt(code.substr(i,1),10)*k;
+          s+=(d >9) ? d-9 :d;
+      }
+      return ((s%10)==0);
+  }
+
+  function CardNumber(elem) {
+      if (checkCartDigit($(elem).val())){
+          $(".img_valid").show();
+          $(".img_invalid").hide();
+          $(elem).removeClass("is-invalid").addClass("is-valid");
+      }else{
+          $(".img_valid").hide();
+          $(".img_invalid").show();
+          $(elem).removeClass("is-valid").addClass("is-invalid");
+          demo.showNotification('bottom','center',msg_invalid_card,3,'tim-icons icon-alert-circle-exc');
+      }
+  }
+
+  function OwnerShow(elem) {
+    if($(elem).is(":checked")){
+        $(".owner_div").show();
+    }else
+        $(".owner_div").hide();
+
+  }
+//

@@ -79,9 +79,8 @@ Route::group(['prefix'=>'admin'],function (){
 
 
 //Route::get('/test', function (){
-//    $n=\App\Models\Newsletter::findOrFail(4);
-//
-//    return view('emails.newsletter',['body'=>$n->body]);
+//$order  = \App\Models\Order::find(4)->load('Items.products.images');//dd($order);
+//    return view('emails.order_created_notify',['order'=>$order,'receiver'=>'hygy','shopper'=>'fxgbfxg']);
 //});
 Route::get('/rl',function (){
     \Illuminate\Support\Facades\Artisan::call('route:list');
@@ -115,6 +114,12 @@ Route::group( ['middleware' => 'auth'],function (){
         Route::get('/message_sent', 'MessageController@SentMessages')->name('message_sent');
         Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('message_reply');
         Route::get('/attachment_view/{name_file}', 'MessageController@show_attachments')->name('show_attachments');
+        Route::post('/shop', 'OrderController@create')->name('shop');
+//        Route::post('/order', 'OrderController@store')->name('order');
+        Route::resource('/order','OrderController');
+        Route::get('/receipt_images/{name_file}','OrderController@receipt')->middleware('verified');
+        Route::get('/confirm_order','OrderController@confirm')->name('confirm_order');
+        Route::get('/problem_order','OrderController@problem')->name('order_problem');
     });
 });
 

@@ -33,6 +33,10 @@ class Product extends Model
         return $this->hasMany(Comment::class,'products_id','id');
     }
 
+    public function Baskets(){
+        return $this->hasMany(Basket::class,'products_id','id');
+    }
+
     public static function NewProducts(){
         return self::orderBy('id','DESC')
             ->where('confirmed','1')
@@ -151,34 +155,32 @@ class Product extends Model
         return $result;
     }
 
-    public static function GetBasketProducts($pros,$get = '',$tmp_basket = true){
+    public static function GetBasketProducts($pros,$get = '',$tmp = true){
         $result = self::from('products AS p')
             ->where('p.confirmed','1')
             ->where('p.lang_id','=',Helper::GetLocaleNumber())
-            ->join('users As u', 'u.id', '=', 'p.user_id')
-           ;
+            ->join('users As u', 'u.id', '=', 'p.user_id') ;
 
-        if($get == 'owners')
-            $result = $result->distinct('u.id')-> select('u.*');
+        if($get == 'owners')    $result = $result->distinct('u.id')-> select('u.*');
 
         else $result = $result->select('p.*','u.id as user_id','u.name')
             ->orderBy('p.user_id','ASC')
             ->orderBy('p.id','DESC')
             ->with('images');
 
-        if($tmp_basket)
-            $result = $result
-                ->whereIn('p.id',$pros);
+        if($tmp)
+            $result = $result ->whereIn('p.id',$pros);
         else {
             $result = $result
                 ->join('baskets AS b', function ($join) {
                     $join->on('b.products_id', '=', 'p.id')
-                        ->where('b.users_id', '=', auth()->id());
+                        ->where('b.users_id', '=', auth()->id())
+                        ->whereNull('b.orders_id');
                 });
             if($get == '')
-                $result = $result
-                    ->addSelect('b.count as basket_count');
+                $result = $result->addSelect('b.count as basket_count');
         }
+        if($get == 'shop_page')  $result = $result->addSelect('u.post_price','u.card_number','u.card_owner','b.count as basket_count','b.id as basket_id') ->whereIn('p.id',$pros);
 
         $result = $result->get();
 

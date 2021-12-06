@@ -7,8 +7,11 @@
     <div class="inner_page">
         <div class="col-xl-8 col-lg-5 col-md-5 co-sm-l2 inner_page_box" >
             <div class="basket" style="padding-top: 50px">
-                @if(!empty($owners))
+                @if(isset($owners[0]->id))
                 @foreach($owners as $owner)
+                    <form method="post" action="{{route('shop')}}">
+                        @csrf
+                        <input name="owner_id" type="hidden" value="{{$owner['id']}}">
                     <div>
                     <div class="owner  card-user">
                         <a href="{{route('pages.owner',$owner->id)}}">
@@ -26,6 +29,7 @@
                     @php $sum = 0 @endphp
                     @foreach($list as $product)
                         @if($owner->id != $product->user_id) @continue @endif
+                        <input type="hidden" name="products[]" value="{{$product['id']}}">
 
                     <div class="row basket_item">
                         <div class="col-xl-2">
@@ -53,8 +57,9 @@
                     @endforeach
                     <div class="buy_basket">
                         <span>{{__('title.sum')}} :  {{number_format($sum)}} {{__('title.currency_title')}} </span>
-                        <a href="" >{{__('I want to buy')}}</a>
+                        <input type="submit" value="{{__('I want to buy')}}">
                     </div>
+                    </form>
                 @endforeach
                 @else
                     <div class="c-listing-not-found">

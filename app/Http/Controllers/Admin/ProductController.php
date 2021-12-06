@@ -191,6 +191,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $pro =  Product::findOrFail($id);
+        if($pro->Baskets()->count()){
+            return back()->with('error', __('messages.can_not_delete_for_basket'));
+        }
         Storage::delete('file.jpg');
 
         if(Storage::exists('product_count_logs/'.$pro->id.'.txt'))

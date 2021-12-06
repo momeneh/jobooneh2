@@ -63,7 +63,7 @@ class BasketController extends Controller implements BasketContract
 
 
     public function IsBasket($id){
-        $result = Basket::select('count')->where('products_id','=',$id)->where('users_id','=',auth()->id())->first();
+        $result = Basket::CheckBasket($id,'count');
         return !empty($result->count) ? $result->count : 0;
     }
 
@@ -78,7 +78,7 @@ class BasketController extends Controller implements BasketContract
     {
         $pro = Product::findOrFail($request['id']);
 
-        $basket = Basket::where('products_id','=',$id)->where('users_id','=',auth()->id())->first();
+        $basket = Basket::CheckBasket($id,);
         if (empty($basket->id))
             return response()->json(['success' => false,'msg'=>__('something is wrong .pls refresh the page')],200);
 
@@ -100,7 +100,7 @@ class BasketController extends Controller implements BasketContract
     public function destroy($id,Request $request)
     {
         $pro = Product::findOrFail($id);
-        $basket = Basket::where('products_id','=',$id)->where('users_id','=',auth()->id())->first();
+        $basket = Basket::CheckBasket($id);
         if (empty($basket->id))
             return response()->json(['success' => false,'msg'=>__('something is wrong .pls refresh the page')],200);
 
@@ -109,6 +109,8 @@ class BasketController extends Controller implements BasketContract
         $view = view($request['view'], ['show_add_basket' =>1 ,'number_basket'=> 0,'show_plus_btn'=>1,'product'=>$pro])->render();
         response()->json(['success' => true,'msg'=>'','view' => $view], 200)->throwResponse();
     }
+
+
 
 
 }

@@ -60,4 +60,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->morphMany('App\Models\Message', 'receiver');
     }
 
+    public function Baskets(){
+        return $this->hasManyThrough(Basket::class,Product::class,'user_id','products_id');
+    }
+
 }

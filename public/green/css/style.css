@@ -2800,13 +2800,13 @@ a.btn-round {
 }
 .basket .buy_basket{
     text-align: left;
-    margin-top: -7px;
+    margin-top: -20px;
 }
-.basket .buy_basket a{
+.basket .buy_basket input{
     background-color: #bd2130;
-    padding: 5px 12px;
+    padding: 12px 14px;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 14px;
 }
 .basket .buy_basket span{
     background-color: #1e7e34;
@@ -2868,4 +2868,9 @@ a.btn-round {
 }
 .profile-dropdown-user:hover ,.profile-dropdown-account:hover,.profile-dropdown-actions:hover{
     background-color: #dbdee2;
+}
+.shop_price{
+    line-height: 20px;
+    width: 140px;
+    overflow: hidden;
 }

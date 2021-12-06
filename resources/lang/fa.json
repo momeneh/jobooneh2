@@ -38,5 +38,13 @@
     "Categories result" : "دسته بندی نتایج ",
     "Added to basket " : "به سبد خرید اضافه شد ",
     "out of stock ": "اتمام موجودی محصول",
-    "I want to buy" : "ادامه فرایند خرید "
+    "I want to buy" : "ادامه فرایند خرید ",
+    " is out of stock" : "موجودیش تموم شده لطفا از سبد خریدتون حذفش کنید ",
+    "card number is invalid" : "شماره کارت بانکی معتبر نیست",
+    "Please insert your address,postal code data in your profile page " : "لطفا اطلاعات پستی خود شامل آدرس و کد پستی تان را در صفحه ویرایش پروفایل در کارتابلتان تکمیل نمایید ",
+    "Sum Products Price" : "جمع قیمت کالاها",
+    "upload receipt" : "آپلود فیش واریزی و ثبت سفارش",
+    "file is not uploaded ,Pls try another file or contact the admin" : "متاسفانه مشکلی در آپلود فایل بوجود آمده لطفا فایل دیگری را امتحان کنید یا با پشتیبانی تماس بگیرید ",
+    "confirm the order" : "تایید سفارش",
+    "describe the problems" : "توضیح مشکلات سفارش"
 }

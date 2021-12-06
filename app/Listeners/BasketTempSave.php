@@ -45,7 +45,7 @@ class BasketTempSave
            $result = Product::GetBasketProducts($pros);
            foreach ($result as $product){
                $cookie_count = $list[$product->id];
-               $basket = Basket::select('count')->where('products_id','=',$product->id)->where('users_id','=',auth()->id())->first();
+               $basket = Basket::CheckBasket($product->id,'count');
                if(empty($basket->count)  && $cookie_count >0 ){
                    $b = new Basket();
                    $b->products_id = $product->id;

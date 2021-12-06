@@ -24,7 +24,15 @@ return [
                             - use more common words.
                             - check the word dictation.',
     'reduce_filters' => 'reduce some of filers',
-    'basket_is_empty' => 'Your basket is empty ! '
+    'basket_is_empty' => 'Your basket is empty ! ',
+    'product_out_of_stock' => 'product ":name_pro" is out of stock . please remove it from your basket or you can contact the owner',
+    'shop_desc' => 'After seeing this page if you did not pay the final price  Pls refresh the page til the stock check again because the stock might be finished in the while . thank you for your trust  ',
+    'can_not_delete_for_basket' => 'The product is in some basket(s). And Can not be deleted ',
+    'can_not_delete_for_pro_basket' => 'This user owns at least a products that is in one basket. And Can not be deleted',
+    'order_created'=>'Order is created . You can track your orders from this page . Pls wait until the owner confirm your order and save the post tracking number . we will aware you with your mail address ',
+    'order_created_notify' => 'You have an order ',
+    'owner_order_desc'=>' An order with following details by ":shopper" is requested from you  .Pls  "confirm the order" OR  "describe the problems"'
+
 ];
 
 ?>
