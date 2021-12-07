@@ -128,7 +128,9 @@ return [
     'post_price_2' =>' Post Price',
     'sum_price' => 'Sum Should Pay',
     'receipt' => '  receipt image',
-    'orders' => 'orders'
+    'orders' => 'orders',
+    'owner_confirmed' => 'Is confirmed by the owner  ',
+    'post_tracking_number' => 'post tracking number'
 
 
 

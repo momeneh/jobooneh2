@@ -22,7 +22,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $result = Order::all();
+        $result = Basket::where('users_id','=',auth()->id())->orderBy('orders_id')->whereNotNULL('orders_id')->with('Order','Image')->get();
         return view('order.index',['list'=> $result]);
     }
 
@@ -92,8 +92,6 @@ class OrderController extends Controller
 
         return redirect()->route('order.index')->with('message', __('messages.order_created'));
     }
-
-
 
     /**
      * Display the specified resource.

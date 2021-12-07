@@ -20,6 +20,12 @@
             </div>
 
         </div>
+        <div class="profile-dropdown-account">
+            <div class="profile-dropdown-account-item js-user-dropdown-wallet-has-url">
+                <a class="profile-dropdown-account-item-title profile-dropdown-account-item-title--link  js-wallet-activation-url" href="{{route('order.index')}}">{{__('title.orders')}}</a>
+            </div>
+
+        </div>
     </div>
 
     <div class="profile-dropdown-actions">

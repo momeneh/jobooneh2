@@ -135,7 +135,9 @@ return [
     'post_price_2' => 'مبلغ پست',
     'sum_price' => 'جمع مبلغ قابل پرداخت',
     'receipt' => 'تصویر فیش واریزی',
-    'orders' => 'سفارشات'
+    'orders' => 'سفارشات',
+    'owner_confirmed' => 'توسط فروشنده تایید شده ',
+    'post_tracking_number' => 'کد پیگیری پستی مرسوله'
 
 
 
