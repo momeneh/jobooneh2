@@ -1,13 +1,15 @@
-@extends('layouts.app', ['admin' => 1])
-
+@extends('layouts.green_layout')
 @section('title')
-   | {{ __('title.record_edit')}}
+    | {{__("title.Admin_users")}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
-                <div class="flex-center position-ref full-height">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            @include('layouts.navbars.nav_check')
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
+                    <div class="flex-center position-ref full-height">
                     <h5>{{__('title.record_edit')}}</h5>
                     <form action="{{route('user.update',$record['id'])}}" method="post" enctype="multipart/form-data">
                         <div class="card-body">
@@ -110,7 +112,7 @@
                         </div>
                     </form>
                 </div>
-
+                </div>
             </div>
         </div>
     </div>

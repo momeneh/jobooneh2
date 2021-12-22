@@ -1,11 +1,14 @@
-@extends('layouts.app', ['class' => 'register-page', 'contentClass' => 'register-page'])
+@extends('layouts.green_layout')
 
 @section('content')
+    <div class="col-md-10 text-center ml-auto mr-auto">
+        <h3 class="mb-5"></h3>
+    </div>
     <div class="row">
-        <div class="col-md-8 mr-auto ml-auto">
+        <div class="col-md-8 mr-auto ml-auto login">
             <div class="card card-register card-white">
                 <div class="card-header">
-                    <img  src="{{ asset('white') }}/img/card-primary.png" alt="Card image">
+                    <img  src="{{ asset('green/images/card-primary.png') }}" alt="register" style="width: 941px;height: 300px;">
                 </div>
                 <form class="form" method="post" action="{{ route('register') }}">
                     @csrf
@@ -97,12 +100,12 @@
 
                         <div class="form-check text-left {{ $errors->has('agree_terms_and_conditions') ? ' has-danger' : '' }}">
                             <label class="form-check-label">
-                                <input class="form-check-input {{ $errors->has('agree_terms_and_conditions') ? ' is-invalid' : '' }}" name="agree_terms_and_conditions"  type="checkbox"  {{ old('agree_terms_and_conditions') ? 'checked' : '' }}>
                                 <span class="form-check-sign"></span>
                                 {{ __('title.I_agree') }}
                                 <a href="#">{{ __('title.terms') }}</a> {{__('title.agree')}}
-                                @include('alerts.feedback', ['field' => 'agree_terms_and_conditions'])
                             </label>
+                            <input class="form-check-input {{ $errors->has('agree_terms_and_conditions') ? ' is-invalid' : '' }}" name="agree_terms_and_conditions"  type="checkbox"  {{ old('agree_terms_and_conditions') ? 'checked' : '' }}>
+                            @include('alerts.feedback', ['field' => 'agree_terms_and_conditions'])
                         </div>
 
 

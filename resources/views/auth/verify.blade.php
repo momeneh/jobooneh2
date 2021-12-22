@@ -1,17 +1,18 @@
-@extends('layouts.app', ['pageSlug' => ''])
+@extends('layouts.green_layout')
 
 @section('content')
-{{--    @include('layouts.headers.guest')--}}
-
+    <div class="col-md-10 text-center ml-auto mr-auto">
+        <h3 class="mb-5"></h3>
+    </div>
     <div class="container mt--8 pb-5 verify">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-7">
-                <div class="card bg-secondary shadow border-0">
+                <div class="card  shadow border-0">
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
                             <small>{{ __('auth.verify_email') }}</small>
                         </div>
-                        <div>
+                        <div  class="text-center text-muted mb-4 " style="line-height:30px" >
                             @if (session('resent'))
                                 <div class="alert alert-success" role="alert">
                                     {{ __('auth.verification_sent') }}

@@ -10,7 +10,7 @@
                 <div class="carousel-item @if($i==1) active @endif ">
                     <img class="slide" src="{{asset('link_images').'/'.$slide_item->image}}" alt="{{$slide_item->title}}">
                     <div class="container">
-                        <div class="carousel-caption relative">
+                        <div class="carousel-caption relative1">
                             <h2>{{$slide_item->title}}</h2>
                             {!!($slide_item->description)!!}
                         </div>

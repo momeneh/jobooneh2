@@ -1,16 +1,15 @@
 
-
-
-@extends('layouts.app', ['admin' => 1])
-
-{{--@extends('layouts.main')--}}
+@extends('layouts.green_layout')
 @section('title')
-    {{ __('title.menu_list')}}
+    | {{__("title.menu_list")}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            @include('layouts.navbars.nav_check')
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+              <div class="card">
 
 
                 <table border="1" cellpadding="20" class="table table-hover">
@@ -55,7 +54,7 @@
             </div>
              {{$menus->links()}} <!-- PAGINATION-->
 {{--            <h2>{{ __('title.search')}}</h2>--}}
-            <form method="'get" action="{{route('menu.index')}}" class="search-form">
+                <form method="'get" action="{{route('menu.index')}}" class="search-form inner_page_box">
                 <div class="form-search">
                     <label for="id">{{ __('title.id')}}: </label>
                     <input type="text" name="id" value="{{$request->id}}" class="form-control"  >
@@ -68,7 +67,7 @@
                 <input type="submit" value="{{ __('title.search')}}" class="btn btn-primary">
                 <a href="{{route('menu.index')}}" class="btn btn-reset" >  {{ __('title.reset_filters')}}</a>
             </form>
-
+            </div>
         </div>
     </div>
 @endsection

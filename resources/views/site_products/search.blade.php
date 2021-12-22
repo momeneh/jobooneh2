@@ -13,7 +13,7 @@
             @if(!empty($categories[0]) || !empty($owners[0]))
             <div class="col-xl-3 search-side" >
                 @if(!empty($categories[0]))
-                    <div class="inner_page_box box_side">
+                    <div class="inner_page_box bocx_side">
                         <div class="S_header">{{__('Categories result')}}</div>
                         <div>
                         <ul class="cat_search">
@@ -87,5 +87,5 @@
         var url= "{{route('pages.search')}}";
         var request = @json($request->all());
     </script>
-    <script src="{{ asset('white/js/app.js')}}"></script>
+    <script src="{{ asset('green/js/white.js')}}"></script>
 @endsection

@@ -1635,7 +1635,7 @@ font-weight: 500;
 
 /** banner **/
 
-.relative {
+.relative1 {
      position: absolute;
      top: 50%;
      transform: translateY(-50%);
@@ -2088,7 +2088,7 @@ transform: skew(190deg);
 }
 
 .form-control {
-    border: #7a8b72 solid 1px;
+    border: #bdc1cb solid 1px;
     border-radius: inherit;
     margin-top: 20px;
     padding: 8px 20px;
@@ -2214,7 +2214,7 @@ width: 226px;
      font-size: 18px;
 line-height: 30px;}
  .form-control:focus, .form-control:hover {
-     border: #ddd solid 1px !important;
+     border: #1e7e34 solid 1px !important;
 }
  .footer .address .submit-btn {
    padding: 8px 45px;
@@ -2242,7 +2242,7 @@ border-radius: 10px;
      margin: 0 auto;
 }
 .copyright a {
-     color: #ffff;
+     color: #ffff !important;
 }
 .copyright a:hover {
      color: #000;
@@ -2883,3 +2883,54 @@ a.btn-round {
     border-radius: 5px;
     margin: 10px;
 }
+.sidebar ul li{
+    padding: 15px;
+}
+.caret2 {
+    font-size: 0.7rem !important;
+}
+.dropdown-toggle[aria-expanded="true"]::after, a[data-toggle="collapse"][aria-expanded="true"] .caret2,
+.card-collapse .card a[data-toggle="collapse"][aria-expanded="true"] i, .card-collapse .card a[data-toggle="collapse"].expanded i {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.bootstrap-switch-label::before, .caret2 {
+    -webkit-transition: all 150ms ease 0s;
+    -moz-transition: all 150ms ease 0s;
+    -o-transition: all 150ms ease 0s;
+    -ms-transition: all 150ms ease 0s;
+    transition: all 150ms ease 0s;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #2f6118;
+    border-color: #2f6118;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    font-size: smaller;
+    font-weight: 400;
+    padding: 10px 22px;
+}
+
+.btn-primary:hover {
+    color: #ffffff;
+    background-color: #2f6118;
+    border-color: #2f6118;
+}
+
+.dashboard .btn:not([data-action]):hover {
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.btn-primary:not([data-action]):hover {
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    -webkit-transform: translateY(-1px);
+}
+btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #1e7e34;
+    border-color: #1e7e34;
+}
+

@@ -1,13 +1,16 @@
-@extends('layouts.app', ['class' => 'login-page', 'page' => _('Reset password'), 'contentClass' => 'login-page'])
+@extends('layouts.green_layout')
 
 @section('content')
-    <div class="col-lg-5 col-md-7 ml-auto mr-auto">
+    <div class="col-md-10 text-center ml-auto mr-auto">
+        <h3 class="mb-5"></h3>
+    </div>
+    <div class="col-lg-4 col-md-7 ml-auto mr-auto login">
         <form class="form" method="post" action="{{ route('password.email') }}">
             @csrf
 
             <div class="card card-login card-white">
                 <div class="card-header">
-                    <img src="{{ asset('white') }}/img/card-primary.png" alt="">
+                    <img src="{{ asset('green/images/card-primary.png') }}" alt="">
                     <h1 class="card-title">{{ _('Reset password') }}</h1>
                 </div>
                 <div class="card-body">

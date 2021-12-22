@@ -1,14 +1,15 @@
-@extends('layouts.app',  $navbar)
-
+@extends('layouts.green_layout')
 @section('title')
-   | {{ __('title.inbox')}}
+    | {{__("title.inbox")}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
-
-                <table border="1" cellpadding="20" class="table table-hover">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            @include('layouts.navbars.nav_check')
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
+                    <table border="1" cellpadding="20" class="table table-hover">
                     <thead>
                     <tr>
                         <th colspan="6" class="th_title">
@@ -17,8 +18,8 @@
                         </th>
                     </tr>
                     <tr >
-                        <td></td>
-                        <td></td>
+                        <td width="10"></td>
+                        <td width="10"></td>
                         <td>{{ __('title.sender')}}</td>
                         <td>{{ __('title.subject')}}</td>
                         <td>{{ __('title.date')}}</td>
@@ -54,9 +55,9 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-        {{$list->appends(request()->query())->links()}} <!-- PAGINATION-->
-            <form method="get" action="{{route($prefix.'message.index')}}" class="search-form">
+                </div>
+                {{$list->appends(request()->query())->links()}} <!-- PAGINATION-->
+                <form method="get" action="{{route($prefix.'message.index')}}" class="search-form inner_page_box">
                 <div class="form-search">
                     <label for="subject">{{ __('title.subject')}}: </label>
                     <input type="text" name="subject" value="{{$request->subject}}" class="form-control"  >
@@ -82,7 +83,7 @@
                 <input type="submit" value="{{ __('title.search')}}" class="btn btn-primary">
                 <a href="{{route($prefix.'message.index')}}" class="btn btn-reset" >  {{ __('title.reset_filters')}}</a>
             </form>
-
+            </div>
         </div>
     </div>
 @endsection

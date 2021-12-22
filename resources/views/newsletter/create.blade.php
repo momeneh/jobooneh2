@@ -1,12 +1,14 @@
-@extends('layouts.app'    , ['admin' => 1])
-
+@extends('layouts.green_layout')
 @section('title')
-   | {{ __('Newsletter')}}
+    | {{ __('Newsletter')}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            @include('layouts.navbars.nav_check')
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
                 <div class="flex-center position-ref full-height">
                     <h5>{{__('title.create_new')}}</h5>
                     <form action="{{route('subscribe.store')}}" method="post" enctype="multipart/form-data">
@@ -25,7 +27,7 @@
                             <div class="document-editor__editable-container">
                                 <textarea id="body"  class="form-control hidden" name="body"  ></textarea>
                                 <div class="document-editor__editable">
-                                    <p>{{ old('body') }}</p>
+                                    <p>{!! old('body') !!}</p>
                                 </div>
                             </div>
                             @include('alerts.feedback', ['field' => 'body'])
@@ -40,18 +42,16 @@
                         </div>
                     </form>
                 </div>
-
+                </div>
             </div>
         </div>
     </div>
 @endsection
 @section('scripts')
-{{--    <script src="{{asset('white/js/ckeditor5-build-classic/ckeditor.js')}}"></script>--}}
-    <script src="{{asset('white/js/ckeditor5-build-decoupled-document/ckeditor.js')}}"></script>
-    <script src="{{ asset('white/js/SimpleAjaxUploader.js')}}"></script>
+    <script src="{{asset('green/js/ckeditor5-build-decoupled-document/ckeditor.js')}}"></script>
+    <script src="{{ asset('green/js/SimpleAjaxUploader.js')}}"></script>
     <script> var url='{{route('admin.upload_file_newsletter')}}';</script>
-{{--    <script src="{{ asset('white/js/CKeditorConfig.js')}}"></script>--}}
-    <script src="{{ asset('white/js/CKeditorConfigDoc.js')}}"></script>
+    <script src="{{ asset('green/js/CKeditorConfigDoc.js')}}"></script>
 @endsection
 
 

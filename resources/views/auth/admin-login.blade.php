@@ -1,17 +1,17 @@
-@extends('layouts.app', ['admin' => '1'])
+@extends('layouts.green_layout')
 
 @section('content')
     <div class="col-md-10 text-center ml-auto mr-auto">
-        <h3 class="mb-5">Administrators Login Page</h3>
+        <h3 class="mb-5"></h3>
     </div>
-    <div class="col-lg-5 col-md-6 ml-auto mr-auto">
+    <div class="col-xl-4 col-md-6 ml-auto mr-auto login" >
         <form class="form" method="post" action="{{ route('admin.login') }}">
             @csrf
 
             <div class="card card-login card-white">
                 <div class="card-header">
-                    <img src="{{ asset('white') }}/img/card-primary.png" alt="">
-                    <h1 class="card-title">{{ _('Log in') }}</h1>
+                    <img src="{{ asset('green/images/card-primary.png') }}" alt="">
+                    <h1 class="card-title">Administrators Login Page</h1>
                 </div>
                 <div class="card-body">
                     <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">

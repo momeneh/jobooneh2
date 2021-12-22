@@ -18,7 +18,7 @@
                             <img class="avatar"
                                  src="
                                         @if (!empty($owner->image) && trim($owner->image)!= '') {{asset('/profile_images/'.$owner->image)}}
-                                 @else  {{ asset('white') }}/img/default-avatar.png
+                                 @else  {{ asset('green/images/default-avatar.png') }}
                                         @endif
                                      " alt="">
                             <h5 >{{ $owner->name }}</h5>

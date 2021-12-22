@@ -1,19 +1,16 @@
 
-
-
-@extends('layouts.app', ['admin' => 1])
-
-{{--@extends('layouts.main')--}}
+@extends('layouts.green_layout')
 @section('title')
-    {{ __('title.Admin_users')}}
+    | {{__("title.Admin_users")}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
-
-
-                <table border="1" cellpadding="20" class="table table-hover">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            @include('layouts.navbars.nav_check')
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
+                    <table border="1" cellpadding="20" class="table table-hover">
                     <thead>
                     <tr>
                         <th colspan="8" class="th_title">
@@ -59,10 +56,10 @@
                     @endforeach
                     </tbody>
                 </table>
-            </div>
-        {{$list->appends(request()->query())->links()}} <!-- PAGINATION-->
+                </div>
+                {{$list->appends(request()->query())->links()}} <!-- PAGINATION-->
             {{--            <h2>{{ __('title.search')}}</h2>--}}
-            <form method="'get" action="{{route('user.index')}}" class="search-form">
+                <form method="'get" action="{{route('user.index')}}" class="search-form inner_page_box">
                 <div class="form-search">
                     <label for="id">{{ __('title.id')}}: </label>
                     <input type="text" name="id" value="{{$request->id}}" class="form-control"  >

@@ -1,15 +1,17 @@
-@extends('layouts.app', ['admin' => 1])
-{{--{{ dd($__data) }}--}}
+@extends('layouts.green_layout')
 @section('title')
-   | {{ __('title.record_edit')}}
+    | {{__("title.products")}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
-                @php $record = $product @endphp
-                @php  if(!($record['images']->isEmpty()) ) $saved=  $record['images']; else $saved = [['id'=>'','alt'=> '' ,'image'=>'']]; @endphp
-                <div class="flex-center position-ref full-height">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            @include('layouts.navbars.nav_check')
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
+                    @php $record = $product @endphp
+                    @php  if(!($record['images']->isEmpty()) ) $saved=  $record['images']; else $saved = [['id'=>'','alt'=> '' ,'image'=>'']]; @endphp
+                    <div class="flex-center position-ref full-height">
                     <h5>{{__('title.record_edit')}}</h5>
                     <form id="frm_product_edit" action="{{route('product.update',$record['id'])}}" method="post" enctype="multipart/form-data">
                         {{method_field('put')}}
@@ -41,7 +43,7 @@
                         </div>
                     </form>
                 </div>
-
+                </div>
             </div>
         </div>
     </div>

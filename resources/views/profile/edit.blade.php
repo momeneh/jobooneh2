@@ -1,9 +1,58 @@
-@extends('layouts.app', ['page' => __('User Profile'), 'pageSlug' => 'profile'])
-
+@extends('layouts.green_layout')
+@section('title')
+    | {{__("title.change_password")}}
+@endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            <div class="col-xl-3">
+                @include('layouts.navbars.sidebar')
+                <div class=" box_side">
+                    <div class="card card-user">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <div class="author">
+                                <div class="block block-one"></div>
+                                <div class="block block-two"></div>
+                                <div class="block block-three"></div>
+                                <div class="block block-four"></div>
+                                <a href="#">
+                                    <img class="avatar"
+                                         src="
+                                        @if (!empty(auth()->user()->image) && trim(auth()->user()->image)!= '') {{asset('/profile_images/'.Auth::user()->image)}}
+                                         @else  {{ asset('green/images/default-avatar.png') }}
+                                        @endif
+                                             " alt="">
+                                    <h5 class="title">{{ auth()->user()->name }}</h5>
+                                </a>
+                                <h6>
+                                    {{auth()->user()->job_title}}
+                                </h6>
+                            </div>
+                        </p>
+                        <div class="card-description">
+                            {{auth()->user()->description}}
+                        </div>
+                </div>
+                    <div class="card-footer">
+                    <div class="button-container">
+                        <a class="btn btn-icon btn-round btn-facebook" href="{{auth()->user()->facebook_address}}">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a class="btn btn-icon btn-round btn-instagram" href="{{auth()->user()->insta_address}}">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="btn btn-icon btn-round btn-google" href="{{auth()->user()->g_plus_address}}">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xl-8 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
                 <div class="card-header">
                     <h5 class="title">{{ __('title.Edit_Profile') }}</h5>
                 </div>
@@ -105,47 +154,8 @@
                 </form>
             </div>
 
-        </div>
-        <div class="col-md-4">
-            <div class="card card-user">
-                <div class="card-body">
-                    <p class="card-text">
-                        <div class="author">
-                            <div class="block block-one"></div>
-                            <div class="block block-two"></div>
-                            <div class="block block-three"></div>
-                            <div class="block block-four"></div>
-                            <a href="#">
-                                <img class="avatar"
-                                     src="
-                                        @if (!empty(auth()->user()->image) && trim(auth()->user()->image)!= '') {{asset('/profile_images/'.Auth::user()->image)}}
-                                        @else  {{ asset('white') }}/img/default-avatar.png
-                                        @endif
-                                     " alt="">
-                                <h5 class="title">{{ auth()->user()->name }}</h5>
-                            </a>
-                            <p class="description">
-                                {{auth()->user()->job_title}}
-                            </p>
-                        </div>
-                    </p>
-                    <div class="card-description">
-                        {{auth()->user()->description}}
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="button-container">
-                        <a class="btn btn-icon btn-round btn-facebook" href="{{auth()->user()->facebook_address}}">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a class="btn btn-icon btn-round btn-instagram" href="{{auth()->user()->insta_address}}">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a class="btn btn-icon btn-round btn-google" href="{{auth()->user()->g_plus_address}}">
-                            <i class="fab fa-google-plus"></i>
-                        </a>
-                    </div>
-                </div>
+
+
             </div>
         </div>
     </div>

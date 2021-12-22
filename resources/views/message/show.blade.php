@@ -1,11 +1,12 @@
-@extends('layouts.app', $navbar)
-
+@extends('layouts.green_layout')
 @section('title')
-   | {{ __('title.message_body')}}
+    | {{__("title.compose")}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-8">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            @include('layouts.navbars.nav_check')
+        <div class="col-md-7">
             <div class="card">
                 <div class="flex-center position-ref full-height">
                     <div class="card card-user">
@@ -17,12 +18,10 @@
                                 <div class="block block-three"></div>
                                 <div class="block block-four"></div>
                                 <a href="#">
-                                    <img class="avatar" src="{{$message->sender->image ? asset('/profile_images/'.$message->sender->image): asset('white/img/anime3.png')}}" alt="">
+                                    <img class="avatar" src="{{$message->sender->image ? asset('/profile_images/'.$message->sender->image): asset('green/images/anime3.png')}}" alt="">
                                     <h5 class="title">{{__($message->subject)}}</h5>
                                 </a>
-                                <p class="description">
-                                    {{$message->sender->name}}({{$message->sender->email}}>)
-                                </p>
+                                <h6 >   {{$message->sender->name}}({{$message->sender->email}}>)  </h6>
                             </div>
                             <p></p>
                             <div class="card-description">
@@ -58,6 +57,7 @@
                 </div>
 
             </div>
+        </div>
         </div>
     </div>
 @endsection

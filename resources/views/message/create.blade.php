@@ -1,12 +1,14 @@
-@extends('layouts.app',  $navbar)
-
+@extends('layouts.green_layout')
 @section('title')
-   | {{ __('title.compose')}}
+    | {{__("title.compose")}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            @include('layouts.navbars.nav_check')
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
                 <div class="flex-center position-ref full-height">
                     <h5>{{__('title.compose')}}</h5>
                     <form action="{{route($prefix.'message.store')}}" method="post" enctype="multipart/form-data">
@@ -75,12 +77,13 @@
                 </div>
 
             </div>
+            </div>
         </div>
     </div>
 @endsection
 @section('scripts')
-    <script src="{{ asset('white/js/SimpleAjaxUploader.js')}}"></script>
-    <script src="{{ asset('white/js/uploader.js') }}"></script>
+    <script src="{{ asset('green/js/SimpleAjaxUploader.js')}}"></script>
+    <script src="{{ asset('green/js/uploader.js') }}"></script>
     <script src="{{asset('pub')}}/jquery-ui.js"></script>
     <script>
         var url = "{{ route($prefix.'upload_file_message')}}";

@@ -1,14 +1,15 @@
-<div class="sidebar" style=" @if(app()->getLocale() == 'fa')  right:0 @else left:0 @endif ">
-    <div class="sidebar-wrapper">
-        <div class="logo">
-            <a href="#" class="simple-text logo-normal"> {{ __('title.Admin_Dashboard') }} </a>
-        </div>
-        <ul class="nav">
+<div class="inner_page_box box_side">
+    <div class="sidebar" style=" @if(app()->getLocale() == 'fa')  right:0 @else left:0 @endif ">
+        <h3 >
+            <a href="#" class="simple-text logo-mini">{{ __('title.Admin_Dashboard') }} </a>
+        </h3>
+        <hr>
+        <ul class="navi">
 {{--            <li @if ($pageSlug == 'dashboard') class="active " @endif>--}}
             <li>
                 <a href="{{ route('menu.index') }}">
                     <i class="tim-icons icon-bullet-list-67"></i>
-                    {{ __('title.Admin_Menus') }} <p></p>
+                    <span>{{ __('title.Admin_Menus') }} </span>
                 </a>
             </li>
             <li>
@@ -19,17 +20,17 @@
                 </a>
 
                 <div class="collapse hide" id="laravel-examples">
-                    <ul class="nav pl-4">
+                    <ul class="navi pl-4">
                         <li>
                             <a href="{{ route('link_locations.index')  }}">
                                 <i class="tim-icons icon-image-02"></i>
-                                <p>{{ __('title.links_location') }}</p>
+                                <span>{{ __('title.links_location') }}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('link.index')  }}">
                                 <i class="tim-icons icon-image-02"></i>
-                                <p>{{ __('title.links') }}</p>
+                                <span>{{ __('title.links') }}</span>
                             </a>
                         </li>
                     </ul>
@@ -38,13 +39,13 @@
             <li>
                 <a href="{{ route('page.index') }}">
                     <i class="tim-icons icon-paper"></i>
-                    {{ __('title.Admin_pages') }} <p></p>
+                    <span>{{ __('title.Admin_pages') }} </span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('user.index') }}">
                     <i class="tim-icons icon-single-02"></i>
-                    {{ __('title.Admin_users') }} <p></p>
+                    <span>{{ __('title.Admin_users') }} </span>
                 </a>
             </li>
             <li>
@@ -55,24 +56,24 @@
                 </a>
 
                 <div class="collapse hide" id="business_owners">
-                    <ul class="nav pl-4">
+                    <ul class="navi pl-4">
 
                         <li>
                             <a href="{{ route('product_category.index')  }}">
                                 <i class="tim-icons icon-image-02"></i>
-                                <p>{{ __('title.categories') }}</p>
+                                <span>{{ __('title.categories') }}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('product.index')  }}">
                                 <i class="tim-icons icon-image-02"></i>
-                                <p>{{ __('title.products') }}</p>
+                                <span>{{ __('title.products') }}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('comment.index')  }}">
                                 <i class="tim-icons icon-chat-33"></i>
-                                <p>{{ __('title.comments') }}</p>
+                                <span>{{ __('title.comments') }}</span>
                             </a>
                         </li>
                     </ul>
@@ -87,17 +88,17 @@
                 </a>
 
                 <div class="collapse hide" id="messages">
-                    <ul class="nav pl-4">
+                    <ul class="navi pl-4">
                         <li>
                             <a href="{{ route('admin.message.index')  }}">
                                 <i class="tim-icons icon-email-85"></i>
-                                <p>{{ __('title.inbox') }}</p>
+                                <span>{{ __('title.inbox') }}</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('admin.message_sent')  }}">
                                 <i class="tim-icons icon-send"></i>
-                                <p>{{ __('title.sent') }}</p>
+                                <span>{{ __('title.sent') }}</span>
                             </a>
                         </li>
                     </ul>
@@ -106,26 +107,26 @@
             <li >
                 <a href="{{ route('admin.notifications') }}">
                     <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ __('title.Notifications') }} ({{count(Auth::user()->unreadNotifications)}}) </p>
+                    <span>{{ __('title.Notifications') }} ({{count(Auth::user()->unreadNotifications)}}) </span>
                 </a>
             </li>
             <li >
                 <a href="{{ route('admin.contacts') }}">
                     <i class="tim-icons icon-email-85"></i>
-                    <p>{{ __('Contact Us') }}  </p>
+                    <span>{{ __('Contact Us') }}  </span>
                 </a>
             </li>
             <li >
                 <a href="{{ route('subscribe.index') }}">
                     <i class="tim-icons icon-spaceship"></i>
-                    <p>{{ __('Newsletter') }}  </p>
+                    <span>{{ __('Newsletter') }}  </span>
                 </a>
             </li>
 
             <li >
                 <a href="{{ route('admin.logout') }}">
                     <i class="tim-icons icon-button-power"></i>
-                    <p>{{ __('title.logout') }}</p>
+                    <span>{{ __('title.logout') }}</span>
                 </a>
             </li>
         </ul>

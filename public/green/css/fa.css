@@ -108,3 +108,98 @@ h2{
 .shop_price{
     text-align: right;
 }
+
+
+.nav {
+    padding-right: 0;
+}
+
+.pagination {
+    direction: ltr;
+}
+
+
+.sidebar .nav li>a,
+.off-canvas-sidebar .nav li>a {
+
+    font-size: 0.85rem;
+
+}
+
+.sidebar .nav i,
+.off-canvas-sidebar .nav i {
+
+    float: right;
+
+}
+
+
+.btn-create{
+    float: left;
+}
+.form-search{
+    float: right;
+    margin: 10px 23px;
+    text-align: right;
+    width: 235px;
+}
+.search-form {
+    text-align: left;
+}
+.form-group_submit {
+    text-align: left;
+}
+.alert-info p{
+    font-weight:700 ;
+
+}
+#location_id{
+    width: 180px;
+}
+.card-register .card-header{
+    text-align: left;
+}
+.card-register .card-header {
+    padding: 0 0 0;
+}
+.card-register .card-footer{
+    text-align: left;
+}
+.verify{
+    font-size: 17px;
+}
+#request_another{
+    color: #bd2130;
+}
+.card-footer{
+    text-align: left;
+}
+#loading_data_icon {
+    left: 20px;
+}
+.alert-success span{
+    margin-right: 20px;
+}
+.remove_link{
+    float: left;
+    font-weight: bold;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    float: left !important;
+}
+.ui-dialog-title{
+    text-align: right;
+}
+.login .form-control{
+    border-radius: 5px  ;
+}
+.login .input-group-text {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.login .form-control{
+    border-right:none ;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}

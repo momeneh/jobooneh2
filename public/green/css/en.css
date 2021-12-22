@@ -72,3 +72,62 @@ a.btn.btn-round{
     text-align: left;
     line-height: 12px;
 }
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #525f7f;
+    text-align: left;
+    background-color: #1e1e2f;
+}
+.nav {
+    padding-left: 0;
+}
+.has-success:after,
+.has-danger:after {
+    font-family: 'nucleo';
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: "Poppins", sans-serif;
+}
+.sidebar .nav li>a,
+.off-canvas-sidebar .nav li>a {
+    font-size: 0.62475rem;
+}
+.sidebar .nav i,
+.off-canvas-sidebar .nav i {
+    float: left;
+}
+.sidebar .logo p,
+.off-canvas-sidebar .logo p{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+.btn-create{
+    float: right;
+}
+.form-search{
+    float: left;
+    margin: 10px 23px;
+    text-align: left;
+    width: 235px;
+}
+.search-form  {
+    text-align: right;
+}
+.form-group_submit {
+    text-align: right;
+}
+#loading_data_icon {
+    right: 20px;
+}
+.remove_link{
+    float: right;
+    font-weight: bold;
+}

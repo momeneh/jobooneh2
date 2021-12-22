@@ -1,0 +1,255 @@
+
+.alert-danger {
+    color: #f1ebeb;
+    background-color: #9e1d05;
+    border-color: #aafd77;
+    font-weight: bold;
+    padding: 15px;
+    line-height: 22px;
+}
+
+.alert-danger hr {
+    border-top-color: #b3fd5e;
+}
+.form-group .form-control,.form-search .form-control{
+    margin-top: 3px;
+}
+.form-group{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.btn-edit{
+    background-image :  url('../icon/icon-editing.png')  ;
+    background-size: 100% 100%;
+    background-position: top right;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.btn-danger {
+    background-image :  url('../icon/button-icon-delete.jpg')  ;
+    background-size: 100% 100%;
+    background-position: top right;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+.btn-show{
+    background-image :  url('../icon/icon-view.png')  ;
+    background-size: 100% 100%;
+    background-position: top right;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.btn-excel{
+    background-image :  url('../icon/excel-download.png')  ;
+    background-size: 100% 100%;
+    background-position: top right;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.btn-send{
+    background-image :  url('../icon/send_news.png')  ;
+    background-size: 100% 100%;
+    background-position: top right;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.btn-show:hover ,.btn-edit:hover, .btn-excel:hover,.btn-send:hover,.btn-reset:hover,.btn-danger:hover{
+    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+}
+.btn-danger.animation-on-hover:hover {
+    background-position: bottom left;
+    transition: 0.3s ease-in-out;
+}
+.btn-reset {
+    background: #0a4517;
+    background-image: -webkit-linear-gradient(to bottom left, #184a61, #052501, #2f6118);
+    background-image: -o-linear-gradient(to bottom left, #184a61, #052501, #2f6118);
+    background-image: -moz-linear-gradient(to bottom left, #184a61, #052501, #2f6118);
+    background-image: linear-gradient(to bottom left, #184a61, #052501, #2f6118);
+    background-size: 210% 210%;
+    background-position: top right;
+    background-color: #184a61;
+    transition: all 0.15s ease;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: smaller;
+    font-weight: 400;
+    padding: 10px 22px;
+    margin: 0px 8px;
+}
+.btn-create {
+    background: #0a4517;
+    background-color: rgb(10, 69, 23);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-image: none;
+    background-size: auto;
+    background-image: -webkit-linear-gradient(to bottom left, #2f6118, #052501, #2f6118);
+    background-image: -o-linear-gradient(to bottom left,#2f6118, #052501, #2f6118);
+    background-image: -moz-linear-gradient(to bottom left, #2f6118, #052501, #2f6118);
+    background-image: linear-gradient(to bottom left, #2f6118, #052501, #2f6118);
+    background-size: 210% 210%;
+    background-position: top right;
+    background-color: #0a4517;
+    transition: all 0.15s ease;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: smaller;
+    font-weight: 400;
+    padding: 10px 22px;
+}
+.alert-info{
+    padding: 15px;
+}
+.th_title {
+    background-color: #7a7a7a;
+    color: #ffffff !important;
+    padding: 16px !important;
+}
+.dashboard a{
+    color: #666666;
+}
+.dashboard .btn,.dashboard .search-form a{
+    color: #fff;
+}
+.dashboard .search-form a:hover{
+    color: #fff;
+}
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+    margin-top: 20px;
+}
+.pl-2, .px-2 {
+    padding-left: 0.5rem !important;
+}
+.pr-2, .px-2 {
+    padding-right: 0.5rem !important;
+}
+
+.pb-1, .py-1 {
+    padding-bottom: 0.25rem !important;
+}
+.pt-1, .py-1 {
+    padding-top: 0.25rem !important;
+}
+.h-5 {
+    height: 5px;
+}
+
+.w-5 {
+    width: 5px;
+}
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+.current_page {
+    color: #fff;
+    background-color: #2f6118 !important;
+}
+.search-form{
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.dashboard .nice-select {
+    display: none ;
+}
+div.detail {
+    background-color: #f5f6fa !important;
+    margin: 10px;
+    width: 90%;
+}
+.card .card-body {
+    padding: 15px;
+}
+.dashboard .table th,.dashboard .table td {
+    padding: 1rem;
+/*    border-top: 0.0625rem solid #e3e3e3;*/
+/*    border-top-color: rgb(227, 227, 227);*/
+/*    border-left: 0.0625rem solid #e3e3e3;*/
+/*    border-left-color: rgb(227, 227, 227);*/
+    vertical-align: middle;
+}
+.dashboard .table>thead>tr>th, .dashboard .table>tbody>tr>th, .dashboard .table>tfoot>tr>th, .dashboard .table>thead>tr>td, .dashboard .table>tbody>tr>td, .dashboard .table>tfoot>tr>td {
+    border-color: rgba(34, 42, 66, 0.2);
+    padding: 12px 7px;
+    vertical-align: middle;
+}
+.dashboard .btn-remove {
+    width: 30px;
+    color: red;
+    height: 30px;
+}
+.dashboard a.btn-remove {
+    padding: 7px;
+    margin-top: 20px;
+}
+.dashboard .btn-default {
+    color: #ffffff;
+    background-color: #344675;
+    border-color: #344675;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.dashboard .form-group_submit  {
+    margin: 10px;
+}
+.dashboard .form-control{
+    padding: 0 5px;
+}
+.dashboard .file_name{
+    margin: 10px;
+}
+.dashboard .require{
+    color: #bd2130;
+}
+.dashboard .footer a{
+    color: white;
+}
+.img_valid , .img_invalid{
+    width: 15px;
+    margin: 0 3px ;
+}
+.ui-dialog-buttonset button {
+    padding: 8px;
+    border-radius: 8px;
+}
+.document-editor__editable-container{
+    border: solid 1px;
+}
+.login .input-group-prepend .tim-icons,
+.login .input-group-append .tim-icons {
+    font-size: 1rem;
+}
+.login .input-group-prepend,
+.login .input-group-append {
+    display: flex;
+}
+.login .input-group-text {
+    background-color: #fff;
+    height: 34px;
+    margin-top: 20px;
+}
+.login .g-recaptcha{
+    margin-top: 20px;
+}
+.login .btn-block{
+    width: 80%;
+    margin: 0 auto;
+}
+.login .form-check a{
+    color: #9599a4;
+}

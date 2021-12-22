@@ -76,9 +76,7 @@
 </div>
 
 <div class="card detail" >
-    <div class="card-header">
-        <h5>{{__('title.images')}}</h5>
-    </div>
+    <h5>{{__('title.images')}}</h5>
     <div class="card-body" >
         <table class="table" id="images_table">
             <tbody>

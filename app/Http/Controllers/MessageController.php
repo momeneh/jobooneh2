@@ -41,7 +41,6 @@ class MessageController extends Controller
 
 //        $result->where('lang_id','=',Helper::GetLocaleNumber()); // user get all messges from all languages
         $result = $result->paginate(10);
-
         return view('message.index',['list'=> $result,'request'=>$request]);
     }
 
@@ -85,6 +84,8 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,['subject' => 'required|min:3']);
+
         $model = 'App\Models\User';
         if(!empty($request['receiver_id'])) {
             $ar = explode('_',$request['receiver_id']);
@@ -96,7 +97,6 @@ class MessageController extends Controller
         $m= __('messages.receiver_required');
         $this->validate($request,[
             'receiver_id' =>'required|numeric|exists:'.$model.',id',
-            'subject' => 'required|min:3',
         ],['receiver_id.required'=>$m,'receiver_id.numeric'=>$m,'receiver_id.exists'=>$m]);
 
         $record = new Message();
@@ -119,8 +119,9 @@ class MessageController extends Controller
         if ($this->send_notify)
             Notification::send( $record->receiver()->get(), new \App\Notifications\Message(App::getLocale() ,$record));//sending mail about message
 
+        $route = Auth::guard('admin')->check() ? 'admin.message.index' : 'message.index';
         if($this->redirect)
-            return redirect()->route('message.index')->with('message', __('messages.created'));
+            return redirect()->route($route)->with('message', __('messages.created'));
 
     }
 

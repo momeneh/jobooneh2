@@ -17,6 +17,7 @@ return [
     'admin_notify' => 'A notification has sent you by admin',
     'error_happened' => 'there is a problem in site . please contact backends',
     'App\Notifications\AdminNotifyUser' => 'Admin :sender : :desc (about product :id_product)',
+    'App\Notifications\OrderCreated' => 'A new order with ID :order is requested from you. Pls check  and handle it .',
     'message_sent' => 'Thank you . Your message has been sent',
     'newsletter_sent' => ' Sending is running in background process . After finish you can see count receivers in the list  ',
     'search_not_found' => 'Sorry , could not find anything matches : :search_key ',

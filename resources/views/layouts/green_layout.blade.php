@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('green') }}/css/bootstrap.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="{{ asset('green') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('green') }}/css/my_style.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('green') }}/css/xzoom.css">
     <link rel="stylesheet" href="{{ asset('green') }}/css/swiper-bundle.min.css">
@@ -33,7 +34,7 @@
     @else
         <link rel="stylesheet" href="{{ asset('green') }}/css/en.css">
     @endif
-    <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="{{ asset('green/css/nucleo-icons.css') }}" rel="stylesheet" />
     <!-- Responsive-->
     <link rel="stylesheet" href="{{ asset('green') }}/css/responsive.css">
     <!-- Scrollbar Custom CSS -->
@@ -42,6 +43,7 @@
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="{{ asset('green') }}/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('green') }}/css/jquery.fancybox.min.css" media="screen">
+    <link href="{{ asset('green/css/persian-datepicker.css') }}" rel="stylesheet" />
     @yield('css')
 
     <!--[if lt IE 9]>
@@ -51,7 +53,8 @@
     <!-- Javascript files-->
     <script src="{{asset('pub')}}/jquery-1.12.4.js"></script>
     <script src="{{ asset('green') }}/js/jquery.min.js"></script>
-    <script src="{{ asset('green') }}/js/popper.min.js"></script>
+    <script src="{{asset('pub')}}/jquery-ui.js"></script>
+   <script src="{{ asset('green') }}/js/popper.min.js"></script>
     <script src="{{ asset('green') }}/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('green') }}/js/jquery-3.0.0.min.js"></script>
     <script src="{{ asset('green') }}/js/plugin.js"></script>
@@ -61,8 +64,14 @@
     <!-- javascript -->
     <script src="{{ asset('green') }}/js/owl.carousel.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="{{ asset('white') }}/js/plugins/bootstrap-notify.js"></script>
-    <script src="{{ asset('white') }}/js/theme.js"></script>
+    <script src="{{ asset('green') }}/js/bootstrap-notify.js"></script>
+    <script src="{{ asset('green/js/theme.js') }}"></script>
+     <script src="{{ asset('green') }}/js/persianDatepicker.min.js"></script>
+
+
+    <script src="{{ asset('green') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('green/js/app.js') }}"></script>
+
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {
@@ -112,13 +121,13 @@
                         <li>
                             <div class="user_info_show">
 
-                            @if(empty(auth()->id()))
-                                <a href="{{route('login')}}">
-                                    <img id="icon-user"    src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /> {{__('login')}}</a>
-                            @else
+                            @if(!empty(auth()->id()) && Auth::guard('web')->check())
                                     <img id="icon-user"  class="user_info" src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /><span class="tim-icons icon-minimal-down icon-user-info user_info"></span>
                                     @include('layouts.box_user_info')
-                            @endif
+                            @else
+                                    <a href="{{route('login')}}">
+                                        <img id="icon-user"    src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /> {{__('login')}}</a>
+                             @endif
                             <a href="{{route('basket.index')}}"><img src="{{ asset('green') }}/icon/bask.png" onmouseover="this.src='{{asset('green')}}/icon/bask1.png'" onmouseout="this.src='{{asset('green')}}/icon/bask.png'"  /></a>
                             </div>
 

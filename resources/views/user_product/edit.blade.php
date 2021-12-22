@@ -1,16 +1,21 @@
-@extends('layouts.app', ['page' => __('products'), 'pageSlug' => 'products'])
-{{--{{ dd($__data) }}--}}
+@extends('layouts.green_layout')
 @section('title')
-    | {{ __('title.record_edit')}}
+    | {{__("title.products")}}
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
-                @php $record = $product @endphp
-                @php  if(!($record['images']->isEmpty()) ) $saved =  $record['images']; else $saved = [['id'=>'','alt'=> '' ,'image'=>'']]; @endphp
-                <div class="flex-center position-ref full-height">
-                    <h5>{{__('title.record_edit')}}</h5>
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            <div class="col-xl-3">
+                @include('layouts.navbars.sidebar')
+            </div>
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="title">{{ __('title.record_edit') }}</h5>
+                    </div>
+                    @php $record = $product @endphp
+                    @php  if(!($record['images']->isEmpty()) ) $saved =  $record['images']; else $saved = [['id'=>'','alt'=> '' ,'image'=>'']]; @endphp
                     <form id="frm_product_edit" action="{{route('userProduct.update',$record['id'])}}" method="post" enctype="multipart/form-data">
                         {{method_field('put')}}
                         {{csrf_field()}}

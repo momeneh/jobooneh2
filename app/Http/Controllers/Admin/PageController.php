@@ -22,7 +22,7 @@ class PageController extends Controller
      */
     public function index(Request $request)
     {
-        $result = Page::select('id','title',DB::raw("substr(`body`, 1, 20) as body") )->orderBy('id','DESC');
+        $result = Page::select('id','title',DB::raw("substr(`body`, 1, 50) as body") )->orderBy('id','DESC');
         if($request->title) $result = $result->where('title','LIKE','%'.$request->title.'%');
         if($request->id) $result = $result->where('id','=',$request->id);
 

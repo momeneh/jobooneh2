@@ -5,7 +5,7 @@
                 <a href="{{route('dashboard')}}">
                 <img class="avatar" src="
                         @if (!empty(auth()->user()->image) && trim(auth()->user()->image)!= '') {{asset('/profile_images/'.Auth::user()->image)}}
-                        @else  {{ asset('white') }}/img/default-avatar.png
+                        @else  {{ asset('green/images/default-avatar.png') }}
                         @endif">
                 </a>
             </div>

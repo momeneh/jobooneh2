@@ -1,16 +1,17 @@
-@extends('layouts.app', ['page' => __('products'), 'pageSlug' => 'products'])
-
-{{--@extends('layouts.main')--}}
+@extends('layouts.green_layout')
 @section('title')
-    | {{ __('title.products')}}
+    | {{__("title.products")}}
 @endsection
 @section('content')
-
-    <div class="row">
-        <div class="col-md-11">
-            <div class="card">
-                <div class="flex-center position-ref full-height">
-                    <h5>{{__('title.products')}}</h5>
+    <div class="inner_page dashboard">
+        <div class="col-xl-12 row">
+            <div class="col-xl-3">
+                @include('layouts.navbars.sidebar')
+            </div>
+            <div class="col-xl-9 " style="margin-top: 10px" >
+                @include('includes.message')
+                <div class="card">
+                    <h5 >{{ __('title.create_new') }}</h5>
                     <form id="frm_product_create" action="{{route('userProduct.store')}}" method="post" enctype="multipart/form-data" >
                         {{csrf_field()}}
 
@@ -26,7 +27,6 @@
 
                     </form>
                 </div>
-
             </div>
         </div>
     </div>

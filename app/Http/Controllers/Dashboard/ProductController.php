@@ -193,11 +193,13 @@ class ProductController extends Controller
             $file = 'product_images/'.$i['image'];
             if(Storage::exists($file))   Storage::delete($file);
         }
-        //2:remove details
-        $i->where('products_id','=', $id)->delete();
+        DB::transaction(function () use ($pro) {
+            //2:remove details
+            $pro->images()->delete();
 
-        //3:remove Pro
-        $pro->delete();
+            //3:remove Pro
+            $pro->delete();
+        });
         return back()->with('message', __('messages.deleted'));
     }
 

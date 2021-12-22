@@ -9,35 +9,7 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    /**
-     * Display icons page
-     *
-     * @return View
-     */
-    public function icons()
-    {
-        return view('pages.icons');
-    }
 
-    /**
-     * Display maps page
-     *
-     * @return View
-     */
-    public function maps()
-    {
-        return view('pages.maps');
-    }
-
-    /**
-     * Display tables page
-     *
-     * @return View
-     */
-    public function tables()
-    {
-        return view('pages.tables');
-    }
 
     /**
      * Display notifications page
@@ -46,7 +18,6 @@ class PageController extends Controller
      */
     public function notifications()
     {
-//        return view('pages.notifications');
         return view('users.notifications',['notifications'=>auth()->user()->Notifications]);
     }
 
@@ -59,25 +30,6 @@ class PageController extends Controller
         return back()->with('message', __('messages.deleted'));
     }
 
-    /**
-     * Display rtl page
-     *
-     * @return View
-     */
-    public function rtl()
-    {
-        return view('pages.rtl');
-    }
-
-    /**
-     * Display typography page
-     *
-     * @return View
-     */
-    public function typography()
-    {
-        return view('pages.typography');
-    }
 
 
     public function show($id){
