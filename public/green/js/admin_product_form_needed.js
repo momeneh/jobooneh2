@@ -32,6 +32,7 @@ $(document).ready(function () {
     $('#pre_pay').hide();
     $('#duration').hide();
     $('#sell_status').on('change', ShowHideDiv()).trigger('change');
+    $('#sell_status').on('change', ShowHideDiv()).trigger('change');
 
 });
 

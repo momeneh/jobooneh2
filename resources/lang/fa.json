@@ -46,5 +46,9 @@
     "upload receipt" : "آپلود فیش واریزی و ثبت سفارش",
     "file is not uploaded ,Pls try another file or contact the admin" : "متاسفانه مشکلی در آپلود فایل بوجود آمده لطفا فایل دیگری را امتحان کنید یا با پشتیبانی تماس بگیرید ",
     "confirm the order" : "تایید سفارش",
-    "describe the problems" : "توضیح مشکلات سفارش"
+    "describe the problems" : "توضیح مشکلات سفارش",
+    "Your order is confirmed" : "سفارش شما توسط صاحب محصول (ها) تایید شد ",
+    "order code : " : "کد سفارش : ",
+    "Your order has problem(s)" : "سفارش شما مشکلاتی داشت ",
+    "Tracking number for order" : "کد رهگیری پست برای سفارش شما  "
 }

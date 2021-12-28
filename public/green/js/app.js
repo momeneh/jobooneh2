@@ -136,8 +136,20 @@
               $(this).val($(this).val().replace(/,/g, ''));
           })
       });
+      $('#confirmed').on('change', ShowHidePost()).trigger('change');
   });
 
+  function ShowHidePost() {
+      var SelectedValue = $('#confirmed').is(':checked');
+      console.log(SelectedValue);
+      if (SelectedValue ) {
+          $('#post_track').show();
+      }
+      else {
+          $('#post_track_field').val('');
+          $('#post_track').hide();
+      }
+  }
 
   function RemoveNotification(element){
       $.ajax({

@@ -6,11 +6,17 @@ use App\Models\Order;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Auth;
 
 class OrderPolicy
 {
     use HandlesAuthorization;
 
+    public function before( $user)
+    {
+        if(Auth::getDefaultDriver() == 'admin')
+            return true;
+    }
 
     public function ShowFile( User $user,Order $order){
         return (( $user->id == $order->seller['id'] && $user->is_owner == 1) ||
@@ -27,7 +33,6 @@ class OrderPolicy
      */
     public function viewAny(User $user)
     {
-        //
     }
 
     /**
@@ -60,9 +65,12 @@ class OrderPolicy
      * @param  \App\Models\Order  $order
      * @return mixed
      */
-    public function update(User $user, Order $order)
+    public function update( $user, Order $order)
     {
-        //
+        return ( $user->id == $order->seller_id && $user->is_owner == 1)
+            ? Response::allow()
+            : Response::deny('unauthorized .');
+
     }
 
     /**
@@ -100,4 +108,6 @@ class OrderPolicy
     {
         //
     }
+
+
 }

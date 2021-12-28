@@ -27,8 +27,16 @@
     border: 0;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-
-.btn-danger {
+.dashboard .btn-readed{
+    background-image: url('../icon/mark_readed.png');
+    background-size: 100% 100%;
+    background-position: top right;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.dashboard .btn-danger {
     background-image :  url('../icon/button-icon-delete.jpg')  ;
     background-size: 100% 100%;
     background-position: top right;

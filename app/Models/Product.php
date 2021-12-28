@@ -187,6 +187,10 @@ class Product extends Model
         return $result;
     }
 
+    public static function SetCount($id,$count){
+        DB::statement("update products set count = '{$count}' where id = '{$id}'");
+    }
+
 
 
 

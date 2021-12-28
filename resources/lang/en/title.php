@@ -130,7 +130,10 @@ return [
     'receipt' => '  receipt image',
     'orders' => 'orders',
     'owner_confirmed' => 'Is confirmed by the owner  ',
-    'post_tracking_number' => 'post tracking number'
+    'post_tracking_number' => 'post tracking number',
+    'requested_orders' => 'manage requested orders ',
+    'seller' => 'seller',
+    'shopper' => 'shopper'
 
 
 

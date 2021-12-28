@@ -137,7 +137,10 @@ return [
     'receipt' => 'تصویر فیش واریزی',
     'orders' => 'سفارشات',
     'owner_confirmed' => 'توسط فروشنده تایید شده ',
-    'post_tracking_number' => 'کد پیگیری پستی مرسوله'
+    'post_tracking_number' => 'کد پیگیری پستی مرسوله',
+    'requested_orders' => 'مدیریت سفارشات ثبت شده ',
+    'seller' => 'فروشنده',
+    'shopper' => 'خریدار'
 
 
 

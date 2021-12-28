@@ -15,6 +15,7 @@
                 @if ($item->order->id == $order_id) @continue @endif
                 <div class="order_box">
                     @php $order_id = $item->order->id @endphp
+                    <div style="padding: 6px 7px 0 0;">{{__('order code : ')}}{{$item->order->id}}</div><hr>
                     <div class="row" style="padding: 6px 7px 0 0;">
                         <div class="col-md-4 color_green" >
                             @if(app()->getLocale() == 'fa') <span dir="ltr"> {{PersianNo(dateConvert::strftime('Y/m/d H:i:s', strtotime($item->order->created_at)))}}</span>

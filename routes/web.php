@@ -31,8 +31,17 @@ Route::resource('/basket','basket\ParentBasketController');
 
 Auth::routes(['verify' => true]);
 
+Route::get('search/autocompleteUsers', 'UserController@autocomplete')->name('autocompleteUsers');
 
+//Route::get('/test', function (){
+//$order  = \App\Models\Order::find(3)->load('Items.products.images');//dd($order);
+//    return view('emails.order_tracking_notify',['order'=>$order,'receiver'=>'hygy','shopper'=>'fxgbfxg','body_desc'=> 'jashfzsufy usd ']);
+//});
+Route::get('/rl',function (){
+    \Illuminate\Support\Facades\Artisan::call('route:list');
+    dd(\Illuminate\Support\Facades\Artisan::output());
 
+});
 
 //--------------------Admins------------------------------
 Route::group(['prefix'=>'admin'],function (){
@@ -76,16 +85,6 @@ Route::group(['prefix'=>'admin'],function (){
     });
 });
 
-
-//Route::get('/test', function (){
-//$order  = \App\Models\Order::find(4)->load('Items.products.images');//dd($order);
-//    return view('emails.order_created_notify',['order'=>$order,'receiver'=>'hygy','shopper'=>'fxgbfxg']);
-//});
-Route::get('/rl',function (){
-    \Illuminate\Support\Facades\Artisan::call('route:list');
-    dd(\Illuminate\Support\Facades\Artisan::output());
-
-});
 //--------------------Normal Users------------------------------
 /*dashboard*/ Route::get('/home', 'UserController@dashboard')->name('dashboard')->middleware('verified');
 Route::group( ['middleware' => 'auth'],function (){
@@ -114,12 +113,20 @@ Route::group( ['middleware' => 'auth'],function (){
         Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('message_reply');
         Route::get('/attachment_view/{name_file}', 'MessageController@show_attachments')->name('show_attachments');
         Route::post('/shop', 'OrderController@create')->name('shop');
-//        Route::post('/order', 'OrderController@store')->name('order');
-        Route::resource('/order','OrderController');
-        Route::get('/receipt_images/{name_file}','OrderController@receipt')->middleware('verified');
-        Route::get('/confirm_order','OrderController@confirm')->name('confirm_order');
-        Route::get('/problem_order','OrderController@problem')->name('order_problem');
+//        Route::post('/order', 'OrderController@store')->name('order.store');
+        Route::resource('/order','OrderController')->except(['edit','update']);
+        Route::get('/confirm_order/{id}','OrderController@confirm')->name('confirm_order');
+        Route::get('/problem_order/{id}','OrderController@problem')->name('order_problem');
     });
 });
 
-Route::get('search/autocompleteUsers', 'UserController@autocomplete')->name('autocompleteUsers');
+//-------------------Normal Users And Admins-------------------------
+Route::group( ['middleware' => 'auth:web,admin'],function (){
+    Route::get('/requested_orders','OrderController@requested')->name('requested_orders');
+    Route::get('/order/{id}/edit', 'OrderController@edit')->name('order_edit');
+    Route::put('/order/{id}/edit',  'OrderController@update')->name('order_update');
+    Route::post('/order/desc',  'OrderController@problem_desc')->name('order_desc');
+    Route::get('/receipt_images/{name_file}','OrderController@receipt');
+});
+
+

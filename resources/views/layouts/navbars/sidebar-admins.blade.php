@@ -122,6 +122,12 @@
                     <span>{{ __('Newsletter') }}  </span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('requested_orders') }}">
+                    <i class="tim-icons icon-bag-16"></i>
+                    <span>{{ __('title.requested_orders') }}</span>
+                </a>
+            </li>
 
             <li >
                 <a href="{{ route('admin.logout') }}">

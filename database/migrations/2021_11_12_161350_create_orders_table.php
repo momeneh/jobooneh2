@@ -22,6 +22,9 @@ class CreateOrdersTable extends Migration
             $table->string('receipt_image')->nullable();
             $table->tinyInteger('owner_confirmed')->default(0);
             $table->string('post_tracking_number')->nullable();
+            $table->foreignId('shopper_id')->constrained('users')->onDelete('restrict');
+            $table->foreignId('seller_id')->constrained('users')->onDelete('restrict');
+            $table->smallInteger('lang_id');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

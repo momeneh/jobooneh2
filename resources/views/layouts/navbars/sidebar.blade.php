@@ -49,12 +49,18 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="{{ route('pages.notifications') }}">
-                        <i class="tim-icons icon-bell-55"></i>
-                        <span>{{ __('title.Notifications') }}</span>
-                    </a>
-                </li>
+            <li>
+                <a href="{{ route('pages.notifications') }}">
+                    <i class="tim-icons icon-bell-55"></i>
+                    <span>{{ __('title.Notifications') }} ({{count(Auth::user()->unreadNotifications)}}) </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('requested_orders') }}">
+                    <i class="tim-icons icon-bag-16"></i>
+                    <span>{{ __('title.requested_orders') }}</span>
+                </a>
+            </li>
                 <li >
                     <a href="{{ route('logout') }}">
                         <i class="tim-icons icon-button-power"></i>
