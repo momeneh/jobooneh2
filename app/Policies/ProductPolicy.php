@@ -45,9 +45,11 @@ class ProductPolicy
      * @param  \App\Models\User  $user
      * @return mixed
      */
-    public function create(User $user,Product $product)
+    public function create(User $user)
     {
-        $product->user_id = $user->id;
+        return ($user->is_owner === 1)
+            ? Response::allow()
+            : Response::deny('unauthorized .');
     }
 
     /**

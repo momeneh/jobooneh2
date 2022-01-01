@@ -64,6 +64,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $this->authorize('create' ,Product::class)    ;
         $categories = Categories::orderBy('id','DESC')->where('lang_id','=',Helper::GetLocaleNumber())->get();
         return view('user_product.create',['categories'=>$categories]);
     }
@@ -76,6 +77,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Product::class )    ;
         $this->validate($request,[
             'category_id' => 'required|numeric',
             'title' => 'required|min:3',

@@ -59,6 +59,24 @@
             </div>
             @endif
             <div class="col-xl-8  inner_page_box" style="margin-top: 10px" >
+                <div class="row">
+                    <ul class="c-listing__sort js-sort-options" data-label="">
+                        <li>{{__("Sort By :")}}</li>
+                        <li ><a  class="search_link" onclick="Redirect(this)" link_id="1" Stype="sort"
+                             @if(!empty($request->sort_id) && $request->sort_id == 1) style="color: #4bc714;" @endif>{{__("Viewed most")}}</a>
+                        </li>
+                        <li><a  class="search_link" onclick="Redirect(this)" link_id="2" Stype="sort"
+                                @if(!empty($request->sort_id) && $request->sort_id == 2) style="color: #4bc714;" @endif >{{__("Newest")}}</a>
+                        </li>
+                        <li><a class="search_link" onclick="Redirect(this)" link_id="3" Stype="sort"
+                               @if(!empty($request->sort_id) && $request->sort_id == 3) style="color: #4bc714;" @endif>{{__('Cheapest')}}</a>
+                        </li>
+                        <li><a class="search_link" onclick="Redirect(this)" link_id="4" Stype="sort"
+                               @if(!empty($request->sort_id) && $request->sort_id == 4) style="color: #4bc714;" @endif >{{__("Most expensive")}}</a>
+                        </li>
+
+                    </ul>
+                </div>
             <div class=" row" style="min-height: 20px"></div>
             <div class="product row" id="product">
                 @if(!empty($products[0]->id))

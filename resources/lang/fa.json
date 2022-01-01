@@ -50,5 +50,12 @@
     "Your order is confirmed" : "سفارش شما توسط صاحب محصول (ها) تایید شد ",
     "order code : " : "کد سفارش : ",
     "Your order has problem(s)" : "سفارش شما مشکلاتی داشت ",
-    "Tracking number for order" : "کد رهگیری پست برای سفارش شما  "
+    "Tracking number for order" : "کد رهگیری پست برای سفارش شما  ",
+    "Sort By :" : "مرتب سازی بر اساس :",
+    "Viewed most":"پربازدیدترین",
+    "Newest": "جدیدترین",
+    "Cheapest": "ارزان ترین",
+    "Most expensive": "گران ترین",
+    "": "",
+    "": ""
 }

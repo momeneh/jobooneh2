@@ -100,10 +100,15 @@
             <div class="row">
                 @foreach($most_visited_products as $mv)
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                        <div class="product_box">
+                        <div class="product_box p_box">
                             <a href="{{route('pages.product',$mv->id)}}">
-                            <figure><img src="{{ asset('product_images/'.$mv->images[0]->image)}}" alt="#" />
-                                <h3>{{$mv->title}}</h3></figure>
+                            <figure>
+                                <img src="{{ asset('product_images/'.$mv->images[0]->image)}}" alt="#" />
+                                <div class="overlay">
+                                    <h3>{{$mv->title}}</h3>
+                                </div>
+                            </figure>
+
                             </a>
                         </div>
                     </div>
@@ -146,7 +151,7 @@
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 pa_right">
                                             <div class="testomonial_img">
-                                                <i><img src="{{ asset('profile_images/'.$t->owner['image']) }}" alt="#"/></i>
+                                                <i><img src="{{ asset('profile_images/'.$t->owner['image']) }}" alt="#" /></i>
                                             </div>
                                         </div>
                                         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 pa_left">

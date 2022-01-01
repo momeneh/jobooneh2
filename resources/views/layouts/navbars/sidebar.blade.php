@@ -18,13 +18,14 @@
                         <span>{{ __('title.change_password') }}</span>
                     </a>
                 </li>
-                <li >
-                    <a href="{{ route('userProduct.index')  }}">
-                        <i class="tim-icons icon-image-02"></i>
-                        <span>{{ __('title.products') }}</span>
-                    </a>
-                </li>
-
+                @if(auth()->user()->is_owner === 1 )
+                    <li >
+                        <a href="{{ route('userProduct.index')  }}">
+                            <i class="tim-icons icon-image-02"></i>
+                            <span>{{ __('title.products') }}</span>
+                        </a>
+                    </li>
+                @endif
                 <li  >
                     <a data-toggle="collapse" href="#laravel-examples" aria-expanded="false">
                         <i class="tim-icons icon-chat-33" ></i>
@@ -49,18 +50,20 @@
                         </ul>
                     </div>
                 </li>
-            <li>
-                <a href="{{ route('pages.notifications') }}">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <span>{{ __('title.Notifications') }} ({{count(Auth::user()->unreadNotifications)}}) </span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('requested_orders') }}">
-                    <i class="tim-icons icon-bag-16"></i>
-                    <span>{{ __('title.requested_orders') }}</span>
-                </a>
-            </li>
+                <li>
+                    <a href="{{ route('pages.notifications') }}">
+                        <i class="tim-icons icon-bell-55"></i>
+                        <span>{{ __('title.Notifications') }} ({{count(Auth::user()->unreadNotifications)}}) </span>
+                    </a>
+                </li>
+                @if(auth()->user()->is_owner === 1 )
+                    <li>
+                        <a href="{{ route('requested_orders') }}">
+                            <i class="tim-icons icon-bag-16"></i>
+                            <span>{{ __('title.requested_orders') }}</span>
+                        </a>
+                    </li>
+                @endif
                 <li >
                     <a href="{{ route('logout') }}">
                         <i class="tim-icons icon-button-power"></i>

@@ -118,14 +118,19 @@ class Product extends Model
     public static function GetProductsSearch($request){
         $result = self::from('products AS p')
             ->select('p.*','c.title as category')
-            ->orderBy('visited_count','DESC')
-            ->orderBy('p.id','DESC');
+
+//            ->orderBy('p.id','DESC')
+        ;
         $result = self::GetProductsSearchPart($request,$result);
 
         if(!empty($request->cat_id)) $result = $result->where('c.id','=',$request->cat_id);
         if(!empty($request->owner_id)) $result = $result->where('p.user_id','=',$request->owner_id);
         if(!empty($request->available)) $result = $result->where('p.count','>' ,'0');
         if(!empty($request->can_order)) $result = $result->where('p.sell_status','=','2');
+        if(!empty($request->sort_id) && $request->sort_id == 1) $result = $result->orderBy('visited_count','DESC');
+        if(empty($request->sort_id) || (!empty($request->sort_id) && $request->sort_id == 2)) $result = $result->orderBy('p.id','DESC');
+        if(!empty($request->sort_id) && $request->sort_id == 3) $result = $result->orderBy('price','ASC');
+        if(!empty($request->sort_id) && $request->sort_id == 4) $result = $result->orderBy('price','DESC');
 
         $result = $result
             ->with('images')

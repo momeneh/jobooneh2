@@ -44,9 +44,16 @@ class OrderPolicy
      */
     public function view(User $user, Order $order)
     {
-        //
+        return ($user->is_owner === 1)
+            ? Response::allow()
+            : Response::deny('unauthorized .');
     }
-
+    public function listRequested(User $user)
+    {
+        return ($user->is_owner === 1)
+            ? Response::allow()
+            : Response::deny('unauthorized .');
+    }
     /**
      * Determine whether the user can create models.
      *

@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\Product;
 use App\Models\ProductImages;
 use App\Models\ProductsImages;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
@@ -106,6 +107,7 @@ class ProductController extends Controller
             $record->images()->save($pr_im);
         }
 
+        if($record->confirmed == 1 ) User::SetOwner($record->user_id);
         return redirect()->route('product.index')->with('message', __('messages.created'));
 
     }
@@ -153,6 +155,7 @@ class ProductController extends Controller
         ],['owner_id.required'=>$m,'owner_id.numeric'=>$m,'owner_id.exists'=>$m]);
 
         $record = Product::findOrFail($id);
+        $before_confirmed = $record->confirmed;
         if($record->count != $request['count'])
             Storage::append('product_count_logs/'.$record->id.'.txt', Carbon::now().': ---- the owner changed count to  ' .$request['count'] . '  ---- ');
         $record->title = $request['title'];
@@ -178,6 +181,7 @@ class ProductController extends Controller
         }
         $record->images()->upsert($up_arr,['id'],['image','alt']);
 
+        if( (empty($before_confirmed) || $before_confirmed!= 1) && $record->confirmed == 1 ) User::SetOwner($record->user_id);
         return redirect()->route('product.index')->with('message', __('messages.updated'));
 
     }

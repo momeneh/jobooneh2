@@ -206,6 +206,7 @@ class OrderController extends Controller
     }
 
     public function requested(Request $request){
+        $this->authorize('listRequested' ,Order::class)    ;
         $orders = Order::orderBy('id','DESC')->with('seller2','shopper');
         if(Auth::getDefaultDriver() != 'admin')  $orders->where('seller_id','=',auth()->id());
 
