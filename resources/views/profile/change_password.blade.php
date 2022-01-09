@@ -6,6 +6,7 @@
     <div class="inner_page dashboard">
         <div class="col-xl-12 row">
             <div class="col-xl-3">
+                <a href="#" id="side_bar_icon" > <i class="tim-icons icon-bullet-list-67"></i></a>
                 @include('layouts.navbars.sidebar')
             </div>
             <div class="col-xl-8 " style="margin-top: 10px" >

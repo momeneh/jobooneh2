@@ -31,7 +31,7 @@
     <div class="profile-dropdown-actions">
 
         <div class="profile-dropdown-action-container">
-            <a href="{{route('logout')}}" data-snt-event="dkHeaderClick"  class="profile-dropdown-action profile-dropdown-action--logout js-logout-button" >{{__('title.logout')}}</a>
+            <a href="{{route('logout.a')}}" data-snt-event="dkHeaderClick"  class="profile-dropdown-action profile-dropdown-action--logout js-logout-button" >{{__('title.logout')}}</a>
         </div>
     </div>
 </div>

@@ -159,14 +159,14 @@
                             <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logoen.png" alt="#"></a>
                         @endif
                     </div>
-                    <div class="clearfix"></div>
-                    <p  style="font-size: 15px;text-align: justify">
+                    <div class="clearfix "></div>
+                    <p  class="description_footer" style="font-size: 15px;text-align: justify">
                         {!! $footer_desc[0]['body'] !!}
                     </p>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="address footer_links">
+                <div class="address footer_links footer_links_menu">
                     <h3>{{__('Quick links')}}</h3>
                     <ul class="">
                         @foreach($main_menus as $menu_item)

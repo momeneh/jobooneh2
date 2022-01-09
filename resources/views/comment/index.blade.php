@@ -9,9 +9,8 @@
             @include('layouts.navbars.nav_check')
             <div class="col-xl-9 " style="margin-top: 10px" >
                 @include('includes.message')
-                <div class="card">
 
-                    <table border="1" cellpadding="20" class="table table-hover">
+                    <table border="1" cellpadding="20" class="table table-hover inner_page_box">
                     <thead>
                     <tr>
                         <th colspan="7" class="th_title">
@@ -57,7 +56,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                </div>
                  {{$list->appends(request()->query())->links()}} <!-- PAGINATION-->
                 <form method="'get" action="{{route('comment.index')}}" class="search-form inner_page_box">
                 <div class="form-search">

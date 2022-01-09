@@ -37,12 +37,26 @@ if(!function_exists('StringToDate')){
         return $date;
     }
 }
+if(!function_exists('MakeTree')) {
+    function MakeTree($elements)
+    {
+        $parents = [];$append_array=[];
+        foreach ($elements as $element){
+            $parents[] = $element['id'];
+        }
+        foreach ($elements as $element){
+            if(!in_array($element['parent_id'],$parents) && !empty($element['parent_id']))
+                $append_array[] = $element;
+        }
+        $tree_array = ArrayToTree($elements);
+        return array_merge($tree_array,$append_array);
+    }
+}
 
 //parent_id in fields
 if(!function_exists('ArrayToTree')){
     function ArrayToTree(array $elements, $parentId = 0) {
         $branch = array();
-
         foreach ($elements as $element) {
             if ($element['parent_id'] == $parentId) {
                 $children = ArrayToTree($elements, $element['id']);

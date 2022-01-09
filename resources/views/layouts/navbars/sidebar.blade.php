@@ -1,4 +1,4 @@
-<div class="inner_page_box box_side">
+<div class="inner_page_box box_side sidebar_part">
     <div class="sidebar"  style=" @if(app()->getLocale() == 'fa')  right:0 @else left:0 @endif ">
         <h3 >
             <a href="#" class="simple-text logo-mini">{{ __('title.Dashboard') }} </a>
@@ -65,7 +65,7 @@
                     </li>
                 @endif
                 <li >
-                    <a href="{{ route('logout') }}">
+                    <a href="{{ route('logout.a') }}">
                         <i class="tim-icons icon-button-power"></i>
                         <span>{{ __('title.logout') }}</span>
                     </a>

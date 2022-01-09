@@ -2,12 +2,25 @@
 
 
   $(document).ready(function () {
+      $('.header nav').meanmenu();
+      $(".main-menu ul li.megamenu").mouseover(function () {
+          if (!$(this).parent().hasClass("#wrapper")) {
+              $("#wrapper").addClass('overlay');
+          }
+      });
+      $(".main-menu ul li.megamenu").mouseleave(function () {
+          $("#wrapper").removeClass('overlay');
+      });
+
       $( "#remove_image" ).click(function() {
           $( "img#image_show" ).remove( );
           $( "#remove_image" ).remove( );
           $("input#image").removeClass('hidden');
       });
 
+      $("#side_bar_icon").click(function () {
+        $(".sidebar_part").toggle();
+      })
       /*-------------------autocomplete--------------------*/
       $("#auto").autocomplete({
           minLength: 4,
@@ -141,7 +154,6 @@
 
   function ShowHidePost() {
       var SelectedValue = $('#confirmed').is(':checked');
-      console.log(SelectedValue);
       if (SelectedValue ) {
           $('#post_track').show();
       }

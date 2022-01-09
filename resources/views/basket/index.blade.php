@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="inner_page">
-        <div class="col-xl-8 col-lg-5 col-md-5 co-sm-l2 inner_page_box" >
+        <div class="col-xl-8 col-lg-5  co-sm-l2 inner_page_box" >
             <div class="basket" style="padding-top: 50px">
                 @if(isset($owners[0]->id))
                 @foreach($owners as $owner)

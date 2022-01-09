@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainPageController@index')->name('MainPage');
-Route::get('/homePage', 'MainPageController@index')->name('MainPage');
+Route::get('/homePage', 'MainPageController@index')->name('mainPage');
 Route::post('/homePage', 'MainPageController@subscribe')->name('subscribe');
 Route::get('lang/{locale}', 'LangController@lang')->name('lang');
 Route::get('page/{id}', 'Dashboard\PageController@show')->name('pages.show');
@@ -27,6 +27,7 @@ Route::get('productOwner/{id}', 'ProductController@owner')->name('pages.owner');
 Route::post('comment_store/', 'ProductController@commentStore')->name('comment.store');
 Route::post('product/', 'ProductController@rateStore')->name('pages.productRate');
 Route::get('search/', 'ProductController@search')->name('pages.search');
+Route::get('search/filters', 'ProductController@filters')->name('pages.search.filters');
 Route::resource('/basket','basket\ParentBasketController');
 
 Auth::routes(['verify' => true]);
@@ -71,7 +72,7 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('admin.message_reply');
         Route::get('/contacts','ContactController@index')->name('admin.contacts');
         Route::get('/contacts/{id}','ContactController@show')->name('admin.show_contacts');
-        Route::resource('/comment','Admin\CommentController');
+        Route::resource('/comment','Admin\CommentController')->except('store');
         Route::resource('/subscribe','Admin\SubscribeController');
         Route::get('/subscribe_excel/{id}','Admin\SubscribeController@receivers')->name('subscribe_excel');
         Route::get('/subscribe_send/{id}','Admin\SubscribeController@send')->name('subscribe_send');
@@ -88,7 +89,7 @@ Route::group(['prefix'=>'admin'],function (){
 //--------------------Normal Users------------------------------
 /*dashboard*/ Route::get('/home', 'UserController@dashboard')->name('dashboard')->middleware('verified');
 Route::group( ['middleware' => 'auth'],function (){
-    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout.a');
     Route::group(['middleware' => 'verified'], function () {
         Route::get('profile', ['as' => 'profile.edit', 'uses' => 'Dashboard\ProfileController@edit']);
         Route::put('profile', ['as' => 'profile.update', 'uses' => 'Dashboard\ProfileController@update']);
@@ -113,7 +114,6 @@ Route::group( ['middleware' => 'auth'],function (){
         Route::get('/message_reply/{id}', 'MessageController@ReplyMessages')->name('message_reply');
         Route::get('/attachment_view/{name_file}', 'MessageController@show_attachments')->name('show_attachments');
         Route::post('/shop', 'OrderController@create')->name('shop');
-//        Route::post('/order', 'OrderController@store')->name('order.store');
         Route::resource('/order','OrderController')->except(['edit','update']);
         Route::get('/confirm_order/{id}','OrderController@confirm')->name('confirm_order');
         Route::get('/problem_order/{id}','OrderController@problem')->name('order_problem');

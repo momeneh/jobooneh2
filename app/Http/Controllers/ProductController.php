@@ -125,9 +125,17 @@ class ProductController extends Controller
             $view = view('site_products.cat_products_list', ['products' => $result])->render();
             return response()->json(['view' => $view], 200)->throwResponse();
         }
-        $cats = ArrayToTree(Product::GetCategoriesSearch($request)->all());
+        $cats =(MakeTree(Product::GetCategoriesSearch($request)->all()));
         $owners = Product::GetOwnersSearch($request);
         return view('site_products.search',['products'=> $result,'request'=>$request,'categories'=>$cats,'owners'=>$owners]);
+    }
+
+    public function filters(Request $request){
+        if(empty($request->search_key)) return back();
+
+        $cats =(MakeTree(Product::GetCategoriesSearch($request)->all()));
+        $owners = Product::GetOwnersSearch($request);
+        return view('site_products.filters',['request'=>$request,'categories'=>$cats,'owners'=>$owners]);
     }
 
 

@@ -7,9 +7,10 @@
     <div class="inner_page dashboard">
         <div class="col-xl-12 row">
             <div class="col-xl-3">
+                <a href="#" id="side_bar_icon" > <i class="tim-icons icon-bullet-list-67"></i></a>
                 @include('layouts.navbars.sidebar')
             </div>
-            <div class="col-xl-9 " style="margin-top: 10px" >
+            <div class="col-xl-9 " style="margin-top: 10px;overflow-x:auto;" >
             @include('includes.message')
             @include('product.product_common_admin_user',['r'=>'userProduct'])
             </div>

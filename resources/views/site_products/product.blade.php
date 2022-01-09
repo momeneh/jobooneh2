@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="inner_page">
-        <div class="col-xl-8 col-lg-5 col-md-5 co-sm-l2 inner_page_box" >
+        <div class="col-xl-8 col-lg-5 co-sm-l2 inner_page_box" >
             <div class="row " style="padding-top: 50px">
                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 ">
                     <div class="  large-5 column ">

@@ -9,7 +9,7 @@
 @endsection
 @section('content')
     <div class="inner_page">
-        <div class="col-xl-8 col-lg-5 col-md-5 co-sm-l2 inner_page_box order" >
+        <div class="col-xl-8 col-lg-5  co-sm-l2 inner_page_box order" >
             @php $order_id = 0 @endphp
             @foreach ($list as $item)
                 @if ($item->order->id == $order_id) @continue @endif

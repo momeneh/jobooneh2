@@ -319,3 +319,15 @@ div.detail {
     border-radius: 8px;
     white-space: nowrap;
 }
+.filter_icon{
+    display: none;
+}
+#side_bar_icon{
+    background-color: #fff;
+    padding: 2px 9px;
+    display: none;
+}
+.dashboard .inner_page_box a.btn
+{
+    color: #fff
+}

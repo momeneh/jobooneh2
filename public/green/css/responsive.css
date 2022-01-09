@@ -4,7 +4,7 @@
 /*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    
+
     .header-search {
         padding: 15px 0px;
     }
@@ -163,7 +163,11 @@
    .location_icon_bottum ul li {padding: 1px 8px;}
     .main-menu ul > li a {padding: 18px 0px; font-size: 15px;}
     .location_icon_bottum_tt ul li {padding: 27px 10px;}
-    .search button {width: 70px;}
+    .search-side{display: none}
+    .c-listing__sort li{font-size: 10px    }
+    .filter_icon{ display: block;   background-color: #4bc71421;  width: 30%;   padding: 7px;  margin: 0 10px;  }
+    .filter_icon a{color: #9599a4    }
+    .search button {width: 20%;}
      .last {display: none !important;}
   .banner-main .carousel-item img {height: 500px;}
     .banner-main .carousel-caption h1 {font-size: 36px; padding-top: 30px; }
@@ -178,8 +182,9 @@
 ul.social_icon {display: none !important;}
 .testomonial_img::after {background: inherit;}
 .cross_inner h3 {padding-bottom: 20px; padding-left: 20px; padding-top: 0px;}
+    .sidebar_part{display: none}
+    #side_bar_icon{display: initial}
 
-   
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -227,29 +232,46 @@ background: transparent;
    .ggg {display: none;}
     .header { padding-bottom: 0; padding-top: 30px;}
     .last {display: none;}
-    .img-box {display: none;} 
-    .search {display: none;}
-.location_icon_bottum_tt {display: none;}
+    .sidebar_part{display: none}
+    #side_bar_icon{display: initial}
+    .img-box {display: none;}
+    .search {/*display: none;*/}
+    .search button{width: 20%;}
+/*.location_icon_bottum_tt {display: none;}*/
+    .location_icon_bottum_tt ul li{padding: 10px}
+    .about { padding: 0;}
+    .about .about_box p { padding:0;font-size: 13px; line-height: 25px;}
+    .about_box{margin-bottom: 10px}
+    .about .about_box a {width: 173px;line-height: 14px;border-radius: 11px}
 .logo {float: inherit; padding-bottom: 15px; text-align: center; margin-top: -16px;}
 #myCarousel a.carousel-control-prev {width: 45px; height: 45px;}
 #myCarousel a.carousel-control-next {width: 45px; height: 45px;}
 .banner-main .carousel-item img {height: 339px;}
 .banner-main .carousel-caption span {font-size: 22px; line-height: 19px;}
-.banner-main .carousel-caption h1 {font-size: 42px; line-height: 40px;}
+    .banner-main .carousel-caption h1 {font-size: 42px; line-height: 40px;}
+    .banner-main .carousel-caption h2 {font-size: 16px; line-height: 20px;}
+    .banner-main .carousel-caption span {font-size: 16px !important; line-height: 20px;}
 .banner-main .carousel-caption p  {display: none;}
 .banner-main .carousel-caption .buynow {
 width: 98px;
 padding: 7px 0;
 font-size: 13px;
 margin-right: 9px;
+
 }
-.about .about_box h2 {line-height: 40px; font-size: 28px;   }
+    .search-side{display: none}
+    .c-listing__sort li{font-size: 10px    }
+    .filter_icon{ display: block;   background-color: #4bc71421;  width: 30%;   padding: 7px;  margin: 0 10px;  }
+    .filter_icon a{color: #9599a4    }
+    .about .about_box h2 {line-height: 40px; font-size: 28px;   }
+.about .about_img{display: none}
 .title h2  {font-size: 30px;}
 .about .about_box span {font-size: 33px; line-height: 53px;}
 .mrgn {margin-top: 30px;}
 .footer .headinga span {font-size: 16px;}
 
-.read-more {margin-top: 50px;}
+.read-more {margin-top: 2px;}
+.offer .read_more{margin-top: -44px}
 .testimonial_cont p {padding: 40px 20px;}
  .testomonial_img::after {background: inherit;}
    .offer .offer-bg .offer_box h3 {font-size: 27px;}
@@ -261,12 +283,17 @@ margin-right: 9px;
 .cross_layout {transform: inherit;}
 .testimonial_cont {padding-left: 10px; padding-right: 10px;}
 
-.for_box_bg .for_box {margin-bottom: 30px;}
+.for_box_bg .for_box {margin-bottom: 60px;}
 .offer .offer-bg .offer_box h3 {font-size: 25px;}
 .margin_ttt {margin-top: 30px;}
 .margin-lkk {margin-top: 30px;}
 .main_form {padding: 60px 12px; margin-right: 15px;}
 ul.link li {padding: 8px 9px; padding-bottom: 0px; }
-
+    .offer { padding-top: 10px;    }
+    .offer .offer-bg .offer_box figure img {width: 50%;height: 50%;border-radius: 5px;}
+    .cross_inner h3 {padding-top: 10px ;padding-bottom: 10px}
+    .footer .description_footer {display: none}
+    .footer .footer_links_menu{display: none}
+    .copyright div{font-size: 10px;line-height: 14px}
 
 }
