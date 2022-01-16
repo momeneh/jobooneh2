@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-
+        Trez\RayganSms\RayganSmsServiceProvider::class,
     ],
 
     /*
@@ -230,6 +230,7 @@ return [
         'dateConvert'=> \Morilog\Jalali\CalendarUtils::class,
         'Carbon' => 'Carbon\Carbon',
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'RayganSms' => Trez\RayganSms\Facades\RayganSms::class
     ],
 
 ];

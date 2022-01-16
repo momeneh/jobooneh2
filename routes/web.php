@@ -1,5 +1,8 @@
 <?php
 
+use App\Notifications\OrderCreated;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,11 +41,11 @@ Route::get('search/autocompleteUsers', 'UserController@autocomplete')->name('aut
 //$order  = \App\Models\Order::find(3)->load('Items.products.images');//dd($order);
 //    return view('emails.order_tracking_notify',['order'=>$order,'receiver'=>'hygy','shopper'=>'fxgbfxg','body_desc'=> 'jashfzsufy usd ']);
 //});
-Route::get('/rl',function (){
-    \Illuminate\Support\Facades\Artisan::call('route:list');
-    dd(\Illuminate\Support\Facades\Artisan::output());
-
-});
+//Route::get('/rl',function (){
+//    \Illuminate\Support\Facades\Artisan::call('route:list');
+//    dd(\Illuminate\Support\Facades\Artisan::output());
+//
+//});
 
 //--------------------Admins------------------------------
 Route::group(['prefix'=>'admin'],function (){

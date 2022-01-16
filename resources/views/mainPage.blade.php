@@ -76,7 +76,7 @@
 
         </div>
         <div class="read_more">
-            <a class="read-more">See More</a>
+            <a class="read-more" href="{{route('pages.search',['sort_id'=>2])}}">See More</a>
         </div>
     </div>
 

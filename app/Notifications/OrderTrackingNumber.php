@@ -9,11 +9,13 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\App;
 
-class OrderTrackingNumber extends Notification
+class OrderTrackingNumber extends Notification implements ShouldQueue
 {
     use Queueable;
+    use SmsChannel;
     private $order;
     private $lang;
+    private $sms_messsage ;
     /**
      * Create a new notification instance.
      *
@@ -23,6 +25,8 @@ class OrderTrackingNumber extends Notification
     {
         $this->order = $order;
         $this->lang = $lang;
+        $this->sms_messsage = __('messages.sms_tracking_number',['order'=>$this->order->id,'tracking_number'=>$order->post_tracking_number]).'
+            '.__('title.main_title');
     }
 
     /**
@@ -33,7 +37,7 @@ class OrderTrackingNumber extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database',$this->SmsChannelChooser()];
     }
 
     /**

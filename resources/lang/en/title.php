@@ -133,7 +133,10 @@ return [
     'post_tracking_number' => 'post tracking number',
     'requested_orders' => 'manage requested orders ',
     'seller' => 'seller',
-    'shopper' => 'shopper'
+    'shopper' => 'shopper',
+    'available'=>'available',
+    'sum' =>'sum',
+    'basket' => 'basket'
 
 
 

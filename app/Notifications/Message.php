@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\App;
 class Message extends Notification implements ShouldQueue
 {
     use Queueable;
+    use SmsChannel;
     private $lang;
     private $message;
+    private $sms_messsage ;
 
     /**
      * Create a new notification instance.
@@ -24,6 +26,8 @@ class Message extends Notification implements ShouldQueue
     {
         $this->lang = $lang;
         $this->message = $message;
+        $this->sms_messsage = __('messages.sms_message_received').'
+            '.__('title.main_title');
     }
 
     /**
@@ -34,7 +38,7 @@ class Message extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail',$this->SmsChannelChooser()];
     }
 
     /**

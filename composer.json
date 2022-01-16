@@ -17,7 +17,9 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "maatwebsite/excel": "^3.1",
-        "morilog/jalali": "3.*"
+        "morilog/jalali": "3.*",
+        "trez/raygan-sms": "^2.0",
+        "trez/raygan-sms-notification-channel": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

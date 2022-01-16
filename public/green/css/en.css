@@ -70,7 +70,7 @@ a.btn.btn-round{
 }
 .shop_price{
     text-align: left;
-    line-height: 12px;
+    /*line-height: 12px;*/
 }
 body {
     margin: 0;
@@ -136,4 +136,21 @@ textarea {
 }
 @media (max-width: 575px) {
     .search button {left: 80%;right: 0;}
+}
+.basket_part{
+    float: right;
+}
+.btn_add_basket{
+    padding: 5px;
+}
+.basket .buy_basket{
+    text-align: right;
+}
+.basket .buy_basket input {
+    padding: 3px 15px;
+    border-radius: 7px;
+}
+.basket .buy_basket span {
+    border-radius: 5px;
+    margin: 5px;
 }

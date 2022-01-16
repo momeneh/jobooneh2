@@ -9,12 +9,14 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\App;
 
-class OrderProblem extends Notification
+class OrderProblem extends Notification implements ShouldQueue
 {
     use Queueable;
+    use SmsChannel;
     private $order;
     private $lang;
     private $message;
+    private $sms_messsage ;
     /**
      * Create a new notification instance.
      *
@@ -25,6 +27,8 @@ class OrderProblem extends Notification
         $this->order = $order;
         $this->lang = $lang;
         $this->message = $message;
+        $this->sms_messsage = __('messages.sms_order_problem',['order'=>$this->order->id]).'
+            '.__('title.main_title');
     }
 
     /**
@@ -35,7 +39,7 @@ class OrderProblem extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail','database'];
+        return ['mail','database',$this->SmsChannelChooser()];
     }
 
     /**

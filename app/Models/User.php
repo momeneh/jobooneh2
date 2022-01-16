@@ -69,4 +69,9 @@ class User extends Authenticatable implements MustVerifyEmail
         DB::statement("UPDATE users SET is_owner =1 WHERE id ='{$user_id}' ");
     }
 
+    public function routeNotificationForRayganSms()
+    {
+        return $this->mobile_no;
+    }
+
 }

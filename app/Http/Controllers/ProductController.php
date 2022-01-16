@@ -118,7 +118,7 @@ class ProductController extends Controller
     }
 
     public function search(Request $request){
-        if(empty($request->search_key)) return back();
+//        if(empty($request->search_key)) return back();
         $result = Product::GetProductsSearch($request);
         if($request->ajax()) {
             //ajax paging

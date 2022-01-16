@@ -5,9 +5,7 @@
 @section('content')
     <div class="inner_page dashboard">
         <div class="col-xl-12 row">
-            <div class="col-xl-3">
-                @include('layouts.navbars.nav_check')
-            </div>
+            @include('layouts.navbars.nav_check')
             <div class="col-xl-8 " style="margin-top: 10px" >
                 @include('includes.message')
                 <div class="card">
