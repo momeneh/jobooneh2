@@ -9,7 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\App;
 
-class OrderCreated extends Notification implements ShouldQueue
+class OrderCreated extends Notification //implements ShouldQueue
 {
     use Queueable;
     use SmsChannel;
@@ -38,6 +38,7 @@ class OrderCreated extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
+        return ['mail'];
         return ['mail','database',$this->SmsChannelChooser()];
     }
 

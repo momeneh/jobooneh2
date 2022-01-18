@@ -1,6 +1,6 @@
 @extends('emails.order_common_part')
 @section('message_part')
-    {{__('messages.owner_order_desc',['shopper'=>$shopper ??''])}}
+    {{__('messages.owner_order_desc',['shopper'=>$shopper])}}
     <br>
     <div class="row " style="margin: 10px">
         <a class="btn btn-success" href="{{route('confirm_order',$order->id)}}" style="margin: 0 5px">{{__('confirm the order')}}</a><br>

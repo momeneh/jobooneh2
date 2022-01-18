@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'main_title' => 'کسب و کار خانگی مامان دوز ',
+    'main_title' => 'کسب و کار خانگی جابونه ',
     'Admin_Dashboard'=>'کارتابل مدیریت داده ها ',
     'Dashboard' =>'کارتابل',
     'Admin_Menus'=>'مدیریت منوها',
