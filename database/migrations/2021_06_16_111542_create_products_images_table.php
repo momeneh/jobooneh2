@@ -17,7 +17,7 @@ class CreateProductsImagesTable extends Migration
             $table->id();
             $table->foreignId('products_id')->constrained()->onDelete('cascade');
             $table->string('image');
-            $table->string('alt')>nullable();
+            $table->string('alt')->nullable();
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
