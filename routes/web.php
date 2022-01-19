@@ -36,14 +36,10 @@ Route::resource('/basket','basket\ParentBasketController');
 Auth::routes(['verify' => true]);
 
 Route::get('search/autocompleteUsers', 'UserController@autocomplete')->name('autocompleteUsers');
-Route::get('artisan', function() {
-    Artisan::call(
-        'migrate '
-    );
-    Artisan::call(
-        'db:seed '
-    );
-});
+//Route::get('artisan', function() {
+//    Artisan::call('migrate '  );
+//    Artisan::call('db:seed '  );
+//});
 //Route::get('/test', function (){
 //$order  = \App\Models\Order::find(3)->load('Items.products.images');//dd($order);
 //    return view('emails.order_tracking_notify',['order'=>$order,'receiver'=>'hygy','shopper'=>'fxgbfxg','body_desc'=> 'jashfzsufy usd ']);

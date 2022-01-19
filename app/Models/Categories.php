@@ -57,7 +57,7 @@ class Categories extends Model
             } )
             ->orderBy('count_pro', 'DESC')
             ->limit($limit)
-            ->groupBy('cat.id')
+            ->groupBy('cat.id','cat.icon','cat.title')
             ->get();
     }
 }
