@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-9 col-md-7">
                 <div class=" offer shadow border-0 py-lg-5">
-                    <div class="order-body px-lg-5  about ">
+                    <div class="order-body px-lg-5  about "  style="padding: 2px;margin: 20px">
                         <h3>{{ $receiver->name ?? ''}} {{ __('title.dear')}}</h3>
                         <p class="desc_pro">
 

@@ -7,7 +7,7 @@
             <div class="col-lg-9 col-md-7">
                 <div class="card offer shadow border-0 py-lg-5">
                    <div class="card-body px-lg-5  about">
-                        <div class='about_box '>
+                        <div class='about_box'  style="padding: 2px;margin: 20px">
                          <h3> {{ __('title.hello')}}</h3>
                          <p>
                             {{__('You are receiving this email because we received a password reset request for your account.')}}
