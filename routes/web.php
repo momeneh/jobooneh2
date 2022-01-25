@@ -40,10 +40,9 @@ Route::get('search/autocompleteUsers', 'UserController@autocomplete')->name('aut
 //    Artisan::call('migrate '  );
 //    Artisan::call('db:seed '  );
 //});
-//Route::get('/test', function (){
-//$order  = \App\Models\Order::find(3)->load('Items.products.images');//dd($order);
-//    return view('emails.order_tracking_notify',['order'=>$order,'receiver'=>'hygy','shopper'=>'fxgbfxg','body_desc'=> 'jashfzsufy usd ']);
-//});
+Route::get('/test', function (){
+    return view('emails.message',['receiver'=>\App\Models\Admin::find(1),'sender'=>\App\Models\Admin::find(2),'id'=>3,'lang'=>App::getLocale(),'prefix'=>'admin.']);
+});
 //Route::get('/rl',function (){
 //    \Illuminate\Support\Facades\Artisan::call('route:list');
 //    dd(\Illuminate\Support\Facades\Artisan::output());
