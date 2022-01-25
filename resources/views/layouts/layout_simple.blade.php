@@ -1,25 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
-
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="{{ asset('green') }}/css/bootstrap.min.css">
-    <!-- style css -->
-    <link rel="stylesheet" href="{{ asset('green') }}/css/style.css">
-    <!-- Responsive-->
-    <link rel="stylesheet" href="{{ asset('green') }}/css/responsive.css">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('green') }}/css/jquery.mCustomScrollbar.min.css">
-    @if(app()->getLocale() == 'fa')
-        <link href="{{ asset('green') }}/css/fa.css?v=1.0.0" rel="stylesheet" />
-    @else
-        <link href="{{ asset('green') }}/css/en.css?v=1.0.0" rel="stylesheet" />
-@endif
-<!-- Tweaks for older IEs-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-</head>
 <body class="main-layout " STYLE="direction:
 @if(app()->getLocale() == 'fa')  rtl
 @else ltr
@@ -27,11 +8,13 @@
     " >
 <header>
     <!-- header inner -->
-    <div class="header">
+    <div class="header" style="font-family: poppins;padding: 10px 0px;background: #142313;  background-position-x: 0%;  background-position-y: 0%;  background-repeat: repeat;
+  background-size: auto;background-repeat: no-repeat;background-size: 100% 100%;background-position: center center;">
 
-        <div class="container">
+        <div class="container" style="  width: 100%;  padding-right: 15px;  padding-left: 15px;  margin-right: auto;  margin-left: auto;">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col logo_section">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col logo_section" style="flex: 0 0 25%;
+max-width: 25%;">
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
@@ -49,11 +32,11 @@
         </div>
     </div>
     <!-- end header inner -->
-    <div class="wrapper">
+    <div class="wrapper" style="padding: 5px 0;background: #f5f6fa;">
 
 
-        <div class="main-panel" >
-            <div class="content">
+        <div class="main-panel" style="margin: auto;width: 100%;margin: auto;background: #ffffff;box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);padding: 0 40px;" >
+            <div class="content" style="color: #4c4a49;line-height: 33px;">
                 @yield('content')
             </div>
 
