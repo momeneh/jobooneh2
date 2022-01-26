@@ -38,6 +38,13 @@ class Kernel extends ConsoleKernel
             Log::info( '-----product_images------');
             $this->RemoveUnusedFiles('product_images',ProductsImages::class,'image');
         }) ->everyMinute() ->appendOutputTo(storage_path() . "/logs/laravel.log");;
+
+        $schedule->command('queue:restart')
+            ->everyFiveMinutes();
+
+        $schedule->command('queue:listen --daemon')
+            ->everyMinute()
+            ->withoutOverlapping();
     }
 
     /**
