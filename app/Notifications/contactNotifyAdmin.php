@@ -9,7 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\App;
 
-class contactNotifyAdmin extends Notification implements ShouldQueue
+class contactNotifyAdmin extends Notification //implements ShouldQueue
 {
     use Queueable;
     private $lang;
@@ -48,7 +48,9 @@ class contactNotifyAdmin extends Notification implements ShouldQueue
         App::setLocale($this->lang);
         return (new MailMessage) ->subject(__('Contact us notify'))->view(
             'emails.contact', ['receiver'=>$notifiable,'m'=>$this->message]
-        );    }
+        );
+
+    }
 
     /**
      * Get the array representation of the notification.
