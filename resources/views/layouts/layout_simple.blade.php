@@ -35,7 +35,7 @@ max-width: 25%;">
     <div class="wrapper" style="padding: 5px 0;background: #f5f6fa;">
 
 
-        <div class="main-panel" style="margin: auto;width: 100%;margin: auto;background: #ffffff;box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);padding: 0 40px;" >
+        <div class="main-panel" style="margin: auto;width: 80%;margin: auto;background: #ffffff;box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);padding: 0 40px;" >
             <div class="content" style="color: #4c4a49;line-height: 33px;">
                 @yield('content')
             </div>
