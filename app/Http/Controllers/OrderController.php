@@ -201,7 +201,7 @@ class OrderController extends Controller
         $order->seller = collect($or['items'][0]['products']['owner']);
         $order->shopper_id = $or['items'][0]['users_id'];
         $this->authorize('ShowFile',$order);
-        $storagePath = storage_path('app\receipt_images\\' . $file_name );
+        $storagePath = storage_path('app/receipt_images/' . $file_name );
         return response()->file($storagePath);
     }
 

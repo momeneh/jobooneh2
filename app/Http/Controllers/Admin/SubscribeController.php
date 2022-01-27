@@ -170,9 +170,9 @@ class SubscribeController extends Controller
             unset($s->created_at);
         }
 
-       $filename = '\report_excels\newsletter_receivers_'.$id.'.xlsx';
+       $filename = '/report_excels/newsletter_receivers_'.$id.'.xlsx';
        Excel::store(new NewsletterExport($record->subscribers),$filename);
-       return response()->download(storage_path().'\app'.$filename );
+       return response()->download(storage_path().'/app'.$filename );
    }
 
    public function send($id){
