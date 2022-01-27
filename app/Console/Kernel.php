@@ -39,12 +39,13 @@ class Kernel extends ConsoleKernel
             $this->RemoveUnusedFiles('product_images',ProductsImages::class,'image');
         }) ->daily() ->appendOutputTo(storage_path() . "/logs/laravel.log");;
 
-        $schedule->command('queue:restart')
-            ->everyFiveMinutes();
+//        $schedule->command('queue:restart')
+//            ->everyFiveMinutes();
+//
+//        $schedule->command('queue:listen --daemon')
+//            ->everyMinute()
+//            ->withoutOverlapping();
 
-        $schedule->command('queue:listen --daemon')
-            ->everyMinute()
-            ->withoutOverlapping();
     }
 
     /**
