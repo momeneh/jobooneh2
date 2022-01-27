@@ -231,7 +231,7 @@ class MessageController extends Controller
             //3: authorize for delete product
             $this->authorize('ShowFile', $message)   ;
         }
-        return response()->download(storage_path('app\attachments\\'.$name_file));
+        return response()->download(storage_path('app/attachments/'.$name_file));
     }
 
     public function remove(Request $request){
