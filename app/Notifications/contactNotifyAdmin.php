@@ -9,7 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\App;
 
-class contactNotifyAdmin extends Notification //implements ShouldQueue
+class contactNotifyAdmin extends Notification implements ShouldQueue
 {
     use Queueable;
     private $lang;

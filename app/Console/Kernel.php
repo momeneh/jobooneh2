@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        Log::info( '-----schedule is running------');
         $schedule->call(function () {
             Log::info( '-----attachments------');
             $this->RemoveUnusedFiles('attachments',MessageAttachments::class,'file');
@@ -40,7 +41,8 @@ class Kernel extends ConsoleKernel
         }) ->daily() ->appendOutputTo(storage_path() . "/logs/laravel.log");;
 
 
-        $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping();
+        if (!$this->osProcessIsRunning('queue:work'))
+            $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping();
 
 //        $schedule->command('queue:restart')
 //            ->everyFiveMinutes();
@@ -75,4 +77,22 @@ class Kernel extends ConsoleKernel
                 }//else Log::info( $file['basename'] .' not removed   ');
             });
     }
+
+    protected function osProcessIsRunning($needle)
+    {
+        // get process status. the "-ww"-option is important to get the full output!
+        exec('ps aux -ww', $process_status);
+
+        // search $needle in process status
+        $result = array_filter($process_status, function($var) use ($needle) {
+            return strpos($var, $needle);
+        });
+
+        // if the result is not empty, the needle exists in running processes
+        if (!empty($result)) {
+            return true;
+        }
+        return false;
+    }
+
 }
