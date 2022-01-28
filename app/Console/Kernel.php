@@ -41,8 +41,7 @@ class Kernel extends ConsoleKernel
         }) ->daily() ->appendOutputTo(storage_path() . "/logs/laravel.log");;
 
 
-        if (!$this->osProcessIsRunning('queue:work'))
-            $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping();
+        $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping();
 
 //        $schedule->command('queue:restart')
 //            ->everyFiveMinutes();
@@ -77,7 +76,6 @@ class Kernel extends ConsoleKernel
                 }//else Log::info( $file['basename'] .' not removed   ');
             });
     }
-
     protected function osProcessIsRunning($needle)
     {
         // get process status. the "-ww"-option is important to get the full output!
