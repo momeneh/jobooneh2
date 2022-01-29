@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        Log::info( '-----schedule is running------');
+//        Log::info( '-----schedule is running------');
         $schedule->call(function () {
             Log::info( '-----attachments------');
             $this->RemoveUnusedFiles('attachments',MessageAttachments::class,'file');
@@ -41,14 +41,12 @@ class Kernel extends ConsoleKernel
         }) ->daily() ->appendOutputTo(storage_path() . "/logs/laravel.log");;
 
 
-        $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping();
+//        $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping(2);
 
 //        $schedule->command('queue:restart')
 //            ->everyFiveMinutes();
 //
-//        $schedule->command('queue:listen --deamon')
-//            ->everyMinute()
-//            ->withoutOverlapping();
+
 
     }
 
