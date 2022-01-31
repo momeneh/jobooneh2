@@ -145,7 +145,7 @@ class Product extends Model
 
         $result = self::GetProductsSearchPart($request,$result);
 
-        $result = $result->groupBy('c.id')->get()   ;
+        $result = $result->groupBy('c.id','c.title','c.parent_id')->get()   ;
         return $result;
     }
 
@@ -156,7 +156,7 @@ class Product extends Model
 
         $result = self::GetProductsSearchPart($request,$result);
 
-        $result = $result->groupBy('u.id')->get();
+        $result = $result->groupBy('u.id','u.name')->get();
         return $result;
     }
 

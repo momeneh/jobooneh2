@@ -19,9 +19,9 @@ max-width: 25%;">
                         <div class="center-desk">
                             <div class="logo">
                                 @if(app()->getLocale() == 'fa')
-                                    <a href="index.html"><img src="{{ $message->embed(public_path().'/green/images/logofa.png')}}" alt="#"></a>
+                                    <a href="{{route('MainPage')}}"><img src="{{ $message->embed(public_path().'/green/images/logofa.png')}}" alt="#"></a>
                                 @else
-                                    <a href="index.html"><img src="{{ $message->embed(public_path().'/green/images/logoen.png')}}" alt="#"></a>
+                                    <a href=""{{route('MainPage')}}"><img src="{{ $message->embed(public_path().'/green/images/logoen.png')}}" alt="#"></a>
                                 @endif
                             </div>
                         </div>

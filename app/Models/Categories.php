@@ -41,7 +41,7 @@ class Categories extends Model
                     ->where('p.user_id', Auth::id())
                     ->where('a.lang_id',Helper::GetLocaleNumber());
             } )
-            ->groupBy('a.id')
+            ->groupBy('a.id','a.title')
             ->get();
     }
 
