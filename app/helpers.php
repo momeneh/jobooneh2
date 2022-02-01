@@ -74,7 +74,7 @@ if(!function_exists('ArrayToTree')){
 
 if(!function_exists('MyPublic_path')){
     function MyPublic_path($path){
-        if(strpos('vhosts',public_path()) != 0)
+        if(str_contains(public_path(),'vhosts'))
         //server main
           return "/var/www/vhosts/jobooneh.ir/public/".$path;
         else

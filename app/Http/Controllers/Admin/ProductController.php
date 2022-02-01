@@ -224,7 +224,7 @@ class ProductController extends Controller
         return DB::table('categories AS a')
             ->select('a.id','a.title')
             ->join('products As p', 'a.id', '=', 'p.categories_id')
-            ->groupBy('a.id')
+            ->groupBy('a.id','a.title')
             ->get();
     }
 
