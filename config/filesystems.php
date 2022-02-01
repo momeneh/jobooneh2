@@ -66,11 +66,11 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
+        MyPublic_path('storage') => storage_path('app/public'),
 //        public_path('attachments') => storage_path('app\attachments'),
-        public_path('profile_images') => storage_path('app/profile_images'),
-        public_path('product_images') => storage_path('app/product_images'),
-        public_path('newsletter_images') => storage_path('app/newsletter_images'),
+        MyPublic_path('profile_images') => storage_path('app/profile_images'),
+        MyPublic_path('product_images') => storage_path('app/product_images'),
+        MyPublic_path('newsletter_images') => storage_path('app/newsletter_images'),
     ],
 
 ];

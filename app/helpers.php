@@ -71,3 +71,13 @@ if(!function_exists('ArrayToTree')){
     }
 
 }
+
+if(!function_exists('MyPublic_path')){
+    function MyPublic_path($path){
+        if(strpos('vhosts',public_path()) != 0)
+        //server main
+          return "/var/www/vhosts/jobooneh.ir/public/".$path;
+        else
+            return public_path($path);
+    }
+}
