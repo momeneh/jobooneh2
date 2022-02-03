@@ -190,7 +190,7 @@
                     <h3>{{__('Contact Us')}}</h3>
 
                     <ul class="loca">
-                        <li style="font-size: 14px;"> <a href="#"><img src="{{ asset('green') }}/icon/email.png" alt="#" />   momeneh.jafari@gmail.com </a></li>
+                        <li style="font-size: 14px;"> <a href="#"><img src="{{ asset('green') }}/icon/email.png" alt="#" />  info@jobooneh.ir </a></li>
                         <li> <a href="#"><img src="{{ asset('green') }}/icon/call.png" alt="#" />  +12586954775</a> </li>
                     </ul>
                 </div>
@@ -200,7 +200,7 @@
 </div>
 <div class="copyright">
     <div class="container">
-        © 2021 made with momeneh.jafari@gmail.com thanks to
+        © 2021 made with jafari thanks to
         <a href="https://creative-tim.com" target="_blank">{{ _('Creative Tim') }}</a> &amp;
         <a href="https://updivision.com" target="_blank">{{ _('Updivision') }}</a>
 
