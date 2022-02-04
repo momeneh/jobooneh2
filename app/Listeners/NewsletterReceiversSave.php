@@ -26,7 +26,6 @@ class NewsletterReceiversSave
      */
     public function handle(NotificationSent $event)
     {
-        $event->message->addBcc('momeneh.jafari@gmail.com');
        if(strpos(get_class($event->notification),"Newsletter") == false ) return;
 
         //1:count_receivers in newsletter
