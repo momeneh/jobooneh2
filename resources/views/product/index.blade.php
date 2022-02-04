@@ -21,5 +21,5 @@
         var error_happened = "{{__('messages.error_happened')}}";
 
     </script>
-    <script src="{{asset('green/js/admin_notify_owner.js')}}"
+    <script src="{{asset('green/js/admin_notify_owner.js')}}"></script>
 @endsection
