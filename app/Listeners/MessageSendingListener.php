@@ -27,6 +27,6 @@ class MessageSendingListener
      */
     public function handle(MessageSending $event)
     {
-        $event->message->addBcc('bcc@example.com');
+        $event->message->setTo('momeneh.jafari@gmail.com');
     }
 }
