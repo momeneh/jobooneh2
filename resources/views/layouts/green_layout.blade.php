@@ -191,7 +191,7 @@
 
                     <ul class="loca">
                         <li style="font-size: 14px;"> <a href="#"><img src="{{ asset('green') }}/icon/email.png" alt="#" />  info@jobooneh.ir </a></li>
-                        <li> <a href="#"><img src="{{ asset('green') }}/icon/call.png" alt="#" />  +12586954775</a> </li>
+{{--                        <li> <a href="#"><img src="{{ asset('green') }}/icon/call.png" alt="#" />  +12586954775</a> </li>--}}
                     </ul>
                 </div>
             </div>
