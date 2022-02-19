@@ -16,6 +16,7 @@
           $( "img#image_show" ).remove( );
           $( "#remove_image" ).remove( );
           $("input#image").removeClass('hidden');
+          $("input[name*='image_name']").val("");
       });
 
       $("#side_bar_icon").click(function () {

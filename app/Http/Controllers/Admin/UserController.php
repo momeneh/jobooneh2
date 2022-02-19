@@ -69,6 +69,7 @@ class UserController extends Controller
         }
         $this->validate($request,$rules);
         $record = User::findOrFail($id);
+        $record->image = $request['image'];
         $record->name = $request['name'];
         $record->address = $request['address'];
         $record->job_title = $request['title'];
