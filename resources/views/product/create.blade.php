@@ -27,7 +27,7 @@
                         @include('product.create_common_admin_user')
 
                         <div class="form-group_submit">
-                            <label for="confirmed" class="col-md-1 control-label">{{__('title.confirmed')}}</label>
+                            <label for="confirmed" class="control-label">{{__('title.confirmed')}}</label>
                             <input id="confirmed" type="checkbox" class="" name="confirmed" value=1 autofocus  {{ old('confirmed') ? 'checked' : ' ' }} >
                         </div>
 
