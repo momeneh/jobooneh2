@@ -136,7 +136,8 @@ return [
     'shopper' => 'shopper',
     'available'=>'available',
     'sum' =>'sum',
-    'basket' => 'basket'
+    'basket' => 'basket',
+    'comments' => 'Comments'
 
 
 
