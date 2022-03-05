@@ -81,3 +81,9 @@ if(!function_exists('MyPublic_path')){
             return public_path($path);
     }
 }
+
+if(!function_exists('GetArrayfields')){
+    function GetArrayfields($arr,$f,$separator){
+        return implode($separator,\Illuminate\Support\Arr::pluck($arr,$f));
+    }
+}

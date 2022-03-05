@@ -62,7 +62,7 @@
                             <label for="image" >{{__('title.image')}} </label>
                             <div class="col-md-6">
                                 @if(!empty($record['image']))
-                                    <img id="image_show" src="{{asset('/profile_images/'.$record['image'])}}" width="180px">
+                                    <img alt="profile image " id="image_show" src="{{asset('/profile_images/'.$record['image'])}}" width="180px">
                                     <input type="hidden" name="image_name" value="{{$record['image']}}"/>
                                     <span class="btn btn-danger" id="remove_image"> </span>
                                 @endif

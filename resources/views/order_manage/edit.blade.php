@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label>{{__('title.receipt')}}</label>
                                 <a href="{{asset('receipt_images/'.$record->receipt_image)}}" >
-                                    <img src="{{asset('receipt_images/'.$record->receipt_image)}}" alt="pls login to see the image" style="max-width: 700px">
+                                    <img alt="receipt image " src="{{asset('receipt_images/'.$record->receipt_image)}}" alt="pls login to see the image" style="max-width: 700px">
                                 </a>
                             </div>
                             <div class="form-group{{ $errors->has('confirmed') ? ' has-error' : '' }}">

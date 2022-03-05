@@ -50,7 +50,7 @@
                             <label for="icon" class="col-md-4 control-label">{{__('title.icon')}} <span class="require">*</span> </label>
                             <div class="col-md-6">
                                 @if(!empty(old('icon')))
-                                    <img id="image_show" src="{{asset('/category_icons/'.old('icon'))}}" width="180px">
+                                    <img id="image_show" src="{{asset('/category_icons/'.old('icon'))}}" width="180px" alt="category icons">
                                     <input type="hidden" name="icon_name" value="{{old('icon')}}"/>
                                     <span class="btn btn-danger" id="remove_image"> </span>
                                 @endif

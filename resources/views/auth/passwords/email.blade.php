@@ -10,7 +10,7 @@
 
             <div class="card card-login card-white">
                 <div class="card-header">
-                    <img src="{{ asset('green/images/card-primary.png') }}" alt="">
+                    <img src="{{ asset('green/images/card-primary.png') }}" alt="card primary">
                     <h1 class="card-title">{{ _('Reset password') }}</h1>
                 </div>
                 <div class="card-body">

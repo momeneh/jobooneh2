@@ -4,7 +4,7 @@
             <figure>
                 <a href="{{route('pages.product',$pro->id)}}">
                     @if (!empty($pro->images[0]->image) )
-                        <img src="{{ asset('product_images/'.$pro->images[0]->image) }}" alt="#">
+                        <img src="{{ asset('product_images/'.$pro->images[0]->image) }}" alt="product images">
                     @else
                         <img src="" alt="#" width="10">
                     @endif
@@ -30,7 +30,7 @@
 <div class="navigations">
     @if(!empty($products->nextPageUrl()))
         <button class="refresh_button" onclick="Getmore('.product')" ></button>
-        <img src="{{asset('green/images/icons8-refresh.gif')}}" width="18px" class="refresh_gif hidden" alt="#"/>
+        <img src="{{asset('green/images/icons8-refresh.gif')}}" width="18px" class="refresh_gif hidden" alt="refresh"/>
     @endif
     {{$products->appends(request()->query())->links()}} <!-- PAGINATION-->
 </div>

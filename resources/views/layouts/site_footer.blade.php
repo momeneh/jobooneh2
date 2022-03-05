@@ -42,8 +42,8 @@
                     <h3>{{__('Contact Us')}}</h3>
 
                     <ul class="loca">
-                        <li style="font-size: 14px;"> <a href="#"><img src="{{ asset('green') }}/icon/email.png" alt="#" />   momeneh.jafari@gmail.com </a></li>
-                        <li> <a href="#"><img src="{{ asset('green') }}/icon/call.png" alt="#" />  +12586954775</a> </li>
+                        <li style="font-size: 14px;"> <a href="#"><img src="{{ asset('green') }}/icon/email.png" alt="email" />   momeneh.jafari@gmail.com </a></li>
+                        <li> <a href="#"><img src="{{ asset('green') }}/icon/call.png" alt="call" />  +12586954775</a> </li>
                     </ul>
                 </div>
             </div>

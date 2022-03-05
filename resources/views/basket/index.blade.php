@@ -15,7 +15,7 @@
                     <div>
                     <div class="owner  card-user">
                         <a href="{{route('pages.owner',$owner->id)}}">
-                            <img class="avatar"
+                            <img class="avatar" alt="avatar"
                                  src="
                                         @if (!empty($owner->image) && trim($owner->image)!= '') {{asset('/profile_images/'.$owner->image)}}
                                  @else  {{ asset('green/images/default-avatar.png') }}
@@ -34,7 +34,7 @@
                     <div class="row basket_item">
                         <div class="col-xl-2">
                             @if(!empty($product->images[0]->image))
-                                <a href="{{route('pages.product',$product->id)}}"> <img  src="{{asset('product_images/'.$product->images[0]->image)}}"  title="{{asset('product_images/'.$product->images[0]->alt)}}" style="width: 140px;"></a>
+                                <a href="{{route('pages.product',$product->id)}}"> <img alt="product image "  src="{{asset('product_images/'.$product->images[0]->image)}}"  title="{{asset('product_images/'.$product->images[0]->alt)}}" style="width: 140px;"></a>
                             @endif
                         </div>
                         <div class="col-xl-10">

@@ -71,7 +71,7 @@
                             <label for="image" class="col-md-4 control-label">{{__('title.image')}} @if(empty(old('image',$record['image'])))<span class="require">*</span>@endif</label>
                             <div class="col-md-6">
                                 @if(!empty($record['image']))
-                                    <img id="image_show" src="{{asset('link_images').'/'.$record['image']}}" width="180px">
+                                    <img id="image_show" alt="image show" src="{{asset('link_images').'/'.$record['image']}}" width="180px">
                                     <input type="hidden" name="image_name" value="{{$record['image']}}"/>
                                     <span class="btn btn-danger" id="remove_image"> </span>
                                 @endif

@@ -30,7 +30,7 @@
                 @foreach($category_pros as $cp)
                     <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
                         <div class="for_box">
-                            <i><a href="{{route('pages.cat_products',$cp->id)}}"> <img src="{{ asset('category_icons/'.$cp->icon) }}" alt="#"/></a></i>
+                            <i><a href="{{route('pages.cat_products',$cp->id)}}"> <img src="{{ asset('category_icons/'.$cp->icon) }}" alt="category icon "/></a></i>
                             <span>{{$cp->count_pro}}</span>
                             <h3>{{$cp->title}}</h3>
                         </div>
@@ -103,7 +103,7 @@
                         <div class="product_box p_box">
                             <a href="{{route('pages.product',$mv->id)}}">
                             <figure>
-                                <img src="{{ asset('product_images/'.$mv->images[0]->image)}}" alt="#" />
+                                <img src="{{ asset('product_images/'.$mv->images[0]->image)}}" alt="product image " />
                                 <div class="overlay">
                                     <h3>{{$mv->title}}</h3>
                                 </div>

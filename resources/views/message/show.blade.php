@@ -18,7 +18,7 @@
                                 <div class="block block-three"></div>
                                 <div class="block block-four"></div>
                                 <a href="#">
-                                    <img class="avatar" src="{{$message->sender->image ? asset('/profile_images/'.$message->sender->image): asset('green/images/anime3.png')}}" alt="">
+                                    <img class="avatar" src="{{$message->sender->image ? asset('/profile_images/'.$message->sender->image): asset('green/images/anime3.png')}}" alt="profile image ">
                                     <h5 class="title">{{__($message->subject)}}</h5>
                                 </a>
                                 <h6 >   {{$message->sender->name}}({{$message->sender->email}}>)  </h6>

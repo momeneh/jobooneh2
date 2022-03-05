@@ -40,7 +40,7 @@
                                 <tr>
                                     <td> <a href="{{route('pages.product',$item->products_id)}}"> {{$item->products->title }} </a></td>
                                     <td> <a href="{{route('pages.product',$item->products_id)}}">
-                                            <img src="{{asset('product_images/'.$item->products->images[0]->image)}}" style="width: 50px">
+                                            <img alt="product image " src="{{asset('product_images/'.$item->products->images[0]->image)}}" style="width: 50px">
                                         </a>
                                     </td>
                                     <td>{{$item->products->price}}</td>

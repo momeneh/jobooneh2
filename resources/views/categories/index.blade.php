@@ -45,7 +45,7 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->title}}</td>
                                 <td>{{$item->is_active === 1 ? __('title.yes') : __('title.no')}}</td>
-                                <td>@if (!empty($item->icon))<img src="{{asset('/category_icons/'.$item->icon)}}" style="height: 50px;background-color: #052501"> @endif</td>
+                                <td>@if (!empty($item->icon))<img alt="category icon " src="{{asset('/category_icons/'.$item->icon)}}" style="height: 50px;background-color: #052501"> @endif</td>
                                 <td>{{!empty($item->parent->title) ? $item->parent->title : ''}}</td>
                             </tr>
                         @endforeach

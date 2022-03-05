@@ -28,7 +28,7 @@
                             @foreach($list as $i=>$product)
                                 <div>
                                     <a href="{{route('pages.product',$product->id)}}">
-                                        <img  src=" @if(isset($product->images[0])) {{asset('product_images/'.$product->images[0]->image)}}@endif"
+                                        <img  alt="product image " src=" @if(isset($product->images[0])) {{asset('product_images/'.$product->images[0]->image)}}@endif"
                                               title ="@if(isset($product->images[0])){{$product->images[0]->alt}} @endif" style="width: 140px;">
                                     </a>
 

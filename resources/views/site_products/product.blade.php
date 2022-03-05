@@ -1,8 +1,7 @@
 @extends('layouts.green_layout')
-@section('title')
-    | {{$product->title}}
-@endsection
-
+@section('title')    | {{$product->title}}@endsection
+@section('meta_keyword') , {{$product->title}} @endsection
+@section('meta_description') . {{$product->description}} @endsection
 @section('content')
     <div class="inner_page">
         <div class="col-xl-8 col-lg-5 co-sm-l2 inner_page_box" >
@@ -11,13 +10,13 @@
                     <div class="  large-5 column ">
                         @if(!empty($product->images[0]))
                             <div class="xzoom-container ">
-                                <img class="xzoom" src="{{asset('product_images/'.$product->images[0]->image)}}" xoriginal="{{asset('product_images/'.$product->images[0]->image)}}" title="{{asset('product_images/'.$product->images[0]->alt)}}" style="width: 386px;">
+                                <img alt="product image " class="xzoom" src="{{asset('product_images/'.$product->images[0]->image)}}" xoriginal="{{asset('product_images/'.$product->images[0]->image)}}" title="{{asset('product_images/'.$product->images[0]->alt)}}" style="width: 386px;">
                                 <div class="swiper">
                                     <div class="xzoom-thumbs swiper-wrapper">
                                         @foreach($product->images as $image)
                                             <div class="swiper-slide">
                                                 <a href="{{asset('product_images/'.$image->image)}}" >
-                                                    <img class="xzoom-gallery" width="80" height="80" src="{{asset('product_images/'.$image->image)}}" title="{{$image->alt}}" >
+                                                    <img class="xzoom-gallery" width="80" height="80" src="{{asset('product_images/'.$image->image)}}" title="{{$image->alt}}" alt="{{$image->alt}}" >
                                                 </a>
                                             </div>
                                         @endforeach

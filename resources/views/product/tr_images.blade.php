@@ -21,7 +21,7 @@
         </div>
         <div class="col-xs-10">
             <div id="picbox" class="clear" style="padding-top:0px;padding-bottom:10px;">
-                <img  style= "max-width:10%;max-height: 50%;" src="{{(!empty(old('image.' . $index,$row['image'])) ? asset('product_images/'.old('image.' . $index,$row['image'])) : '')}}">
+                <img  alt="product" style= "max-width:10%;max-height: 50%;" src="{{(!empty(old('image.' . $index,$row['image'])) ? asset('product_images/'.old('image.' . $index,$row['image'])) : '')}}">
                 @include('alerts.feedback', ['field' => 'image.'.$index])
             </div>
             <div id="msgBox"></div>

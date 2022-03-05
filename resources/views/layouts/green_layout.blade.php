@@ -16,9 +16,10 @@
     <!-- site metas -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ __('title.main_title') }} @yield('title')</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="keywords" content="{{__('title.meta_keyword')}} @yield('meta_keyword')">
+    <meta name="description" content="{{ __('title.meta_description')}} @yield('meta_description')">
+    <meta name="author" content="momeneh jafari">
+    <link rel="canonical" href="{{ config('app.url') . '/' . request()->path() }}">
 
     <!-- bootstrap css -->
     <link rel="stylesheet" href="{{ asset('green') }}/css/bootstrap.min.css">
@@ -102,9 +103,9 @@
                     <div class="center-desk">
                         <div class="logo">
                             @if(app()->getLocale() == 'fa')
-                                <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logofa.png" alt="#"></a>
+                                <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logofa.png" alt="logofa"></a>
                             @else
-                                <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logoen.png" alt="#"></a>
+                                <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logoen.png" alt="logoen"></a>
                             @endif
                         </div>
                     </div>
@@ -113,7 +114,7 @@
             <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                 <div class="location_icon_bottum_tt">
                     <ul>
-                        <li><img src="{{ asset('green') }}/icon/loc1.png" />
+                        <li><img alt="lang" src="{{ asset('green') }}/icon/loc1.png" />
                             @if(app()->getLocale() == 'fa')  <a class="en" href="{{ route('lang','en') }}" >English</a>
                             @else <a class="en" href="{{ route('lang','fa') }}" > Farsi </a>
                             @endif
@@ -122,13 +123,13 @@
                             <div class="user_info_show">
 
                             @if(!empty(auth()->id()) && Auth::guard('web')->check())
-                                    <img id="icon-user"  class="user_info" src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /><span class="tim-icons icon-minimal-down icon-user-info user_info"></span>
+                                    <img id="icon-user" alt="box_user_info"  class="user_info" src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /><span class="tim-icons icon-minimal-down icon-user-info user_info"></span>
                                     @include('layouts.box_user_info')
                             @else
                                     <a href="{{route('login')}}">
-                                        <img id="icon-user"    src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /> {{__('login')}}</a>
+                                        <img id="icon-user"  alt="login"   src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /> {{__('login')}}</a>
                              @endif
-                            <a href="{{route('basket.index')}}"><img src="{{ asset('green') }}/icon/bask.png" onmouseover="this.src='{{asset('green')}}/icon/bask1.png'" onmouseout="this.src='{{asset('green')}}/icon/bask.png'"  /></a>
+                            <a href="{{route('basket.index')}}"><img alt="basket" src="{{ asset('green') }}/icon/bask.png" onmouseover="this.src='{{asset('green')}}/icon/bask1.png'" onmouseout="this.src='{{asset('green')}}/icon/bask.png'"  /></a>
                             </div>
 
                         </li>
@@ -154,9 +155,9 @@
                 <div class="address">
                     <div class="logo">
                         @if(app()->getLocale() == 'fa')
-                            <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logofa.png" alt="#"></a>
+                            <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logofa.png" alt="logofa"></a>
                         @else
-                            <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logoen.png" alt="#"></a>
+                            <a href="{{route('MainPage')}}"><img src="{{ asset('green') }}/images/logoen.png" alt="logoen"></a>
                         @endif
                     </div>
                     <div class="clearfix "></div>
@@ -170,7 +171,7 @@
                     <h3>{{__('Quick links')}}</h3>
                     <ul class="">
                         @foreach($main_menus as $menu_item)
-                            <li > <img class="arrow" src="{{ asset('green') }}/icon/3.png" alt="#" /> <a href="{{$menu_item['link']}}">{{$menu_item['title']}}</a> </li>
+                            <li > <img class="arrow" src="{{ asset('green') }}/icon/3.png" alt="menu" /> <a href="{{$menu_item['link']}}">{{$menu_item['title']}}</a> </li>
                         @endforeach
                     </ul>
                 </div>
@@ -190,7 +191,7 @@
                     <h3>{{__('Contact Us')}}</h3>
 
                     <ul class="loca">
-                        <li style="font-size: 14px;"> <a href="#"><img src="{{ asset('green') }}/icon/email.png" alt="#" />  info@jobooneh.ir </a></li>
+                        <li style="font-size: 14px;"> <a href="lang"><img src="{{ asset('green') }}/icon/email.png" alt="email" />  info@jobooneh.ir </a></li>
 {{--                        <li> <a href="#"><img src="{{ asset('green') }}/icon/call.png" alt="#" />  +12586954775</a> </li>--}}
                     </ul>
                 </div>

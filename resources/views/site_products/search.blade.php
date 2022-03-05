@@ -1,16 +1,13 @@
 @extends('layouts.green_layout')
 
 
-@section('title')
-    | {{__("Searched for ")}}
-    {{$request->search_key}}
-
-@endsection
-
+@section('title')    | {{__("Searched for ")}}    {{$request->search_key}}@endsection
+@section('meta_keyword') , {{__("Searched for ")}}    {{$request->search_key}} @endsection
+@section('meta_description') . {{__("Searched for ")}}    {{$request->search_key}} @endsection
 @section('content')
     <div class="inner_page">
         <div class="col-xl-12 row">
-            <div class="filter_icon col-xl-1"><a href="{{route('pages.search.filters',$request->all())}}"> <img src="{{asset('green/icon/filter.png')}}">{{__("filter result")}}</a></div>
+            <div class="filter_icon col-xl-1"><a href="{{route('pages.search.filters',$request->all())}}"> <img alt="filter" src="{{asset('green/icon/filter.png')}}">{{__("filter result")}}</a></div>
             <div class="filter_icon col-xl-1" style="line-height: 23px"><a href="{{route('pages.search',['search_key'=>$request->search_key])}}"> {{__("title.reset_filters")}}</div>
             @if(!empty($categories[0]) || !empty($owners[0]))
             <div class="col-xl-3 search-side " >

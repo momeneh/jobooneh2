@@ -137,7 +137,9 @@ return [
     'available'=>'available',
     'sum' =>'sum',
     'basket' => 'basket',
-    'comments' => 'Comments'
+    'comments' => 'Comments',
+    'meta_description' => 'You can see or buy or sell home made products in this site ',
+    'meta_keyword' => 'home made products , pastry , sewing , handmade , cookie  , develop site   '
 
 
 

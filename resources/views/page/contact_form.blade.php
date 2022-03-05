@@ -2,7 +2,8 @@
 @section('title')
     | {{ __('Contact Us')}}
 @endsection
-
+@section('meta_keyword') ,  {{__('Contact Us')}}@endsection
+@section('meta_description') |  {{__('Contact Us')}}@endsection
 @section('content')
     <div class="inner_page">
         <div class="col-xl-8 col-lg-5 col-md-5 co-sm-l2 inner_page_box" >

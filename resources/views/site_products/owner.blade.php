@@ -1,8 +1,7 @@
 @extends('layouts.green_layout')
-@section('title')
-    | {{$owner->name}}
-@endsection
-
+@section('title')    | {{$owner->name}} @endsection
+@section('meta_keyword') , {{$owner->name}} @endsection
+@section('meta_description') . {{$owner->description}} @endsection
 @section('content')
     <div class="inner_page">
         <div class="col-xl-8 col-lg-5  co-sm-l2 inner_page_box" >
@@ -22,7 +21,7 @@
                                         @if (!empty($owner->image) && trim($owner->image)!= '') {{asset('/profile_images/'.$owner->image)}}
                                              @else  {{ asset('green/images/default-avatar.png') }}
                                         @endif
-                                                 " alt="">
+                                                 " alt="avatar">
                                         <h5 class="title">{{ $owner->name }}</h5>
                                     </a>
                                  </div>

@@ -3,7 +3,7 @@
         <div class="profile-dropdown-user">
             <div class="profile-dropdown-user-img card-user">
                 <a href="{{route('dashboard')}}">
-                <img class="avatar" src="
+                <img class="avatar" alt="avatar" src="
                         @if (!empty(auth()->user()->image) && trim(auth()->user()->image)!= '') {{asset('/profile_images/'.Auth::user()->image)}}
                         @else  {{ asset('green/images/default-avatar.png') }}
                         @endif">

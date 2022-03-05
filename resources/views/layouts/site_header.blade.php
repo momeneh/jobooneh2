@@ -28,9 +28,9 @@
 
                                 @if(empty(auth()->id()))
                                     <a href="{{route('login')}}">
-                                        <img id="icon-user"    src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /> {{__('login')}}</a>
+                                        <img id="icon-user"  alt="icon-user"  src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /> {{__('login')}}</a>
                                 @else
-                                    <img id="icon-user"  class="user_info" src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /><span class="tim-icons icon-minimal-down icon-user-info user_info"></span>
+                                    <img id="icon-user" alt="icon-user"  class="user_info" src="{{ asset('green') }}/icon/user.png" onmouseover="this.src='{{asset('green')}}/icon/user1.png'" onmouseout="this.src='{{asset('green')}}/icon/user.png'" /><span class="tim-icons icon-minimal-down icon-user-info user_info"></span>
                                     @include('layouts.box_user_info')
                                 @endif
                                 <a href="{{route('basket.index')}}"><img src="{{ asset('green') }}/icon/bask.png" onmouseover="this.src='{{asset('green')}}/icon/bask1.png'" onmouseout="this.src='{{asset('green')}}/icon/bask.png'"  /></a>

@@ -13,6 +13,7 @@
              onmouseover="this.src='{{asset('green')}}/icon/rm_h.png'"
              onmouseout="this.src='{{asset('green')}}/icon/rm.png'"
              view="site_products.basket_part"
+             alt="basket_btn"
         />
         <span class="number_basket"> {{$number_basket}}</span>
         @if($show_plus_btn == 1)
@@ -22,12 +23,13 @@
                  onmouseover="this.src='{{asset('green')}}/icon/plus_h.png'"
                  onmouseout="this.src='{{asset('green')}}/icon/plus.png'"
                  view="site_products.basket_part"
+                 alt="basket_add"
             />
         @endif
     </div>
     @if($number_basket > 0 )
         <a href="{{route('basket.index')}}">
-            <img src="{{asset('green')}}/icon/basket.png" width="17px"
+            <img src="{{asset('green')}}/icon/basket.png" width="17px" alt="basket"
                  onmouseover="this.src='{{asset('green')}}/icon/basket_h.png'"
                  onmouseout="this.src='{{asset('green')}}/icon/basket.png'"/></a>
     @endif

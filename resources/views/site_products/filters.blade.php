@@ -1,12 +1,9 @@
 @extends('layouts.green_layout')
 
 
-@section('title')
-    | {{__("Searched for ")}}
-    {{$request->search_key}}
-
-@endsection
-
+@section('title')    | {{__("Searched for ")}}    {{$request->search_key}}@endsection
+@section('meta_keyword') , {{__("Searched for ")}}    {{$request->search_key}} @endsection
+@section('meta_description') . {{__("Searched for ")}}    {{$request->search_key}} @endsection
 @section('content')
     <div class="inner_page">
         <div class="col-xl-12 row">

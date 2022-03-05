@@ -3,6 +3,8 @@
 @section('title')
     | {{__("title.products")}}
 @endsection
+@section('meta_keyword') , {{__("title.products")}} @endsection
+@section('meta_description') . {{__("title.products")}} @endsection
 @section('content')
     <div class="inner_page dashboard">
         <div class="col-xl-12 row">
