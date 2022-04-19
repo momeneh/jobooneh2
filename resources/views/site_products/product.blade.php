@@ -1,15 +1,20 @@
 @extends('layouts.green_layout')
+@section('css')
+    <link rel="stylesheet" href="{{asset('green/css/flexslider.css')}}" type="text/css" media="screen" />
+@endsection
 @section('title')    | {{$product->title}}@endsection
 @section('meta_keyword') , {{$product->title}} @endsection
 @section('meta_description') . {{$product->description}} @endsection
 @section('content')
+
+
     <div class="inner_page">
         <div class="col-xl-8 col-lg-5 co-sm-l2 inner_page_box" >
             <div class="row " style="padding-top: 50px">
                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 ">
                     <div class="  large-5 column ">
                         @if(!empty($product->images[0]))
-                            <div class="xzoom-container ">
+                              <div class="xzoom-container ">
                                 <img alt="product image " class="xzoom" src="{{asset('product_images/'.$product->images[0]->image)}}" xoriginal="{{asset('product_images/'.$product->images[0]->image)}}" title="{{asset('product_images/'.$product->images[0]->alt)}}" style="width: 386px;">
                                 <div class="swiper">
                                     <div class="xzoom-thumbs swiper-wrapper">
@@ -24,6 +29,19 @@
                                     <div class="swiper-pagination"></div>
                                 </div>
                             </div>
+
+                            <div class="flexslider">
+                                <ul class="slides">
+                                    @foreach($product->images as $image)
+                                        <li>
+                                            <a href="{{asset('product_images/'.$image->image)}}" >
+                                                <img class="ImagePro" width="80" height="80" src="{{asset('product_images/'.$image->image)}}" title="{{$image->alt}}" alt="{{$image->alt}}" >
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
                         @endif
                     </div>
                 </div>
@@ -80,6 +98,8 @@
     <script src="{{ asset('green') }}/js/xzoom.js"></script>
     <script src="{{ asset('green') }}/js/xzoomSetup.js"></script>
     <script src="{{ asset('green') }}/js/swiper-bundle.js"></script>
+
+    <script defer src="{{ asset('green/js/jquery.flexslider.js') }}"></script>
     <script>
         var q = "{{__('Are you sure for rate ::rate ?')}}";
     </script>
@@ -97,6 +117,12 @@
                 clickable: true,
             },
         });
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+            });
+        });
+
 
     </script>
 @endsection

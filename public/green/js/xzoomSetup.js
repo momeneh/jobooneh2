@@ -1,3 +1,6 @@
+function scrollTo(selector) {
+    document.querySelector(selector).scrollIntoView({ behavior: 'smooth' })
+}
 (function ($) {
     $(document).ready(function() {
         $('.xzoom, .xzoom-gallery').xzoom({zoomWidth: 300, title: true, tint: '#c14824', Xoffset: 15});
@@ -10,6 +13,7 @@
         var isTouchSupported = 'ontouchstart' in window;
 
         if (isTouchSupported) {
+            // $('.xzoom-container').hide();
             //If touch device
             $('.xzoom, .xzoom2, .xzoom3, .xzoom4, .xzoom5').each(function(){
                 var xzoom = $(this).data('xzoom');
@@ -18,7 +22,9 @@
 
             $('.xzoom, .xzoom2, .xzoom3').each(function() {
                 var xzoom = $(this).data('xzoom');
-
+                // $(this).hammer().on('drag', function(event) {
+                //     document.querySelector('#record_id').scrollIntoView({ behavior: 'smooth' })
+                // });
                 $(this).hammer().on("tap", function(event) {
                     event.pageX = event.gesture.center.pageX;
                     event.pageY = event.gesture.center.pageY;

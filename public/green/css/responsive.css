@@ -297,3 +297,10 @@ ul.link li {padding: 8px 9px; padding-bottom: 0px; }
     .copyright div{font-size: 10px;line-height: 14px}
 
 }
+
+@media (hover: hover) {
+    .flexslider{display: none;}
+}
+@media (hover: none) {
+    .xzoom-container {display: none}
+}
